@@ -973,3 +973,34 @@
     align-self: end;
   }
 }
+
+/* Chapter text must never be compressed (a shrunk mask clips its last line):
+   size the type to the viewport height so every chapter fits its column. */
+.seq.is-pinned .seq__panel > * {
+  flex-shrink: 0;
+}
+
+.seq.is-pinned .seq__panel {
+  gap: clamp(0.6rem, 1.6vh, 1rem);
+}
+
+.seq.is-pinned .seq__panel-title {
+  font-size: min(clamp(2.2rem, 0.8rem + 2.9vw, 4.25rem), 6.6vh);
+}
+
+.seq.is-pinned .seq__panel-summary {
+  font-size: min(var(--fs-lead), max(0.95rem, 2.15vh));
+}
+
+@media (max-height: 900px) {
+  .seq.is-pinned .seq__chapters-intro {
+    display: none;
+  }
+}
+
+@media (max-height: 800px) {
+  .seq__rail a {
+    padding: 0.26rem 0;
+    font-size: 0.8rem;
+  }
+}

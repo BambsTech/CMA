@@ -6,6 +6,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
+import { RouteScroll } from "@/components/RouteScroll";
 import { ALLOW_INDEXING, SITE_URL, firm } from "@/content/site";
 import { DEFAULT_OG } from "@/lib/seo";
 import { JsonLd, organizationJsonLd } from "@/lib/jsonld";
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <RevealObserver />
+        <RouteScroll />
         <JsonLd data={organizationJsonLd()} />
       </body>
     </html>

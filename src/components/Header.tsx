@@ -33,11 +33,9 @@ export function Header() {
   const [overlay, setOverlay] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
-  const [hidden, setHidden] = useState(false);
   // The menu is tied to the route it was opened on, so any navigation closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
   const open = openOn === pathname;
-  const lastY = useRef(0);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -51,9 +49,6 @@ export function Header() {
         const y = window.scrollY;
         setScrolled(y > 24);
         setOverlay(toneUnderHeader(headerRef.current) === "dark");
-        setHidden(y > 480 && y > lastY.current + 4);
-        if (y < lastY.current - 4 || y < 480) setHidden(false);
-        lastY.current = y;
       });
     };
     const settle = window.setTimeout(onScroll, 120);
@@ -108,10 +103,20 @@ export function Header() {
         className="site-header"
         data-overlay={overlay ? "true" : "false"}
         data-scrolled={scrolled ? "true" : "false"}
-        data-hidden={hidden && !open ? "true" : "false"}
       >
         <div className="container site-header__inner">
-          <Link href="/" className="site-header__brand" aria-label={`${firm.name} — página inicial`}>
+          <Link
+            href="/"
+            className="site-header__brand"
+            aria-label={`${firm.name} — página inicial`}
+            onClick={(e) => {
+              // Already home: return to the very top instantly instead of re-navigating.
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+              }
+            }}
+          >
             <Logo variant="completo-horizontal" title={null} />
           </Link>
 
@@ -119,7 +124,16 @@ export function Header() {
             <ul role="list">
               {mainLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} aria-current={isCurrent(pathname, item.href) ? "page" : undefined}>
+                  <Link
+                    href={item.href}
+                    aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
+                    onClick={(e) => {
+                      if (item.href === pathname) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+                      }
+                    }}
+                  >
                     {item.label}
                   </Link>
                 </li>

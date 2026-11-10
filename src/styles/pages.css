@@ -1297,3 +1297,10 @@
 .next-area__text--ghost {
   color: var(--cma-stone);
 }
+
+/* Keep the method list beside its sticky heading on desktop (overrides the base rule above). */
+@media (min-width: 1024px) {
+  .process__list {
+    grid-column: 6 / -1;
+  }
+}
