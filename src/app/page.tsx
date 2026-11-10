@@ -75,48 +75,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 03 — Who we advise: a fine-ruled index */}
-      <section className="section ledger" aria-labelledby="ledger-title">
-        <div className="container">
-          <div className="grid ledger__head">
-            <SectionLabel n="03">Para quem</SectionLabel>
-            <Lines as="h2" id="ledger-title" className="t-h1" lines={home.audiences.title} />
-            <p className="t-body" data-reveal="">
-              {home.audiences.intro}
-            </p>
-          </div>
-
-          <div className="ledger__table" role="list">
-            <div className="ledger__cols label" aria-hidden="true">
-              <span />
-              <span>Perfil</span>
-              <span>Contexto</span>
-              <span>Áreas relacionadas</span>
-            </div>
-            {audiences.map((a, i) => {
-              const related = a.practices.map((slug) => practices.find((p) => p.slug === slug)).filter((p) => p !== undefined);
-              return (
-                <div key={a.key} className="ledger__row" role="listitem" data-reveal="" style={{ ["--delay" as string]: `${i * 90}ms` }}>
-                  <span className="ledger__num" aria-hidden="true">
-                    {a.number}
-                  </span>
-                  <h3 className="t-h3 ledger__title">{a.title}</h3>
-                  <p className="t-small ledger__text">{a.text}</p>
-                  <ul className="ledger__links" role="list" aria-label={`Áreas relacionadas — ${a.title}`}>
-                    {related.map((p) => (
-                      <li key={p.slug}>
-                        <Link href={`/areas-de-atuacao/${p.slug}`}>{p.shortTitle}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
+      {/* 03 — Who we advise: manual "Conceito" page — title top-left, three short entries low right */}
+      <section className="whom" aria-labelledby="whom-title">
+        <div className="container whom__grid">
+          <span className="label whom__label" data-reveal="fade">
+            03 · Para quem
+          </span>
+          <h2 id="whom-title" className="whom__title" data-reveal="">
+            Quem assessoramos.
+          </h2>
+          <ol className="whom__list" role="list">
+            {audiences.map((a, i) => (
+              <li key={a.key} data-reveal="" style={{ ["--delay" as string]: `${i * 110}ms` }}>
+                <span className="whom__n">{a.number}</span>
+                <h3 className="whom__name">{a.title}</h3>
+                <p className="whom__line">{a.short}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* 03 — Founder: architecture resolves into the portrait */}
       <FounderPanel
         name={founder.name}
         firstName={founder.name.split(" ")[0]}
