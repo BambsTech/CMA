@@ -117,7 +117,7 @@ export function FounderReveal({ name, role, bio, oab, education, specialty, port
         <div className="founder2__box founder2__box--arch" aria-hidden="true" />
 
         <p className="label label--rule founder2__label">
-          <span className="label__num">03</span>A sócia
+          <span className="label__num">04</span>A sócia
         </p>
 
         <div className="founder2__frame" data-tone="dark">

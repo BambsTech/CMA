@@ -53,6 +53,9 @@ const logos = [
   "cma-logotipo-completo-vertical",
   "cma-logotipo-nome-horizontal",
   "cma-logotipo-nome-vertical",
+  "cma-palavra-carolina",
+  "cma-palavra-meirelles",
+  "cma-palavra-advogados",
 ];
 
 async function main() {

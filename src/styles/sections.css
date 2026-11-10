@@ -208,7 +208,7 @@
 
 .closing__title {
   margin-top: var(--space-s);
-  font-size: clamp(2.8rem, 1.2rem + 5.2vw, 7rem);
+  font-size: var(--fs-display);
 }
 
 .closing__body {

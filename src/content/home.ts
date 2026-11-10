@@ -11,6 +11,7 @@ export const home = {
     lede: "Assessoria jurídica estratégica em Direito Imobiliário para decisões que envolvem negócios, investimentos e patrimônio.", // [PROPOSTA]
   },
   sequence: {
+    caption: "Advocacia especializada em Direito Imobiliário", // [MANUAL] p. 38
     statementLabel: "O escritório", // [PROPOSTA]
     practicesLabel: "Áreas de atuação",
     practicesIntro: "Seis frentes dentro do Direito Imobiliário, da análise que antecede um negócio à solução de conflitos já instaurados.", // [PROPOSTA]

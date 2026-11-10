@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArtImage } from "@/components/ArtImage";
 import { ArrowDown, ArrowRight, ArrowUpRight } from "@/components/Icons";
-import { FULL, MQ, getGsap, insetFor } from "@/components/motion/gsap";
+import { SpreadWordmark } from "@/components/brand/SpreadWordmark";
+import { FULL, MQ, getGsap } from "@/components/motion/gsap";
 
 export type SeqPractice = {
   slug: string;
@@ -17,35 +18,25 @@ export type SeqPractice = {
 };
 
 type Copy = {
-  kicker: string;
-  line1: string;
-  line2: string;
-  lede: string;
-  statementLabel: string;
-  statement: string;
-  values: readonly string[];
+  caption: string;
   practicesLabel: string;
   practicesIntro: string;
 };
 
-type Props = { practices: SeqPractice[]; copy: Copy; city: string };
+type Props = { practices: SeqPractice[]; copy: Copy };
 
 /**
- * Homepage signature sequence — one continuous, scroll-linked composition:
+ * Homepage opening — composed after the agency's own web application (manual p. 38):
+ * a quiet full-width photograph with one line of small tracked capitals, and the
+ * official signature spread across the band beneath it.
  *
- *  A  Hero: monumental type crossing a framed photograph. Wherever the photograph sits
- *     behind the headline the letters turn stone — type and image share one surface.
- *  B  The frame expands to full bleed; the headline settles small at the lower left and
- *     the firm's statement arrives over the photograph (the bridge into the next chapter).
- *  C  The photograph contracts from the left into a right-hand column, freeing the canvas.
- *  D  Six editorial chapters: each practice photograph slides up inside the frame while
- *     the text column swaps title and summary through line masks.
+ * On scroll (desktop), the photograph contracts from the left into a right-hand column
+ * and the six practice areas follow as editorial chapters: each photograph slides up
+ * inside the frame while a small numbered index (manual p. 32, "Serviços") marks the place.
  *
- * Desktop with motion: one pinned ScrollTrigger timeline. Tablet/mobile: un-pinned,
- * art-directed flow with light scroll-linked reveals. Reduced motion: static layout.
- * All six practice links are real links, always present in the DOM.
+ * Tablet/mobile: un-pinned flow. Reduced motion: static. Every practice link is a real link.
  */
-export function HomeSequence({ practices, copy, city }: Props) {
+export function HomeSequence({ practices, copy }: Props) {
   const root = useRef<HTMLElement>(null);
   const [active, setActive] = useState(-1);
 
@@ -56,47 +47,58 @@ export function HomeSequence({ practices, copy, city }: Props) {
     const q = gsap.utils.selector(el);
     const mm = gsap.matchMedia();
 
-    // — Opening (time-based, short): headline lines rise, frame reveals, small type follows.
+    // Opening (short, time-based): the photograph rises, then the caption and the signature.
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const intro = gsap.timeline({ defaults: { ease: "expo.out" }, delay: 0.15 });
-      intro
-        .from(q(".seq__line > span"), { yPercent: 108, duration: 1.5, stagger: 0.12 })
+      gsap
+        .timeline({ defaults: { ease: "expo.out" }, delay: 0.1 })
         .from(q(".seq__reveal"), { clipPath: "inset(100% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut" }, 0)
-        .from(q(".seq__reveal picture"), { scale: 1.3, duration: 2.2 }, 0)
-        .from(q(".seq__fade > *"), { autoAlpha: 0, y: 14, duration: 1, stagger: 0.08 }, 0.7);
+        .from(q(".seq__reveal picture"), { scale: 1.25, duration: 2.4 }, 0)
+        .from(q(".seq__caption > *"), { autoAlpha: 0, y: 12, duration: 1.2, stagger: 0.12 }, 0.9)
+        .from(q(".spread-mark > *"), { yPercent: 105, duration: 1.4, stagger: 0.08, ease: "expo.out" }, 0.75);
     });
 
-    // — Desktop cinematic: pinned, scroll-linked choreography.
+    // Desktop cinematic: pinned, scroll-linked.
     mm.add(MQ.cinematic, () => {
       el.classList.add("is-pinned");
       const stage = q(".seq__stage")[0] as HTMLElement;
       const media = q(".seq__media")[0] as HTMLElement;
-      const heroBox = q(".seq__box--hero")[0] as HTMLElement;
+      const openBox = q(".seq__box--open")[0] as HTMLElement;
       const splitBox = q(".seq__box--split")[0] as HTMLElement;
-      const titles = q(".seq__title");
-      const line2 = q(".seq__line--2 > span");
       const panels = q(".seq__panel");
       const shots = q(".seq__shot--chapter");
       const shotImgs = q(".seq__shot--chapter img");
       const heroImg = q(".seq__shot--hero img");
 
-      gsap.set(media, { clipPath: () => insetFor(heroBox, stage) });
+      // The frame is driven by four numeric custom properties (see home.css): compositions
+      // are designed as CSS boxes and only measured here.
+      const insetOf = (box: HTMLElement) => {
+        const t = box.getBoundingClientRect();
+        const c = stage.getBoundingClientRect();
+        return { "--ct": `${t.top - c.top}px`, "--cr": `${c.right - t.right}px`, "--cb": `${c.bottom - t.bottom}px`, "--cl": `${t.left - c.left}px` };
+      };
+      const vars = (box: HTMLElement) => ({
+        "--ct": () => insetOf(box)["--ct"],
+        "--cr": () => insetOf(box)["--cr"],
+        "--cb": () => insetOf(box)["--cb"],
+        "--cl": () => insetOf(box)["--cl"],
+      });
+
+      gsap.set(media, insetOf(openBox));
       gsap.set(shots, { clipPath: "inset(100% 0% 0% 0%)" });
       gsap.set(q(".seq__panel [data-mask] > *"), { yPercent: 110, y: 0 });
       gsap.set(q(".seq__chapters"), { opacity: 0 });
-      gsap.set(q(".seq__overlay [data-mask] > *"), { yPercent: 110, y: 0 });
 
-      const CH = 3.0; // timeline time at which chapters begin
-      const STEP = 1.15; // timeline length of one chapter
+      const CH = 1.2; // timeline time at which the chapters begin
+      const STEP = 1.1; // length of one chapter
 
       const tl = gsap.timeline({
         defaults: { ease: "none" },
         scrollTrigger: {
           trigger: el,
           start: "top top",
-          end: () => `+=${Math.round(window.innerHeight * 5.4)}`,
+          end: () => `+=${Math.round(window.innerHeight * 4.4)}`,
           pin: stage,
-          scrub: 0.7,
+          scrub: 0.8,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -107,67 +109,41 @@ export function HomeSequence({ practices, copy, city }: Props) {
         },
       });
 
-      // A → B: the frame opens to full bleed with a counter-zoom for depth.
-      tl.fromTo(media, { clipPath: () => insetFor(heroBox, stage) }, { clipPath: FULL, duration: 1.1, ease: "power2.inOut" }, 0)
-        .fromTo(heroImg, { scale: 1.16 }, { scale: 1, duration: 1.3, ease: "power1.out" }, 0)
-        .to(q(".seq__fade"), { autoAlpha: 0, y: -16, duration: 0.35, stagger: 0.03 }, 0)
-        .to(q(".seq__shade"), { opacity: 1, duration: 0.6 }, 0.7)
-        // The headline reorganises: the second line aligns under the first, then the
-        // whole title settles, smaller, at the lower left of the photograph.
-        .to(line2, { x: () => -(line2[0].parentElement!.offsetWidth - line2[0].offsetWidth), duration: 0.8, ease: "power2.inOut" }, 0.55)
-        .to(
-          titles,
-          {
-            scale: 0.4,
-            y: () => {
-              const t0 = titles[0];
-              return window.innerHeight * 0.9 - (t0.offsetTop + t0.offsetHeight);
-            },
-            duration: 0.9,
-            ease: "power2.inOut",
-          },
-          0.6,
-        )
-        // B: the statement arrives over the photograph.
-        .fromTo(q(".seq__overlay [data-mask] > *"), { yPercent: 110, y: 0 }, { yPercent: 0, y: 0, duration: 0.6, stagger: 0.06, ease: "power3.out" }, 1.2)
-        // C: the photograph contracts into the right-hand column.
-        .to(q(".seq__overlay"), { autoAlpha: 0, x: -40, duration: 0.35, ease: "power1.in" }, 2.0)
-        .to(titles, { autoAlpha: 0, x: -60, duration: 0.35, ease: "power1.in" }, 2.0)
-        .to(q(".seq__shade"), { opacity: 0, duration: 0.5 }, 2.05)
-        .to(media, { clipPath: () => insetFor(splitBox, stage), duration: 0.85, ease: "power3.inOut" }, 2.0)
-        .to(heroImg, { scale: 1.12, xPercent: 6, duration: 0.85, ease: "power2.inOut" }, 2.0)
-        .to(q(".seq__chapters"), { opacity: 1, duration: 0.01 }, 2.62)
-        .from(q(".seq__chapters-head > *, .seq__chapters-intro, .seq__rail li"), { y: 28, autoAlpha: 0, stagger: 0.025, duration: 0.45, ease: "power3.out" }, 2.62);
+      // The opening clears — caption fades, the signature settles away below…
+      tl.to(q(".seq__caption"), { autoAlpha: 0, y: -24, duration: 0.35, ease: "power2.in" }, 0)
+        .to(q(".seq__brand"), { autoAlpha: 0, y: 48, duration: 0.5, ease: "power2.in" }, 0.02)
+        // …as the photograph contracts from the left into the right-hand column.
+        .fromTo(media, vars(openBox), { ...vars(splitBox), duration: 1.0, ease: "power3.inOut" }, 0.1)
+        .fromTo(heroImg, { scale: 1, xPercent: 0 }, { scale: 1.08, xPercent: 6, duration: 1.0, ease: "power2.inOut" }, 0.1)
+        .to(q(".seq__chapters"), { opacity: 1, duration: 0.01 }, 0.75)
+        .from(q(".seq__chapters-head > *, .seq__chapters-intro, .seq__rail li"), { y: 22, autoAlpha: 0, stagger: 0.025, duration: 0.45, ease: "power3.out" }, 0.75);
 
-      // D: chapters.
+      // Chapters.
       panels.forEach((panel, i) => {
         const at = CH + i * STEP;
         const parts = panel.querySelectorAll("[data-mask] > *");
         tl.to(shots[i], { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8, ease: "power3.inOut" }, at)
-          .fromTo(shotImgs[i], { yPercent: 16, scale: 1.08 }, { yPercent: 0, scale: 1, duration: 0.95, ease: "power2.out" }, at)
+          .fromTo(shotImgs[i], { yPercent: 14, scale: 1.06 }, { yPercent: 0, scale: 1, duration: 0.95, ease: "power2.out" }, at)
           .to(i === 0 ? heroImg : shotImgs[i - 1], { yPercent: -10, duration: 0.8, ease: "power3.inOut" }, at)
           .fromTo(parts, { yPercent: 110, y: 0, autoAlpha: 1 }, { yPercent: 0, y: 0, duration: 0.55, stagger: 0.05, ease: "power3.out" }, at + 0.32);
         if (i > 0) {
-          // Outgoing chapter: lifts and dims quickly, clearing the column before the next arrives.
           tl.to(panels[i - 1].querySelectorAll("[data-mask] > *"), { yPercent: -60, autoAlpha: 0, duration: 0.3, stagger: 0.02, ease: "power2.in" }, at);
         }
       });
-      tl.to({}, { duration: 0.6 }); // closing hold on the last chapter
+      tl.to({}, { duration: 0.6 });
 
-      // Keyboard: when focus enters a part of the stage that is not on screen yet,
-      // scroll to the moment of the sequence where that part is shown.
+      // Keyboard: focusing a chapter link scrolls to the moment it is shown.
       const onFocus = (e: FocusEvent) => {
         const st = tl.scrollTrigger;
         const target = e.target as HTMLElement;
         if (!st || !target.closest) return;
         let at: number | null = null;
-        if (target.closest(".seq__overlay")) at = 1.75;
         const panel = target.closest<HTMLElement>(".seq__panel");
         if (panel) at = CH + panels.indexOf(panel) * STEP + 0.95;
         else if (target.closest(".seq__chapters")) at = Math.max(tl.time(), CH + 0.95);
         if (at === null) return;
         const y = st.start + (at / tl.duration()) * (st.end - st.start);
-        if (Math.abs(window.scrollY - y) > 4 && (at < tl.time() - 0.2 || at > tl.time() + 0.2 || tl.time() < CH)) {
+        if (Math.abs(window.scrollY - y) > 4 && (Math.abs(at - tl.time()) > 0.2 || tl.time() < CH)) {
           window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
         }
       };
@@ -180,23 +156,13 @@ export function HomeSequence({ practices, copy, city }: Props) {
       };
     });
 
-    // — Tablet / mobile: art-directed flow with scroll-linked frame and image reveals.
+    // Tablet / mobile: chapter images reveal as they scroll in.
     mm.add(MQ.fluid, () => {
-      gsap.fromTo(
-        q(".seq__media"),
-        { clipPath: "inset(0% 7% 0% 7% round 0px)" },
-        { clipPath: FULL, ease: "none", scrollTrigger: { trigger: q(".seq__media")[0], start: "top 85%", end: "top 15%", scrub: 0.5 } },
-      );
       q(".seq__panel-frame").forEach((frame) => {
         gsap.fromTo(
           frame,
           { clipPath: "inset(18% 0% 0% 0%)" },
-          { clipPath: "inset(0% 0% 0% 0%)", ease: "none", scrollTrigger: { trigger: frame, start: "top 95%", end: "top 45%", scrub: 0.5 } },
-        );
-        gsap.fromTo(
-          frame.querySelector("img"),
-          { yPercent: -8, scale: 1.12 },
-          { yPercent: 0, scale: 1, ease: "none", scrollTrigger: { trigger: frame, start: "top bottom", end: "bottom top", scrub: true } },
+          { clipPath: FULL, ease: "none", scrollTrigger: { trigger: frame, start: "top 95%", end: "top 45%", scrub: 0.5 } },
         );
       });
     });
@@ -209,46 +175,13 @@ export function HomeSequence({ practices, copy, city }: Props) {
     };
   }, [practices.length]);
 
-  const title = (ghost: boolean) => (
-    <p className={`seq__title${ghost ? " seq__title--ghost" : ""}`} aria-hidden="true">
-      <span className="seq__line seq__line--1">
-        <span>{copy.line1}</span>
-      </span>
-      <span className="seq__line seq__line--2">
-        <span>{copy.line2}</span>
-      </span>
-    </p>
-  );
-
   return (
     <section ref={root} className="seq" data-active={active} aria-labelledby="seq-h1">
       <div className="seq__stage">
-        {/* Invisible layout targets the timeline measures (designed in CSS). */}
-        <div className="seq__box seq__box--hero" aria-hidden="true" />
+        <div className="seq__box seq__box--open" aria-hidden="true" />
         <div className="seq__box seq__box--split" aria-hidden="true" />
 
-        {/* A — hero canvas (stone) */}
-        <div className="seq__hero">
-          <h1 id="seq-h1" className="sr-only">
-            {copy.line1} {copy.line2} — {copy.kicker}
-          </h1>
-          <p className="label seq__kicker seq__fade">
-            <span>{copy.kicker}</span>
-          </p>
-          {title(false)}
-          <p className="seq__lede seq__fade">
-            <span>{copy.lede}</span>
-          </p>
-          <div className="seq__cue seq__fade">
-            <a href="#areas-lista" className="link-line link-line--down">
-              Áreas de atuação
-              <ArrowDown />
-            </a>
-            <span className="caption">{city} · DF</span>
-          </div>
-        </div>
-
-        {/* The photographic window */}
+        {/* Opening photograph (manual p. 38) */}
         <div className="seq__media" data-tone="dark">
           <div className="seq__shot seq__shot--hero">
             <div className="seq__reveal">
@@ -257,7 +190,7 @@ export function HomeSequence({ practices, copy, city }: Props) {
                 mobile={{ src: "/assets/architecture/colonnade-mobile.webp", width: 900, height: 1600 }}
                 alt="Imagem conceitual: colunata de concreto com luz do entardecer."
                 priority
-                position="56% 50%"
+                position="56% 55%"
               />
             </div>
           </div>
@@ -266,47 +199,31 @@ export function HomeSequence({ practices, copy, city }: Props) {
               <Image src={p.image} alt="" fill sizes="50vw" loading="lazy" />
             </div>
           ))}
-          <div className="seq__shade" />
-          {title(true)}
-          <div className="seq__overlay">
-            <p className="label seq__overlay-label" data-mask="">
-              <span>{copy.statementLabel}</span>
-            </p>
-            <div className="seq__overlay-body">
-              <p className="seq__statement" data-mask="">
-                <span>{copy.statement}</span>
-              </p>
-              <p className="seq__values" data-mask="">
-                <span>
-                  {copy.values.map((v, i) => (
-                    <span key={v} className="seq__value">
-                      <span className="num">{String(i + 1).padStart(2, "0")}</span> {v}
-                    </span>
-                  ))}
-                </span>
-              </p>
-              <p data-mask="">
-                <span>
-                  <Link href="/escritorio" className="link-line">
-                    Conheça o escritório
-                    <ArrowRight />
-                  </Link>
-                </span>
-              </p>
-            </div>
+          <div className="seq__caption">
+            <h1 id="seq-h1" className="seq__caption-text">
+              <span className="sr-only">Carolina Meirelles & Advogados — </span>
+              {copy.caption}
+            </h1>
+            <a href="#areas-lista" className="seq__cue" aria-label="Rolar para as áreas de atuação">
+              <ArrowDown />
+            </a>
           </div>
-          <p className="concept-note seq__note">Imagens conceituais.</p>
         </div>
 
-        {/* D — chapter column */}
+        {/* The signature, spread across the band beneath the photograph */}
+        <div className="seq__brand">
+          <SpreadWordmark />
+        </div>
+
+        {/* Chapters */}
         <div className="seq__chapters" id="areas-lista">
           <div className="seq__chapters-head">
-            <h2 className="label label--rule">{copy.practicesLabel}</h2>
+            <h2 className="label">{copy.practicesLabel}</h2>
             <p className="seq__counter num" aria-hidden="true">
               <span>{active >= 0 ? practices[active].number : "01"}</span> / {String(practices.length).padStart(2, "0")}
             </p>
           </div>
-          <p className="t-body seq__chapters-intro">{copy.practicesIntro}</p>
+          <p className="seq__chapters-intro">{copy.practicesIntro}</p>
 
           <ol className="seq__panels" role="list">
             {practices.map((p, i) => (
@@ -340,7 +257,7 @@ export function HomeSequence({ practices, copy, city }: Props) {
               {practices.map((p, i) => (
                 <li key={p.slug} data-current={active === i ? "true" : "false"}>
                   <Link href={`/areas-de-atuacao/${p.slug}`}>
-                    <span className="num">{p.number}</span>
+                    <span className="num">{Number(p.number)}</span>
                     <span className="seq__rail-title">{p.title}</span>
                     <ArrowUpRight />
                   </Link>

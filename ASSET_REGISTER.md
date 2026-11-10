@@ -8,6 +8,7 @@
 | `public/assets/architecture/colonnade*.webp`, `pavilion*.webp`, `corridor*.webp` | Derived from HERO A/B/C (`npm run assets`) | WebP masters | As source | Site imagery | As source |
 | `public/assets/architecture/detail-*.webp` (8 files) | **Original art-directed crops** of HERO A/B/C | Derived | As source | Practice areas, intro, articles, strip | As source |
 | `assets-src/brand-extracted/*.svg`, `public/assets/brand/*.svg` | **Vector paths extracted 1:1** from `CMA_Manual_Identidade_Visual.pdf`, pp. 12–20 (Estúdio Sarau, 2025) | Official logo artwork | Client's own brand identity | Header, footer, menu, icons | Confirm against the agency's original files |
+| `assets-src/brand-extracted/cma-palavra-*.svg` (CAROLINA, MEIRELLES, & ADVOGADOS) | Vector glyphs split 1:1 from the manual's signatures (pp. 16, 18) for the agency's spread web treatment (pp. 37–38) | Official logo artwork | Client's own brand identity | Homepage opening band, /sistema | Confirm with agency |
 | `src/components/brand/logo-data.ts` | Generated from the SVGs above | Code | Same | `<Logo>` component | No |
 | `src/app/icon.svg`, `apple-icon.png`, `public/assets/icons/*` | Composed from the official reduced logo (stone on espresso, an approved pairing) | Derived | Same | Favicon / PWA | Yes (below minimum size; see approvals) |
 | `public/assets/og/cma-og-default.jpg` | Rendered by `scripts/build-og.cjs` (HERO A + official logo + Encode Sans / Roboto Slab) | Original composition | Same as components | Social sharing | Yes |

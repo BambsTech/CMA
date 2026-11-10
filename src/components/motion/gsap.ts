@@ -35,7 +35,13 @@ export function insetFor(target: Element, container: Element, radius = 0) {
   const left = Math.max(0, t.left - c.left);
   const right = Math.max(0, c.right - t.right);
   const bottom = Math.max(0, c.bottom - t.bottom);
-  return `inset(${top.toFixed(1)}px ${right.toFixed(1)}px ${bottom.toFixed(1)}px ${left.toFixed(1)}px round ${radius}px)`;
+  const round = radius ? ` round ${radius}px` : "";
+  return `inset(${top.toFixed(1)}px ${right.toFixed(1)}px ${bottom.toFixed(1)}px ${left.toFixed(1)}px${round})`;
 }
 
-export const FULL = "inset(0px 0px 0px 0px round 0px)";
+/**
+ * Fully open. The four values are deliberately distinct: browsers collapse
+ * `inset(0px 0px 0px 0px)` to `inset(0px)`, which GSAP cannot interpolate
+ * against a four-value inset (the tween would jump instead of travelling).
+ */
+export const FULL = "inset(0px 0.001px 0.002px 0.003px)";

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { HomeSequence } from "@/components/home/HomeSequence";
+import { Logo } from "@/components/brand/Logo";
 import { FounderReveal } from "@/components/home/FounderReveal";
 import { ExpandFrame } from "@/components/motion/ExpandFrame";
 import { Lines } from "@/components/Lines";
@@ -39,26 +40,47 @@ export default function HomePage() {
     <>
       {/* 01 — Hero → statement → practice chapters (one continuous sequence) */}
       <HomeSequence
-        city={firm.city}
         practices={practices.map(({ slug, number, title, summary, image, imageAlt }) => ({ slug, number, title, summary, image, imageAlt }))}
         copy={{
-          kicker: home.hero.kicker,
-          line1: home.hero.line1,
-          line2: home.hero.line2,
-          lede: home.hero.lede,
-          statementLabel: home.sequence.statementLabel,
-          statement: home.intro.lead,
-          values: home.intro.values.map((v) => v.title),
+          caption: home.sequence.caption,
           practicesLabel: home.sequence.practicesLabel,
           practicesIntro: home.sequence.practicesIntro,
         }}
       />
 
-      {/* 02 — Who we advise: a fine-ruled index */}
+      {/* 02 — Statement (manual p. 32): the brand phrase, quiet supporting text */}
+      <section className="statement on-dark" aria-labelledby="statement-title">
+        <div className="container statement__grid">
+          <h2 id="statement-title" className="statement__title" data-reveal="">
+            {home.hero.line1}
+            <br />
+            {home.hero.line2}
+          </h2>
+          <div className="statement__mark" aria-hidden="true">
+            <Logo variant="completo-horizontal" title={null} />
+          </div>
+          <div className="statement__aside">
+            <p className="statement__sub" data-reveal="">
+              Advocacia especializada em Direito Imobiliário, em Brasília.
+            </p>
+            <div className="statement__cols" data-reveal="" style={{ ["--delay" as string]: "120ms" }}>
+              <p>{home.intro.lead}</p>
+              <p>{home.intro.body}</p>
+            </div>
+            <Link href="/escritorio" className="link-line statement__link">
+              Conheça o escritório
+              <ArrowRight />
+            </Link>
+          </div>
+          <span className="statement__rule" aria-hidden="true" />
+        </div>
+      </section>
+
+      {/* 03 — Who we advise: a fine-ruled index */}
       <section className="section ledger" aria-labelledby="ledger-title">
         <div className="container">
           <div className="grid ledger__head">
-            <SectionLabel n="02">Para quem</SectionLabel>
+            <SectionLabel n="03">Para quem</SectionLabel>
             <Lines as="h2" id="ledger-title" className="t-h1" lines={home.audiences.title} />
             <p className="t-body" data-reveal="">
               {home.audiences.intro}
@@ -109,7 +131,7 @@ export default function HomePage() {
       {/* 04 — Brasília: a window that opens onto the horizon */}
       <section className="place2 on-dark" aria-labelledby="place-title">
         <div className="container place2__head">
-          <SectionLabel n="04">Lugar</SectionLabel>
+          <SectionLabel n="05">Lugar</SectionLabel>
           <p className="num place2__coords" data-reveal="fade">
             15°47′ S — 47°52′ O
           </p>
@@ -140,7 +162,7 @@ export default function HomePage() {
         <div className="container">
           <div className="grid insights__head">
             <div className="insights__label">
-              <SectionLabel n="05">Conteúdos</SectionLabel>
+              <SectionLabel n="06">Conteúdos</SectionLabel>
             </div>
             <Lines as="h2" id="insights-title" className="t-h1 insights__title" lines={home.insights.title} />
             <Link href="/conteudos" className="link-line insights__all">

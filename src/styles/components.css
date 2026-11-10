@@ -56,7 +56,7 @@
 
 .t-mega {
   font-size: var(--fs-mega);
-  line-height: 0.9;
+  line-height: var(--lh-tight);
   letter-spacing: var(--track-display);
 }
 .t-display {
@@ -66,8 +66,8 @@
 }
 .t-h1 {
   font-size: var(--fs-h1);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: var(--track-heading);
 }
 .t-h2 {
   font-size: var(--fs-h2);
@@ -472,7 +472,7 @@
 
 .site-header__brand {
   display: block;
-  width: 212px;
+  width: 180px;
   flex: none;
   padding-block: 0.75rem;
 }
@@ -492,9 +492,10 @@
   display: inline-block;
   padding-block: 0.5rem;
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .site-nav a::after,
@@ -629,9 +630,9 @@
   padding-block: 1rem;
   font-family: var(--font-heading);
   font-weight: 300;
-  font-size: clamp(2rem, 9vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.9rem, 8vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: var(--track-heading);
   transform: translateY(110%);
   transition: transform 0.9s var(--ease-out);
   transition-delay: calc(0.25s + var(--i) * 70ms);
@@ -853,4 +854,28 @@
   border: 0;
   box-shadow: none;
   margin: 0.15rem 0 0;
+}
+
+/* Homepage opening: the spread signature below the photograph is the brand moment,
+   so the header carries navigation only until the page scrolls. */
+.site-header__brand {
+  transition: opacity var(--dur-med) var(--ease-out), visibility var(--dur-med);
+}
+
+.site-header[data-home-top="true"] .site-header__brand {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Masked display lines (used by the founder name and any line-by-line title). */
+.seq__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.seq__line > span {
+  display: inline-block;
+  will-change: transform;
 }

@@ -103,6 +103,7 @@ export function Header() {
         className="site-header"
         data-overlay={overlay ? "true" : "false"}
         data-scrolled={scrolled ? "true" : "false"}
+        data-home-top={pathname === "/" && !scrolled ? "true" : "false"}
       >
         <div className="container site-header__inner">
           <Link
