@@ -42,6 +42,7 @@ export default function CarolinaPage() {
           position: "50% 40%",
         }}
         note="Imagem conceitual."
+        arch
       />
 
       <section className="section section--stone profile" aria-label="Biografia e credenciais">

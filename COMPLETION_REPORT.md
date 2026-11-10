@@ -1,5 +1,36 @@
 # Completion report
 
+## Redesign (round 2): architectural motion
+
+Built from a frame-by-frame study of the supplied screen recording, an architectural studio site with these mechanics:
+- a full-bleed photo sheet with overlaid copy;
+- a pinned photo contracting from the left into a right-hand column;
+- chapter photos sliding up inside that frame while titles swap;
+- a fine-ruled table with a solid hover fill.
+
+These were adapted to CMA's identity rather than copied:
+
+- **A · Hero transformation:** the headline crosses a framed colonnade, espresso on stone and stone over the photo. The frame opens to full bleed and the headline reorganises and settles. The manual's institutional statement appears over the photo, then the photo contracts into the practice column.
+- **B · Editorial chapters:** six practice areas in one pinned split. Photos slide up inside the frame, numbering and titles swap through line masks, and a persistent rail of six real links lets visitors jump straight to any area.
+- **C · Founder:** the architecture contracts into an arch, the brand's colonnade shape, then lifts to reveal the explicitly temporary portrait. The name crosses the arch in two tones. No invented credentials.
+- **Rhythm:** only two pinned moments. The audience ledger (fine rules, espresso hover fill), the Brasília window, insights and the closing all scroll normally.
+- **Site-wide:** window heroes, scroll-opening frames, arch portraits and a "next area" band carry the language onto every page.
+- **Engineering:** GSAP `matchMedia` gives three modes (cinematic, fluid, static). The header's tone follows hit-testing, keyboard focus is synced to the timeline, and all contexts are reverted on unmount.
+
+Verified:
+- Intermediate frames captured at 15–25 vh intervals through both pinned sequences. These caught and fixed:
+  - stale tween values;
+  - an early rail reveal;
+  - overlapping chapter text;
+  - arch timing;
+  - mobile legibility;
+  - the tablet headline wrap.
+- Desktop 1440×900 and 1280×720, tablet 768, mobile 390.
+- Reduced motion produces a static layout.
+- Keyboard: tabbing through all links leaves nothing focused while invisible.
+- Production scroll performance: 16.7 ms average and 16.8 ms p95 frame time, with no long frames (headless Chromium).
+- Lint, typecheck and build pass.
+
 ## Implemented
 
 **Pages (all working, no dead links):** `/`, `/escritorio`, `/carolina-meirelles`, `/areas-de-atuacao`, six `/areas-de-atuacao/[slug]` pages, `/conteudos`, four `/conteudos/[slug]` drafts, `/contato`, `/privacidade`, and a branded 404.

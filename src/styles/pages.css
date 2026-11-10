@@ -1195,3 +1195,105 @@
     aspect-ratio: 3 / 4;
   }
 }
+
+/* — Page hero (window: title on stone, frame opens to full bleed) — */
+.page-hero--window {
+  --surface: var(--cma-stone);
+  padding-top: calc(var(--header-h) + var(--space-m));
+  padding-bottom: var(--space-m);
+}
+
+.page-hero--window .page-hero__plain-grid {
+  margin-bottom: var(--space-l);
+}
+
+.page-hero__window {
+  height: min(86svh, 54rem);
+  background: var(--cma-earth);
+}
+
+.page-hero--window .concept-note {
+  margin-top: 0.85rem;
+}
+
+@media (min-width: 1024px) {
+  .page-hero--window .page-hero__title {
+    grid-column: 4 / -1;
+  }
+  .page-hero--window .page-hero__intro {
+    grid-column: 8 / -1;
+  }
+}
+
+/* — Split hero shapes — */
+.page-hero__split-shape {
+  position: relative;
+}
+
+.page-hero__split-shape--arch .page-hero__split-frame {
+  border-radius: 999px 999px 0 0;
+}
+
+/* — Escritório strip (window) — */
+.strip-wrap {
+  background: var(--cma-paper);
+}
+
+.strip.xframe {
+  height: clamp(16rem, 42vw, 34rem);
+}
+
+.strip.xframe > img {
+  object-fit: cover;
+}
+
+/* — Next area: the following chapter's photograph opens from the right — */
+.next-area {
+  position: relative;
+  display: block;
+  margin-top: var(--space-xl);
+  padding: 0;
+  border-top: 0;
+  color: var(--cma-stone);
+}
+
+.next-area__frame {
+  height: clamp(16rem, 38vw, 30rem);
+  background: var(--cma-earth);
+}
+
+.next-area__frame img {
+  object-fit: cover;
+}
+
+.next-area__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(48 18 6 / 0.75) 0%, rgb(48 18 6 / 0.2) 70%);
+}
+
+.next-area__text {
+  position: absolute;
+  left: clamp(1.25rem, 3vw, 2.5rem);
+  right: clamp(1.25rem, 3vw, 2.5rem);
+  bottom: clamp(1.25rem, 3vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem 2rem;
+  align-items: end;
+  color: var(--cma-espresso);
+  transition: color 0.6s var(--ease-out);
+}
+
+.next-area .label {
+  grid-column: 1 / -1;
+  color: inherit;
+}
+
+.next-area__frame {
+  z-index: 1;
+}
+
+.next-area__text--ghost {
+  color: var(--cma-stone);
+}

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Closing } from "@/components/Closing";
 import { Lines } from "@/components/Lines";
+import { ExpandFrame } from "@/components/motion/ExpandFrame";
 import { ArrowRight, ArrowUpRight } from "@/components/Icons";
 import { articles, getArticle, readingMinutes } from "@/content/articles";
 import { getPractice } from "@/content/practices";
@@ -77,10 +78,10 @@ export default async function ArticlePage({ params }: Params) {
           </div>
         </header>
 
-        <figure className="container article__figure" data-reveal="mask">
-          <div className="frame article__frame">
+        <figure className="container article__figure">
+          <ExpandFrame className="frame article__frame" from="inset(0% 18% 0% 18%)" fromCompact="inset(0% 5% 0% 5%)" start="top 90%" end="top 25%">
             <Image src={a.image} alt={a.imageAlt} fill priority sizes="(min-width: 1680px) 1600px, 100vw" />
-          </div>
+          </ExpandFrame>
         </figure>
 
         <div className="container grid article__layout">

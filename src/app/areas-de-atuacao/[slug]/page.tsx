@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Closing } from "@/components/Closing";
 import { Lines } from "@/components/Lines";
+import { ExpandFrame } from "@/components/motion/ExpandFrame";
 import { ArrowRight, ArrowUpRight } from "@/components/Icons";
 import { getPractice, practices } from "@/content/practices";
 import { articles } from "@/content/articles";
@@ -192,9 +193,20 @@ export default async function PracticePage({ params }: Params) {
             ))}
           </ul>
           <Link href={`/areas-de-atuacao/${next.slug}`} className="next-area" aria-label={`Próxima área: ${next.title}`}>
-            <span className="label">Próxima área · {next.number}</span>
-            <span className="t-h2">{next.title}</span>
-            <ArrowRight />
+            <ExpandFrame className="next-area__frame" from="inset(0% 0% 0% 70%)" to="inset(0% 0% 0% 34%)" fromCompact="inset(0% 0% 0% 40%)" tone="dark" start="top 95%" end="top 35%">
+              <Image src={next.image} alt="" fill sizes="100vw" />
+              <span className="next-area__shade" />
+              <span className="next-area__text next-area__text--ghost" aria-hidden="true">
+                <span className="label">Próxima área · {next.number}</span>
+                <span className="t-h2">{next.title}</span>
+                <ArrowRight />
+              </span>
+            </ExpandFrame>
+            <span className="next-area__text">
+              <span className="label">Próxima área · {next.number}</span>
+              <span className="t-h2">{next.title}</span>
+              <ArrowRight />
+            </span>
           </Link>
         </div>
       </section>

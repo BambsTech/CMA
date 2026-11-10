@@ -10,6 +10,11 @@ export const home = {
     line2: "e inteligência.", // [MANUAL]
     lede: "Assessoria jurídica estratégica em Direito Imobiliário para decisões que envolvem negócios, investimentos e patrimônio.", // [PROPOSTA]
   },
+  sequence: {
+    statementLabel: "O escritório", // [PROPOSTA]
+    practicesLabel: "Áreas de atuação",
+    practicesIntro: "Seis frentes dentro do Direito Imobiliário, da análise que antecede um negócio à solução de conflitos já instaurados.", // [PROPOSTA]
+  },
   intro: {
     statement: ["Direito imobiliário", "com estratégia,", "clareza e precisão."], // [PROPOSTA]
     // [MANUAL] — texto institucional presente nas aplicações do manual (p. 32).

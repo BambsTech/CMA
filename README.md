@@ -9,10 +9,11 @@ The art direction is *architectural editorial luxury*: immersive architecture, v
 ## Stack
 
 - Next.js 16 (App Router) · React 19 · TypeScript (strict)
-- Token-based CSS (`src/styles/*`), with no UI framework and no animation library. Motion uses CSS plus one `IntersectionObserver`.
+- Token-based CSS (`src/styles/*`), with no UI framework.
+- Motion: **GSAP 3.15 + ScrollTrigger** for the scroll-linked choreography (GSAP's standard no-charge licence allows commercial use). CSS transitions and a single `IntersectionObserver` handle simple reveals.
 - Brand fonts are self-hosted through Fontsource (Encode Sans and Karla under SIL OFL 1.1, Roboto Slab under Apache 2.0). There are no requests to Google Fonts.
 - `next/image` handles AVIF/WebP and responsive sizes. Art-directed `<picture>` crops are used for mobile.
-- The only runtime dependencies are `next`, `react`, `react-dom` and the three font packages.
+- The only runtime dependencies are `next`, `react`, `react-dom`, `gsap` and the three font packages.
 
 ## Getting started
 
@@ -92,6 +93,22 @@ The type roles follow the manual: Encode Sans for headings (display weight 300),
 Reusable primitives: `.container`, `.grid` (12 columns), `.section--{stone|paper|taupe|espresso}`, `.on-dark`, `.t-mega/.t-display/.t-h1…`, `.label`, `.link-line`, `.action`, `.frame`, `.facts`, `.pending`, `data-reveal` (`""`, `fade`, `mask`), `<Lines>` (masked line reveal), `<Parallax>`.
 
 Motion respects `prefers-reduced-motion`, and all content stays visible without JavaScript.
+
+## Motion architecture
+
+The choreography is scroll-linked (scrubbed), never time-locked. Users scroll at their own pace and nothing hijacks the scroll.
+
+| Moment | Where | Desktop (≥1024 px, motion on) | Tablet / mobile | Reduced motion |
+|---|---|---|---|---|
+| **Hero → statement → practice chapters** | `components/home/HomeSequence.tsx` | One pinned timeline of about 5.4 viewports. The headline crosses a framed photograph and turns stone where the photo sits behind it (a stone copy clipped by the same frame). The frame opens to full bleed and the headline settles small at the lower left. The firm statement arrives over the photo, then the photo contracts into a right-hand column. Six chapters follow: each practice photo slides up inside the frame while the titles swap through line masks. A rail lists all six links throughout. | Un-pinned flow: the frame widens as it scrolls, and chapter images use clip reveals with staggered widths | Static editorial layout |
+| **Founder portrait** | `components/home/FounderReveal.tsx` | Short pin: a wide colonnade contracts into an arch, the architecture lifts away to reveal the portrait, and the name crosses the arch edge in two tones | Arch frame with a clip reveal | Static arch |
+| **Windows** | `components/motion/ExpandFrame.tsx` | Frames open as they travel up the viewport (Brasília, page heroes, article images, escritório strip, "next area" band) | Same, starting closer to full width | Fully open |
+
+Layouts are designed in CSS. Invisible "target boxes" (`.seq__box--hero`, `.seq__box--split`, `.founder2__box--*`) describe each composition, and GSAP only measures them and interpolates `clip-path`. To change a composition, edit those boxes in `src/styles/home.css`.
+
+The header picks its tone by hit-testing what is beneath it (hit-testing respects `clip-path`), so it switches to stone exactly when a photo passes under it, including mid-transition. Mark dark surfaces with `data-tone="dark"` or `.on-dark`.
+
+Keyboard: focusing a link inside the pinned sequence scrolls to the moment where that link is shown. All practice links are permanent DOM links.
 
 ## Logos
 

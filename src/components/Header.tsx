@@ -7,9 +7,21 @@ import { Logo } from "./brand/Logo";
 import { ArrowRight } from "./Icons";
 import { nav, firm } from "@/content/site";
 
-/** Routes whose first section is a dark, full-bleed image — the header sits over it in stone. */
-function isOverlayRoute(pathname: string) {
-  return pathname === "/" || pathname === "/escritorio" || pathname === "/carolina-meirelles" || /^\/areas-de-atuacao\/[^/]+$/.test(pathname);
+/**
+ * Reads what is actually under the header (hit-testing respects clip-path, so a photograph
+ * that is mid-transition counts only where it is visible). Dark if the nearest marked
+ * ancestor is `[data-tone="dark"]` or an `.on-dark` surface.
+ */
+function toneUnderHeader(header: HTMLElement | null): "dark" | "light" {
+  const y = Math.min(32, (header?.offsetHeight ?? 64) / 2);
+  for (const x of [window.innerWidth * 0.25, window.innerWidth * 0.75]) {
+    const stack = document.elementsFromPoint(x, y);
+    const hit = stack.find((n) => !header?.contains(n) && !n.closest("#mobile-menu"));
+    if (!hit) continue;
+    const marked = hit.closest<HTMLElement>("[data-tone], .on-dark");
+    if (marked && (marked.dataset.tone === "dark" || (!marked.dataset.tone && marked.classList.contains("on-dark")))) return "dark";
+  }
+  return "light";
 }
 
 function isCurrent(pathname: string, href: string) {
@@ -18,8 +30,9 @@ function isCurrent(pathname: string, href: string) {
 
 export function Header() {
   const pathname = usePathname() || "/";
-  const overlay = isOverlayRoute(pathname);
+  const [overlay, setOverlay] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const [hidden, setHidden] = useState(false);
   // The menu is tied to the route it was opened on, so any navigation closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
@@ -37,18 +50,23 @@ export function Header() {
         frame = 0;
         const y = window.scrollY;
         setScrolled(y > 24);
+        setOverlay(toneUnderHeader(headerRef.current) === "dark");
         setHidden(y > 480 && y > lastY.current + 4);
         if (y < lastY.current - 4 || y < 480) setHidden(false);
         lastY.current = y;
       });
     };
+    const settle = window.setTimeout(onScroll, 120);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
       cancelAnimationFrame(frame);
+      window.clearTimeout(settle);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
-  }, []);
+  }, [pathname]);
 
   const close = useCallback((restoreFocus = true) => {
     setOpenOn(null);
@@ -86,6 +104,7 @@ export function Header() {
   return (
     <>
       <header
+        ref={headerRef}
         className="site-header"
         data-overlay={overlay ? "true" : "false"}
         data-scrolled={scrolled ? "true" : "false"}

@@ -444,12 +444,15 @@
   transition: opacity var(--dur-med);
 }
 
-.site-header[data-overlay="true"]:not([data-scrolled="true"]) {
+.site-header[data-overlay="true"] {
   color: var(--cma-stone);
 }
 
 .site-header[data-scrolled="true"] {
   --header-h: 4.25rem;
+}
+
+.site-header[data-scrolled="true"][data-overlay="false"] {
   background: rgb(206 203 196 / 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Lines } from "./Lines";
-import { Parallax } from "./Parallax";
+import { ExpandFrame } from "./motion/ExpandFrame";
 
 type Crumb = { name: string; path: string };
 
@@ -11,6 +11,8 @@ type Props = {
   intro?: string;
   crumbs?: Crumb[];
   image?: { src: string; alt: string; width: number; height: number; position?: string };
+  /** Frame the split-hero image as an arch (the founder's signature shape). */
+  arch?: boolean;
   note?: string;
   children?: React.ReactNode;
 };
@@ -19,7 +21,7 @@ type Props = {
  * Secondary-page opening. With an image: dark, full-bleed, cinematic.
  * Without: a light editorial title block on stone.
  */
-export function PageHero({ label, title, intro, crumbs, image, note, children }: Props) {
+export function PageHero({ label, title, intro, crumbs, image, note, arch, children }: Props) {
   const breadcrumb = crumbs && (
     <nav aria-label="Trilha de navegação" className="crumbs" data-reveal="fade">
       <ol role="list">
@@ -52,8 +54,8 @@ export function PageHero({ label, title, intro, crumbs, image, note, children }:
             )}
           </div>
           <figure className="page-hero__split-figure">
-            <div className="frame page-hero__split-frame" data-reveal="mask" style={{ ["--delay" as string]: "200ms" }}>
-              <Parallax speed={0.12} zoom>
+            <div className={`page-hero__split-shape${arch ? " page-hero__split-shape--arch" : ""}`} data-reveal="mask" style={{ ["--delay" as string]: "200ms" }}>
+              <ExpandFrame className="frame page-hero__split-frame" from="inset(0% 14% 10% 14%)" fromCompact="inset(0% 6% 6% 6%)" start="top 85%" end="bottom 30%">
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -62,7 +64,7 @@ export function PageHero({ label, title, intro, crumbs, image, note, children }:
                   sizes="(min-width: 1024px) 34vw, 100vw"
                   style={{ objectFit: "cover", objectPosition: image.position }}
                 />
-              </Parallax>
+              </ExpandFrame>
             </div>
             {note && <figcaption className="concept-note">{note}</figcaption>}
           </figure>
@@ -72,31 +74,31 @@ export function PageHero({ label, title, intro, crumbs, image, note, children }:
   }
 
   if (image) {
+    // Wide photographs: an editorial title on stone, then a window that opens to full bleed.
     return (
-      <section className="page-hero page-hero--image on-dark" aria-labelledby="page-title">
-        <div className="page-hero__media">
-          <Parallax speed={0.2} zoom>
-            <Image src={image.src} alt={image.alt} fill priority sizes="100vw" style={{ objectFit: "cover", objectPosition: image.position }} />
-          </Parallax>
-          <div className="page-hero__shade" />
-        </div>
-        <div className="container page-hero__inner">
+      <section className="page-hero page-hero--window" aria-labelledby="page-title">
+        <div className="container">
           {breadcrumb}
-          <div className="page-hero__main">
-            <span className="label label--rule" data-reveal="fade">
+          <div className="grid page-hero__plain-grid">
+            <span className="label label--rule page-hero__label" data-reveal="fade">
               {label}
             </span>
-            <Lines as="h1" id="page-title" className="t-display page-hero__title" lines={title} delay={150} />
-          </div>
-          <div className="page-hero__foot">
+            <Lines as="h1" id="page-title" className="t-display page-hero__title" lines={title} delay={100} />
             {intro && (
-              <p className="t-lead page-hero__intro" data-reveal="" style={{ ["--delay" as string]: "450ms" }}>
+              <p className="t-lead page-hero__intro" data-reveal="" style={{ ["--delay" as string]: "350ms" }}>
                 {intro}
               </p>
             )}
-            {note && <p className="concept-note">{note}</p>}
           </div>
         </div>
+        <ExpandFrame className="page-hero__window" from="inset(0% 26% 0% 26%)" fromCompact="inset(0% 6% 0% 6%)" tone="dark" start="top 92%" end="top 8%">
+          <Image src={image.src} alt={image.alt} fill priority sizes="100vw" style={{ objectFit: "cover", objectPosition: image.position }} />
+        </ExpandFrame>
+        {note && (
+          <div className="container">
+            <p className="concept-note">{note}</p>
+          </div>
+        )}
       </section>
     );
   }

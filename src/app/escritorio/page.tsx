@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Closing } from "@/components/Closing";
 import { Lines } from "@/components/Lines";
-import { Parallax } from "@/components/Parallax";
+import { ExpandFrame } from "@/components/motion/ExpandFrame";
 import { PortraitPlaceholder } from "@/components/PortraitPlaceholder";
 import { ArrowRight } from "@/components/Icons";
 import { founder } from "@/content/site";
@@ -97,11 +97,11 @@ export default function EscritorioPage() {
         </div>
       </section>
 
-      <section className="strip on-dark" aria-hidden="true">
-        <Parallax speed={0.25}>
+      <div className="strip-wrap" aria-hidden="true">
+        <ExpandFrame className="strip" from="inset(0% 30% 0% 30%)" fromCompact="inset(0% 8% 0% 8%)" tone="dark">
           <Image src="/assets/architecture/detail-floor-light.webp" alt="" fill sizes="100vw" style={{ objectFit: "cover" }} />
-        </Parallax>
-      </section>
+        </ExpandFrame>
+      </div>
 
       <section className="section section--stone process" aria-labelledby="process-title">
         <div className="container grid">

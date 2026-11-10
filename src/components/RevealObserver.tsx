@@ -34,7 +34,19 @@ export function RevealObserver() {
       { rootMargin: "0px 0px -8% 0px", threshold: 0.01 },
     );
     targets.forEach((_, t) => io.observe(t));
-    return () => io.disconnect();
+    // Keyboard focus must never land on content that is still waiting to be revealed.
+    const onFocus = (e: FocusEvent) => {
+      let n = e.target instanceof Element ? e.target.closest<HTMLElement>("[data-reveal]") : null;
+      while (n) {
+        n.classList.add("is-in");
+        n = n.parentElement?.closest<HTMLElement>("[data-reveal]") ?? null;
+      }
+    };
+    document.addEventListener("focusin", onFocus);
+    return () => {
+      io.disconnect();
+      document.removeEventListener("focusin", onFocus);
+    };
   }, [pathname]);
 
   return null;
