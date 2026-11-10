@@ -44,7 +44,6 @@ export default function HomePage() {
         copy={{
           caption: home.sequence.caption,
           practicesLabel: home.sequence.practicesLabel,
-          practicesIntro: home.sequence.practicesIntro,
         }}
       />
 

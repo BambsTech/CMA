@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArtImage } from "@/components/ArtImage";
-import { ArrowDown, ArrowRight, ArrowUpRight } from "@/components/Icons";
+import { ArrowDown, ArrowRight } from "@/components/Icons";
 import { SpreadWordmark } from "@/components/brand/SpreadWordmark";
 import { FULL, MQ, getGsap } from "@/components/motion/gsap";
 
@@ -20,7 +20,6 @@ export type SeqPractice = {
 type Copy = {
   caption: string;
   practicesLabel: string;
-  practicesIntro: string;
 };
 
 type Props = { practices: SeqPractice[]; copy: Copy };
@@ -116,7 +115,7 @@ export function HomeSequence({ practices, copy }: Props) {
         .fromTo(media, vars(openBox), { ...vars(splitBox), duration: 1.0, ease: "power3.inOut" }, 0.1)
         .fromTo(heroImg, { scale: 1, xPercent: 0 }, { scale: 1.08, xPercent: 6, duration: 1.0, ease: "power2.inOut" }, 0.1)
         .to(q(".seq__chapters"), { opacity: 1, duration: 0.01 }, 0.75)
-        .from(q(".seq__chapters-head > *, .seq__chapters-intro, .seq__rail li"), { y: 22, autoAlpha: 0, stagger: 0.025, duration: 0.45, ease: "power3.out" }, 0.75);
+        .from(q(".seq__chapters-head > *"), { y: 22, autoAlpha: 0, stagger: 0.025, duration: 0.45, ease: "power3.out" }, 0.75);
 
       // Chapters.
       panels.forEach((panel, i) => {
@@ -223,7 +222,6 @@ export function HomeSequence({ practices, copy }: Props) {
               <span>{active >= 0 ? practices[active].number : "01"}</span> / {String(practices.length).padStart(2, "0")}
             </p>
           </div>
-          <p className="seq__chapters-intro">{copy.practicesIntro}</p>
 
           <ol className="seq__panels" role="list">
             {practices.map((p, i) => (
@@ -242,7 +240,7 @@ export function HomeSequence({ practices, copy }: Props) {
                 </p>
                 <p data-mask="">
                   <span>
-                    <Link href={`/areas-de-atuacao/${p.slug}`} className="link-line" tabIndex={active === -1 || active === i ? undefined : -1}>
+                    <Link href={`/areas-de-atuacao/${p.slug}`} className="link-line">
                       Conhecer a área
                       <ArrowRight />
                     </Link>
@@ -252,26 +250,6 @@ export function HomeSequence({ practices, copy }: Props) {
             ))}
           </ol>
 
-          <nav className="seq__rail" aria-label="Áreas de atuação">
-            <ol role="list">
-              {practices.map((p, i) => (
-                <li key={p.slug} data-current={active === i ? "true" : "false"}>
-                  <Link href={`/areas-de-atuacao/${p.slug}`}>
-                    <span className="num">{Number(p.number)}</span>
-                    <span className="seq__rail-title">{p.title}</span>
-                    <ArrowUpRight />
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/areas-de-atuacao" className="seq__rail-all">
-                  <span className="num">—</span>
-                  <span className="seq__rail-title">Visão geral das áreas</span>
-                  <ArrowRight />
-                </Link>
-              </li>
-            </ol>
-          </nav>
         </div>
       </div>
     </section>

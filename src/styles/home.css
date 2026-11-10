@@ -1161,3 +1161,24 @@
     background: linear-gradient(0deg, rgb(48 18 6 / 0.88) 0%, rgb(48 18 6 / 0.45) 55%, rgb(48 18 6 / 0.1) 80%);
   }
 }
+
+/* Chapter column holds three things only: title, one line of summary, the link. */
+.seq.is-pinned .seq__panel-num {
+  display: none;
+}
+
+.seq.is-pinned .seq__panel {
+  justify-content: center;
+  gap: clamp(0.9rem, 2vh, 1.4rem);
+  padding: 0 0 6vh;
+}
+
+.seq.is-pinned .seq__panel-title {
+  font-size: min(var(--fs-h2), 4.8vh);
+}
+
+.seq.is-pinned .seq__panel-summary {
+  max-width: 22rem;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+}
