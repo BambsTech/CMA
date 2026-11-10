@@ -1383,3 +1383,192 @@
   .ds-statement__title, .ds-statement__aside { grid-column: 1 / -1; }
   .ds-statement__mark { display: none; }
 }
+
+/* ==========================================================================
+   "Serviços" panel (manual p. 32)
+   ========================================================================== */
+
+.svc {
+  background: var(--cma-taupe);
+  color: var(--cma-espresso);
+}
+
+.svc__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-l);
+  min-height: min(88svh, 52rem);
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-m);
+}
+
+.svc__edge {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cma-stone);
+}
+
+.svc__edge--bl {
+  align-self: end;
+}
+
+.svc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.svc__list a {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  padding-block: 0.4rem;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
+  color: var(--cma-earth);
+  transition: color var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
+}
+
+.svc__list a:hover,
+.svc__list a:focus-visible {
+  color: var(--cma-espresso);
+  transform: translateX(0.35rem);
+}
+
+.svc__n {
+  color: var(--cma-stone);
+}
+
+.svc__foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.svc__title {
+  font-size: var(--fs-h2);
+  font-weight: 300;
+  color: var(--cma-stone);
+}
+
+.svc__intro {
+  max-width: 24rem;
+  font-size: var(--fs-small);
+  color: var(--cma-earth);
+}
+
+@media (min-width: 1024px) {
+  .svc__inner {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+  }
+  .svc__edge--tl {
+    position: absolute;
+    top: calc(var(--header-h) + var(--space-m));
+    left: var(--gutter);
+  }
+  .svc__edge--bl {
+    position: absolute;
+    bottom: var(--space-m);
+    left: var(--gutter);
+  }
+  .svc__list {
+    grid-column: 8 / -1;
+    align-self: start;
+  }
+  .svc__foot {
+    grid-column: 5 / 10;
+    align-self: end;
+  }
+}
+
+/* ==========================================================================
+   "Nossa História" split (manual p. 32)
+   ========================================================================== */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: min(90svh, 54rem);
+}
+
+.story__half {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-l);
+  padding: var(--space-l) var(--gutter);
+  background: var(--cma-espresso);
+}
+
+.story__half .label {
+  color: var(--cma-stone);
+}
+
+.story__title {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  color: var(--cma-stone);
+}
+
+.story__photo {
+  position: relative;
+  min-height: 34rem;
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.story__glass {
+  position: absolute;
+  left: clamp(1rem, 4vw, 3rem);
+  right: clamp(1rem, 4vw, 3rem);
+  top: clamp(1rem, 4vw, 3rem);
+  display: grid;
+  gap: 0.85rem;
+  padding: clamp(1.1rem, 2.4vw, 1.75rem);
+  border: 1px solid rgb(206 203 196 / 0.45);
+  border-radius: 16px;
+  background: rgb(56 44 35 / 0.4);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--cma-stone);
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  max-width: 26rem;
+}
+
+.story__glass .label {
+  color: var(--cma-stone);
+}
+
+@media (min-width: 1024px) {
+  .story {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Window hero: full-width columns on every screen; desktop placement is set above. */
+.page-hero--window .page-hero__label,
+.page-hero--window .page-hero__title,
+.page-hero--window .page-hero__intro {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1024px) {
+  .page-hero--window .page-hero__label {
+    grid-column: 1 / 4;
+  }
+  .page-hero--window .page-hero__title {
+    grid-column: 4 / -1;
+  }
+  .page-hero--window .page-hero__intro {
+    grid-column: 8 / -1;
+  }
+}
+
+/* The page title must stay legible on taupe (≈5:1); the edge marks stay pale as in the manual. */
+.svc__title {
+  color: var(--cma-earth);
+}

@@ -607,183 +607,6 @@
 }
 
 /* ==========================================================================
-   Founder — architecture resolving into an arched portrait
-   ========================================================================== */
-
-.founder2 {
-  position: relative;
-  background: var(--cma-paper);
-}
-
-.founder2__stage {
-  position: relative;
-  max-width: var(--max-width);
-  margin-inline: auto;
-  padding: var(--space-xl) var(--gutter);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-l);
-}
-
-.founder2__frame {
-  position: relative;
-  width: min(100%, 26rem);
-  aspect-ratio: 3 / 4;
-  border-radius: 999px 999px 0 0;
-  overflow: hidden;
-  background: var(--cma-earth);
-}
-
-.founder2__arch-img {
-  display: none;
-}
-
-.founder2__portrait {
-  position: absolute;
-  inset: 0;
-}
-
-.founder2__portrait .portrait-ph {
-  height: 100%;
-  aspect-ratio: auto;
-}
-
-.founder2__name {
-  font-family: var(--font-heading);
-  font-weight: 300;
-  font-size: var(--fs-display);
-  line-height: var(--lh-tight);
-  letter-spacing: var(--track-display);
-  color: var(--cma-espresso);
-}
-
-.founder2__name--ghost {
-  display: none;
-}
-
-.founder2__content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.founder2__bio {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 34rem;
-}
-
-.founder2__caption {
-  margin-top: 0.75rem;
-}
-
-/* Pinned version */
-.founder2.is-pinned .founder2__stage {
-  height: 100vh;
-  height: 100svh;
-  max-width: none;
-  padding: 0;
-  display: block;
-  overflow: hidden;
-}
-
-.founder2.is-pinned .founder2__box {
-  position: absolute;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.founder2.is-pinned .founder2__box--wide {
-  top: calc(4.25rem + 1.25rem);
-  bottom: 2rem;
-  left: var(--gutter);
-  right: 38%;
-}
-
-.founder2.is-pinned .founder2__box--arch {
-  top: calc(4.25rem + 3rem);
-  bottom: 2rem;
-  left: calc(var(--gutter) + 6vw);
-  width: min(30vw, 30rem);
-}
-
-.founder2.is-pinned .founder2__frame {
-  position: absolute;
-  inset: 0;
-  width: auto;
-  aspect-ratio: auto;
-  border-radius: 0;
-  background: transparent;
-  z-index: 1;
-}
-
-.founder2.is-pinned .founder2__portrait {
-  top: calc(4.25rem + 3rem);
-  bottom: 2rem;
-  left: calc(var(--gutter) + 6vw);
-  right: auto;
-  width: min(30vw, 30rem);
-}
-
-.founder2.is-pinned .founder2__arch-img {
-  display: block;
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.founder2.is-pinned .founder2__arch-img img {
-  object-fit: cover;
-}
-
-.founder2.is-pinned .founder2__name {
-  position: absolute;
-  left: calc(var(--gutter) + 6vw + min(30vw, 30rem) - 10vw);
-  top: calc(4.25rem + 4.5rem);
-  font-size: clamp(3rem, 1rem + 4vw, 5.75rem);
-  z-index: 0;
-  white-space: nowrap;
-}
-
-.founder2.is-pinned .founder2__name--ghost {
-  display: block;
-  color: var(--cma-stone);
-  z-index: 2;
-}
-
-.founder2.is-pinned .founder2__content {
-  position: absolute;
-  z-index: 3;
-  right: var(--gutter);
-  bottom: 2.5rem;
-  width: min(36vw, 34rem);
-}
-
-.founder2.is-pinned .founder2__label {
-  position: absolute;
-  z-index: 3;
-  right: var(--gutter);
-  top: calc(4.25rem + 2.5rem);
-}
-
-.founder2.is-pinned .founder2__caption {
-  position: absolute;
-  z-index: 3;
-  left: calc(var(--gutter) + 6vw);
-  bottom: 0.6rem;
-  margin: 0;
-}
-
-@media (min-width: 1024px) {
-  .founder2:not(.is-pinned) .founder2__stage {
-    grid-template-columns: 5fr 7fr;
-    align-items: end;
-  }
-}
-
-/* ==========================================================================
    Expanding frame + Brasília chapter
    ========================================================================== */
 
@@ -967,3 +790,374 @@
 }
 
 /* Navigation as on manual p. 37: small, tracked capitals. */
+
+/* ==========================================================================
+   Founder — "A sócia." (manual p. 30)
+   ========================================================================== */
+
+.partner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--cma-stone);
+  background: var(--cma-earth);
+}
+
+.partner__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.partner__media > div {
+  position: absolute !important;
+  inset: -8% 0;
+  height: 116% !important;
+}
+
+.partner__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(48 18 6 / 0.35) 0%, rgb(48 18 6 / 0.15) 45%, rgb(48 18 6 / 0.55) 100%);
+}
+
+.partner__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  min-height: min(96svh, 60rem);
+  padding-block: calc(var(--header-h) + var(--space-m)) var(--space-m);
+}
+
+.partner__label {
+  color: var(--cma-stone);
+}
+
+/* The agency's glass panel: translucent earth, a hairline stone border, soft corners. */
+.partner__glass {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-m);
+  padding: clamp(1.25rem, 3vw, 2.75rem);
+  border: 1px solid rgb(206 203 196 / 0.45);
+  border-radius: 18px;
+  background: rgb(56 44 35 / 0.38);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+  backdrop-filter: blur(12px) saturate(1.05);
+}
+
+.partner__card {
+  position: relative;
+  width: min(100%, 16rem);
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--cma-paper);
+}
+
+.partner__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  padding: 1rem;
+  background:
+    linear-gradient(180deg, rgb(235 233 228 / 0) 40%, rgb(206 203 196 / 0.6) 100%),
+    repeating-linear-gradient(90deg, rgb(172 166 153 / 0.18) 0 1px, transparent 1px 25%),
+    var(--cma-paper);
+  color: var(--cma-earth);
+}
+
+.partner__placeholder .label {
+  color: var(--cma-espresso);
+}
+
+.partner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.partner__title {
+  font-size: var(--fs-h2);
+  font-weight: 300;
+  color: var(--cma-stone);
+}
+
+.partner__cols {
+  display: grid;
+  gap: 1rem;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  color: var(--cma-stone);
+}
+
+.partner__facts {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgb(206 203 196 / 0.3);
+}
+
+.partner__facts > div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid rgb(206 203 196 / 0.3);
+  align-items: baseline;
+  font-size: var(--fs-small);
+}
+
+.partner__facts .label,
+.partner__link {
+  color: var(--cma-stone);
+}
+
+.partner__link {
+  align-self: flex-start;
+}
+
+.partner__name {
+  margin-top: auto;
+  align-self: flex-end;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  line-height: 1;
+  letter-spacing: var(--track-display);
+  color: var(--cma-stone);
+}
+
+.partner__note {
+  align-self: flex-start;
+  color: rgb(206 203 196 / 0.8);
+}
+
+@media (min-width: 1024px) {
+  .partner__glass {
+    grid-template-columns: minmax(12rem, 0.32fr) 1fr;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+  /* The portrait overlaps the panel's lower edge, as in the manual. */
+  .partner__card {
+    width: 100%;
+    margin-bottom: -6rem;
+  }
+  .partner__cols {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--col-gap);
+  }
+  .partner__facts {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--col-gap);
+    border-top: 0;
+  }
+  .partner__facts > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    border-top: 1px solid rgb(206 203 196 / 0.3);
+    border-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   Brasília (manual p. 32)
+   ========================================================================== */
+
+.place3 {
+  background: var(--cma-stone);
+  padding-block: var(--space-xl) var(--space-m);
+}
+
+.place3__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-m);
+}
+
+.place3__coords {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+}
+
+.place3__frame {
+  height: min(82svh, 50rem);
+  background: var(--cma-earth);
+}
+
+.place3__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(48 18 6 / 0.72) 0%, rgb(48 18 6 / 0.1) 46%);
+}
+
+.place3__caption {
+  position: absolute;
+  /* Inside the window even before it has fully opened. */
+  left: calc(9% + clamp(1rem, 2.5vw, 2.5rem));
+  right: calc(9% + clamp(1rem, 2.5vw, 2.5rem));
+  bottom: clamp(1.25rem, 4vh, 2.5rem);
+  display: grid;
+  gap: 0.75rem 2rem;
+  align-items: end;
+  color: var(--cma-stone);
+}
+
+.place3__title {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  color: var(--cma-stone);
+}
+
+.place3__sub {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-body);
+  line-height: 1.35;
+}
+
+.place3__text {
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  max-width: 24rem;
+  color: rgb(206 203 196 / 0.92);
+}
+
+.place3 .concept-note {
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .place3__caption {
+    grid-template-columns: auto minmax(8rem, 12rem) 1fr;
+  }
+  .place3__sub {
+    padding-bottom: 0.55rem;
+  }
+  .place3__text {
+    justify-self: end;
+  }
+}
+
+/* ==========================================================================
+   Closing — "Obrigado," (manual p. 32)
+   ========================================================================== */
+
+.closing2 {
+  background: var(--cma-stone);
+  color: var(--cma-espresso);
+  padding-block: var(--space-xl) var(--space-l);
+}
+
+.closing2__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: var(--space-m);
+  text-align: center;
+}
+
+.closing2__title {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+}
+
+.closing2__text {
+  max-width: 28rem;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+
+.closing2__photo {
+  position: relative;
+  width: min(100%, 30rem);
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.closing2__edge {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.closing2__edge li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.closing2__k,
+.closing2__v {
+  font-family: var(--font-caption);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.closing2__k {
+  color: var(--ink-soft);
+}
+
+.closing2__v a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--rule-strong);
+}
+
+.closing2__mark {
+  width: 170px; /* manual minimum digital width for this signature */
+  margin-top: var(--space-m);
+}
+
+@media (min-width: 1024px) {
+  .closing2__inner {
+    grid-template-columns: 1fr minmax(0, 30rem) 1fr;
+    column-gap: var(--col-gap);
+    row-gap: var(--space-m);
+    align-items: center;
+  }
+  .closing2__title,
+  .closing2__text,
+  .closing2__action,
+  .closing2__mark {
+    grid-column: 1 / -1;
+  }
+  .closing2__edge--l {
+    grid-column: 1;
+    justify-self: start;
+    text-align: left;
+  }
+  .closing2__photo {
+    grid-column: 2;
+    width: 100%;
+  }
+  .closing2__edge--r {
+    grid-column: 3;
+    justify-self: end;
+    text-align: right;
+  }
+  .closing2__edge--r li {
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 719px) {
+  .place3__caption {
+    left: calc(5% + 1rem);
+    right: calc(5% + 1rem);
+  }
+  .place3__veil {
+    background: linear-gradient(0deg, rgb(48 18 6 / 0.88) 0%, rgb(48 18 6 / 0.45) 55%, rgb(48 18 6 / 0.1) 80%);
+  }
+}

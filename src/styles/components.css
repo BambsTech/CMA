@@ -879,3 +879,23 @@
   display: inline-block;
   will-change: transform;
 }
+
+/* Compact footer: the signature at its minimum digital size, quiet columns. */
+.site-footer {
+  padding-top: var(--space-l);
+}
+
+.site-footer__top {
+  padding-bottom: var(--space-m);
+}
+
+.site-footer__logo {
+  display: block;
+  width: 170px;
+  color: var(--cma-stone);
+}
+
+.site-footer__col a {
+  font-size: 0.85rem;
+  font-weight: 300;
+}

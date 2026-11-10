@@ -12,6 +12,8 @@ type Props = {
   to?: string;
   /** Narrower screens start closer to full width. */
   fromCompact?: string;
+  /** Counter-zoom of the image as the frame opens (1 = none). */
+  zoom?: number;
   /** Marks the frame for the header's tone detection. */
   tone?: "dark" | "light";
   /** ScrollTrigger range, relative to the frame. */
@@ -24,7 +26,7 @@ type Props = {
  * The image inside counter-zooms so the opening reads as depth, not as a resize.
  * Reduced motion: shown fully open.
  */
-export function ExpandFrame({ children, className, from = "inset(0% 12% 0% 12%)", fromCompact = "inset(0% 5% 0% 5%)", to = "inset(0% 0% 0% 0%)", tone, start = "top 95%", end = "top 20%" }: Props) {
+export function ExpandFrame({ children, className, from = "inset(0% 12% 0% 12%)", fromCompact = "inset(0% 5% 0% 5%)", to = "inset(0% 0% 0% 0%)", zoom = 1.06, tone, start = "top 95%", end = "top 20%" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,12 +38,12 @@ export function ExpandFrame({ children, className, from = "inset(0% 12% 0% 12%)"
       const start0 = window.matchMedia("(max-width: 719px)").matches ? fromCompact : from;
       gsap.fromTo(el, { clipPath: start0 }, { clipPath: window.matchMedia("(max-width: 719px)").matches ? "inset(0% 0% 0% 0%)" : to, ease: "none", scrollTrigger: { trigger: el, start, end, scrub: 0.6 } });
       const media = el.querySelector("img, picture");
-      if (media) {
-        gsap.fromTo(media, { scale: 1.18 }, { scale: 1, ease: "none", scrollTrigger: { trigger: el, start, end: "bottom top", scrub: true } });
+      if (media && zoom !== 1) {
+        gsap.fromTo(media, { scale: zoom }, { scale: 1, ease: "none", scrollTrigger: { trigger: el, start, end: "bottom top", scrub: true } });
       }
     });
     return () => mm.revert();
-  }, [from, fromCompact, to, start, end]);
+  }, [from, fromCompact, to, zoom, start, end]);
 
   return (
     <div ref={ref} className={["xframe", className].filter(Boolean).join(" ")} data-tone={tone}>

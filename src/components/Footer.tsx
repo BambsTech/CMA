@@ -9,9 +9,11 @@ export function Footer() {
   return (
     <footer className="site-footer on-dark">
       <div className="container">
-        <Link href="/" className="site-footer__wordmark" aria-label={`${firm.name} — página inicial`} data-reveal="fade">
-          <Logo variant="nome-horizontal" title={null} />
-        </Link>
+        <div className="site-footer__top">
+          <Link href="/" className="site-footer__logo" aria-label={`${firm.name} — página inicial`}>
+            <Logo variant="completo-horizontal" title={null} />
+          </Link>
+        </div>
 
         <div className="grid site-footer__cols">
           <div className="site-footer__col">

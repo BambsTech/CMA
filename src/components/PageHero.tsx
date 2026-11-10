@@ -55,7 +55,7 @@ export function PageHero({ label, title, intro, crumbs, image, note, arch, child
           </div>
           <figure className="page-hero__split-figure">
             <div className={`page-hero__split-shape${arch ? " page-hero__split-shape--arch" : ""}`} data-reveal="mask" style={{ ["--delay" as string]: "200ms" }}>
-              <ExpandFrame className="frame page-hero__split-frame" from="inset(0% 14% 10% 14%)" fromCompact="inset(0% 6% 6% 6%)" start="top 85%" end="bottom 30%">
+              <ExpandFrame className="frame page-hero__split-frame" from="inset(0% 10% 8% 10%)" fromCompact="inset(0% 6% 6% 6%)" zoom={1} start="top 85%" end="bottom 30%">
                 <Image
                   src={image.src}
                   alt={image.alt}

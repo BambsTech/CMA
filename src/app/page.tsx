@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { HomeSequence } from "@/components/home/HomeSequence";
 import { Logo } from "@/components/brand/Logo";
-import { FounderReveal } from "@/components/home/FounderReveal";
+import { FounderPanel } from "@/components/home/FounderPanel";
 import { ExpandFrame } from "@/components/motion/ExpandFrame";
 import { Lines } from "@/components/Lines";
 import { Closing } from "@/components/Closing";
@@ -118,25 +118,26 @@ export default function HomePage() {
       </section>
 
       {/* 03 — Founder: architecture resolves into the portrait */}
-      <FounderReveal
+      <FounderPanel
         name={founder.name}
-        role={founder.role}
+        firstName={founder.name.split(" ")[0]}
+        role={`Advogada · ${firm.specialty}`}
         bio={founder.biography ?? home.founder.intro}
         oab={founder.oab}
         education={founder.education}
-        specialty={firm.specialty}
         portrait={founder.portrait}
+        label="04 · Quem conduz"
       />
 
-      {/* 04 — Brasília: a window that opens onto the horizon */}
-      <section className="place2 on-dark" aria-labelledby="place-title">
-        <div className="container place2__head">
+      {/* 05 — Brasília (manual p. 32): title lower-left, quiet text lower-right */}
+      <section className="place3" aria-labelledby="place-title">
+        <div className="container place3__head">
           <SectionLabel n="05">Lugar</SectionLabel>
-          <p className="num place2__coords" data-reveal="fade">
+          <p className="num place3__coords" data-reveal="fade">
             15°47′ S — 47°52′ O
           </p>
         </div>
-        <ExpandFrame className="place2__frame" from="inset(0% 22% 0% 22%)" tone="dark">
+        <ExpandFrame className="place3__frame" from="inset(0% 9% 0% 9%)" tone="dark" end="top 10%">
           <Image
             src="/assets/architecture/pavilion.webp"
             alt="Imagem conceitual: pavilhão de concreto com fachada de vidro e colunas sob o sol poente."
@@ -144,20 +145,21 @@ export default function HomePage() {
             sizes="100vw"
             style={{ objectFit: "cover", objectPosition: "50% 55%" }}
           />
-          <div className="place2__shade" />
-          <h2 id="place-title" className="place2__title">
-            Brasília.
-          </h2>
+          <div className="place3__veil" />
+          <div className="place3__caption">
+            <h2 id="place-title" className="place3__title">
+              Brasília,
+            </h2>
+            <p className="place3__sub">onde o escritório atua.</p>
+            <p className="place3__text">{home.place.text}</p>
+          </div>
         </ExpandFrame>
-        <div className="container grid place2__body">
-          <p className="t-lead place2__text" data-reveal="">
-            {home.place.text}
-          </p>
-          <p className="concept-note place2__note">Imagem conceitual. Não retrata um edifício real nem as instalações do escritório.</p>
+        <div className="container">
+          <p className="concept-note">Imagem conceitual. Não retrata um edifício real nem as instalações do escritório.</p>
         </div>
       </section>
 
-      {/* 05 — Insights */}
+      {/* 06 — Insights */}
       <section className="section section--paper insights" aria-labelledby="insights-title">
         <div className="container">
           <div className="grid insights__head">

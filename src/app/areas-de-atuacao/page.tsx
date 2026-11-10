@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { PageHero } from "@/components/PageHero";
+import { ServicesPanel } from "@/components/editorial/ServicesPanel";
 import { Closing } from "@/components/Closing";
 import { ArrowUpRight } from "@/components/Icons";
 import { practices } from "@/content/practices";
@@ -18,15 +18,7 @@ export const metadata: Metadata = pageMetadata({
 export default function AreasPage() {
   return (
     <>
-      <PageHero
-        label="Áreas de atuação"
-        title={["Seis frentes,", "um mesmo rigor."]}
-        intro="A atuação do escritório cobre o ciclo jurídico de um imóvel: a análise que antecede o negócio, a formalização, a regularização, a gestão do uso e a solução de conflitos."
-        crumbs={[
-          { name: "Início", path: "/" },
-          { name: "Áreas de atuação", path: "/areas-de-atuacao" },
-        ]}
-      />
+      <ServicesPanel intro="A atuação do escritório cobre o ciclo jurídico de um imóvel: a análise que antecede o negócio, a formalização, a regularização, a gestão do uso e a solução de conflitos." />
 
       <section className="section section--paper areas-overview" aria-label="Lista das áreas de atuação">
         <div className="container">
@@ -39,7 +31,7 @@ export default function AreasPage() {
                   </div>
                   <div className="area-card__body">
                     <span className="num area-card__num">{p.number}</span>
-                    <h2 className="t-h3 area-card__title">{p.title}</h2>
+                    <h2 className="t-h4 area-card__title">{p.title}</h2>
                     <p className="t-small">{p.summary}</p>
                     <span className="link-line area-card__more">
                       Saiba mais

@@ -50,27 +50,28 @@ export default function EscritorioPage() {
         note="Imagem conceitual. Não retrata as instalações do escritório."
       />
 
-      <section className="section section--stone manifesto" aria-labelledby="manifesto-title">
-        <div className="container grid">
-          <span className="label label--rule manifesto__label" data-reveal="fade">
+      {/* "Nossa História" layout (manual p. 32): espresso half with a low title, photograph with a glass panel */}
+      <section className="story" aria-labelledby="story-title">
+        <div className="story__half on-dark">
+          <span className="label label--rule">
             <span className="label__num">01</span>
             Posicionamento
           </span>
-          <Lines
-            as="h2"
-            id="manifesto-title"
-            className="t-h1 manifesto__title"
-            lines={["Poucos elementos,", "um olhar apurado", "para os detalhes."]}
-          />
-          <div className="manifesto__text" data-reveal="">
-            <p className="t-lead">
+          <h2 id="story-title" className="story__title" data-reveal="">
+            O escritório.
+          </h2>
+        </div>
+        <div className="story__photo" data-tone="dark">
+          <Image src="/assets/architecture/detail-leaf-shadow.webp" alt="Imagem conceitual: parede de concreto com sombras de folhagem." fill sizes="(min-width: 1024px) 50vw, 100vw" style={{ objectFit: "cover" }} />
+          <div className="story__glass" data-reveal="">
+            <span className="label">Poucos elementos, um olhar apurado para os detalhes</span>
+            <p>
               O escritório nasce do trabalho objetivo e eficiente da advogada Carolina Meirelles e se dedica a um campo
               específico: as questões jurídicas que envolvem imóveis.
             </p>
-            <p className="t-body">
+            <p>
               Negócios imobiliários reúnem patrimônio, documentos, prazos e expectativas. Nosso papel é organizar esse
-              conjunto, identificar o que exige atenção e conduzir cada etapa com método — seja na análise que antecede
-              uma compra, na redação de um contrato, na regularização de um imóvel ou na solução de um conflito.
+              conjunto, identificar o que exige atenção e conduzir cada etapa com método.
             </p>
           </div>
         </div>
