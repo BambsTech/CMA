@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Closing } from "@/components/Closing";
+import { Logo } from "@/components/brand/Logo";
 import { Pending } from "@/components/Pending";
 import { home } from "@/content/home";
 import { pageMetadata } from "@/lib/seo";
@@ -50,7 +50,32 @@ export default function NossaHistoriaPage() {
         </div>
       </section>
 
-      <Closing />
+      {/* Placeholder story — same composition as the manual's statement page. Replace with the firm's real history. */}
+      <section className="story2" aria-labelledby="story2-title">
+        <div className="container story2__grid">
+          <div>
+            <span className="story2__tag">Placeholder · texto provisório</span>
+            <h2 id="story2-title" className="story2__lead">
+              Uma trajetória construída com objetividade, discrição e atenção aos detalhes.
+            </h2>
+          </div>
+          <div className="story2__foot">
+            <div className="story2__cols">
+              <p>
+                Placeholder. Neste espaço entra a história do escritório: como a advogada Carolina Meirelles iniciou a
+                atuação, os motivos da dedicação ao Direito Imobiliário e o que define a forma de trabalhar da equipe.
+              </p>
+              <p>
+                Placeholder. Um segundo parágrafo pode tratar da atuação em Brasília e dos valores que orientam o
+                atendimento. O texto definitivo deve ser fornecido e aprovado pelo escritório.
+              </p>
+            </div>
+            <div className="story2__mark" aria-hidden="true">
+              <Logo variant="completo-horizontal" title={null} />
+            </div>
+          </div>
+        </div>
+      </section>
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Início", path: "/" },

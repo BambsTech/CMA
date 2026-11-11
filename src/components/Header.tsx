@@ -14,14 +14,16 @@ import { nav, firm } from "@/content/site";
  */
 function toneUnderHeader(header: HTMLElement | null): "dark" | "light" {
   const y = Math.min(32, (header?.offsetHeight ?? 64) / 2);
-  for (const x of [window.innerWidth * 0.25, window.innerWidth * 0.75]) {
+  // Dark only when most of the bar sits over a dark surface (a half-page photo stays light).
+  let dark = 0;
+  for (const x of [window.innerWidth * 0.2, window.innerWidth * 0.4, window.innerWidth * 0.8]) {
     const stack = document.elementsFromPoint(x, y);
     const hit = stack.find((n) => !header?.contains(n) && !n.closest("#mobile-menu"));
     if (!hit) continue;
     const marked = hit.closest<HTMLElement>("[data-tone], .on-dark");
-    if (marked && (marked.dataset.tone === "dark" || (!marked.dataset.tone && marked.classList.contains("on-dark")))) return "dark";
+    if (marked && (marked.dataset.tone === "dark" || (!marked.dataset.tone && marked.classList.contains("on-dark")))) dark += 1;
   }
-  return "light";
+  return dark >= 2 ? "dark" : "light";
 }
 
 function isCurrent(pathname: string, href: string) {
@@ -118,7 +120,7 @@ export function Header() {
               }
             }}
           >
-            <Logo variant="completo-horizontal" title={null} />
+            <Logo variant="monograma" title={null} />
           </Link>
 
           <nav className="site-nav" aria-label="Navegação principal">

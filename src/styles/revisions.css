@@ -1,0 +1,524 @@
+/* ==========================================================================
+   Client review — Vercel Toolbar comments (Nov 2026).
+   Loaded last; each block notes the comment it answers.
+   ========================================================================== */
+
+:root {
+  /* "the spacing between text and borders on all sections" — the manual's p. 32
+     reference: titles sit close to the top and the left edge. */
+  --sec-pad: clamp(1.75rem, 3.2vw, 3rem);
+}
+
+/* — Text: every paragraph justified ———————————————————————————— */
+main p,
+.site-footer p {
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* — No dotted lines anywhere (pending placeholders stay as quiet text) — */
+.pending {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* — Text links: no underline, no outlined boxes ———————————————— */
+.link-line {
+  padding-block: 0.2em;
+}
+
+.link-line::after {
+  display: none;
+}
+
+.action,
+.action:hover {
+  border: 0;
+  padding: 0.4rem 0;
+  min-height: 0;
+  gap: 0.85rem;
+  background: transparent;
+  color: var(--ink);
+}
+
+.action:hover .arrow {
+  transform: translateX(0.3em);
+}
+
+/* — Header: CM&A mark, pages right after it, no rule, white over photos — */
+.site-header::after {
+  display: none;
+}
+
+.site-header__inner {
+  justify-content: flex-start;
+  gap: clamp(2rem, 4vw, 3.75rem);
+}
+
+.site-header__brand,
+.site-header[data-home-top="true"] .site-header__brand {
+  width: 64px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-header__contact {
+  margin-left: auto;
+}
+
+.menu-toggle {
+  margin-left: auto;
+}
+
+.site-header[data-overlay="true"] {
+  color: var(--cma-white);
+}
+
+/* ==========================================================================
+   Homepage
+   ========================================================================== */
+
+/* Opening → first area: the photograph fills the right half, top to bottom. */
+.seq.is-pinned .seq__box--split,
+.seq.is-pinned .seq__shot--chapter {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+}
+
+.seq.is-pinned .seq__chapters {
+  width: calc(50% - var(--gutter) - 5vw);
+}
+
+/* Statement: title at the top, small twin columns low left, signature low right. */
+.statement__grid {
+  min-height: 0;
+  row-gap: clamp(4rem, 12vh, 8rem);
+  padding-block: var(--sec-pad);
+}
+
+.statement__sub {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .statement__title {
+    grid-column: 1 / 9;
+  }
+  .statement__aside {
+    grid-column: 1 / 8;
+    grid-row: 2;
+  }
+  .statement__cols {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+  }
+  .statement__mark {
+    grid-row: 2;
+    align-self: end;
+    padding-top: 0;
+  }
+}
+
+/* Para quem: title top left, label top right, entries low left in narrow columns. */
+.whom__grid {
+  min-height: 0;
+  row-gap: clamp(4rem, 12vh, 8rem);
+  padding-block: var(--sec-pad);
+}
+
+.whom__list li {
+  border-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .whom__label {
+    grid-column: 9 / -1;
+    grid-row: 1;
+    justify-self: end;
+    align-self: start;
+    padding-top: 0.6rem;
+  }
+  .whom__title {
+    grid-column: 1 / 9;
+    grid-row: 1;
+  }
+  .whom__list {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: repeat(3, minmax(0, 15rem));
+    justify-content: start;
+  }
+}
+
+/* A sócia: no section label, panel higher, no rules, narrower justified columns. */
+.partner__label {
+  display: none;
+}
+
+.partner__inner {
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+}
+
+.partner__facts,
+.partner__facts > div {
+  border: 0 !important;
+}
+
+@media (min-width: 1024px) {
+  .partner__cols {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    justify-content: start;
+  }
+}
+
+/* Closing: small details in the brand's light caps, not the slab caption face. */
+.closing2__k,
+.closing2__v {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.closing2__v a {
+  text-decoration: none;
+}
+
+.closing2__text {
+  text-align-last: center;
+}
+
+/* ==========================================================================
+   Footer: one quiet line — signature, then © and privacy
+   ========================================================================== */
+
+.site-footer {
+  padding-block: var(--sec-pad);
+}
+
+.site-footer__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.site-footer__bar .site-footer__logo {
+  width: 150px;
+  flex: none;
+}
+
+.site-footer__bar .caption {
+  color: var(--cma-taupe);
+  text-align: left;
+}
+
+.site-footer__bar .site-footer__privacy {
+  margin-left: auto;
+}
+
+.site-footer__bar a {
+  color: var(--cma-stone);
+}
+
+/* ==========================================================================
+   Serviços page
+   ========================================================================== */
+
+/* Reference (manual p. 32): taupe field, signature words at the left edge,
+   numbered list top right, "Serviços" pale and low. */
+.svc__inner {
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + var(--sec-pad)) var(--sec-pad);
+}
+
+.svc__edge {
+  width: clamp(4.5rem, 7vw, 6.5rem);
+  color: var(--cma-stone);
+}
+
+.svc__edge svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svc__list a {
+  grid-template-columns: clamp(4rem, 12vw, 12rem) 1fr;
+  padding-block: 0.3rem;
+  font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.4rem);
+  color: var(--cma-earth);
+}
+
+.svc__n {
+  color: var(--cma-earth);
+  opacity: 0.75;
+}
+
+.svc__title {
+  font-size: var(--fs-h1);
+  color: var(--cma-stone);
+}
+
+.svc__intro {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .svc__edge--tl {
+    top: calc(var(--header-h) + var(--sec-pad));
+  }
+  .svc__edge--bl {
+    bottom: var(--sec-pad);
+  }
+  .svc__list {
+    grid-column: 6 / -1;
+  }
+  .svc__foot {
+    grid-column: 6 / 10;
+  }
+}
+
+/* Area rows (reference: process list) — small number, large title, short text,
+   expanding for the full information. */
+.arows {
+  background: var(--cma-white);
+  padding-block: var(--sec-pad) var(--space-xl);
+}
+
+.arows__intro {
+  max-width: 34rem;
+  margin-bottom: var(--space-l);
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h3);
+  line-height: 1.35;
+  color: var(--cma-earth);
+}
+
+.arow {
+  border-top: 1px solid rgb(56 44 35 / 0.14);
+}
+
+.arows__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgb(56 44 35 / 0.14);
+}
+
+.arow > details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.75rem var(--col-gap);
+  align-items: start;
+  padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.arow > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.arow__n {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--cma-taupe);
+  padding-top: 0.6rem;
+}
+
+.arow__title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h2);
+  line-height: 1.12;
+  color: var(--cma-earth);
+}
+
+.arow__summary {
+  grid-column: 2;
+  max-width: 15rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--cma-earth);
+}
+
+.arow__toggle {
+  grid-column: 2;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+}
+
+.arow__toggle::after {
+  content: " +";
+}
+
+details[open] .arow__toggle::after {
+  content: " −";
+}
+
+.arow__more {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 0 clamp(2rem, 4vw, 3rem);
+  color: var(--cma-earth);
+}
+
+.arow__more p {
+  font-size: var(--fs-small);
+  line-height: 1.7;
+}
+
+.arow__scope {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.arow__scope h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.arow__scope p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.arow__more .link-line {
+  justify-self: start;
+}
+
+.arow > details > summary:hover .arow__title,
+.arow > details > summary:focus-visible .arow__title {
+  color: var(--cma-espresso);
+}
+
+@media (min-width: 900px) {
+  .arow > details > summary {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 2.4fr) auto;
+    align-items: start;
+  }
+  .arow__summary,
+  .arow__toggle {
+    grid-column: auto;
+  }
+  .arow__toggle {
+    padding-top: 0.7rem;
+  }
+  .arow__more {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 3.4fr);
+    column-gap: var(--col-gap);
+  }
+  .arow__more > :first-child {
+    grid-column: 2;
+    max-width: 30rem;
+  }
+  .arow__scope {
+    grid-column: 2;
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    column-gap: var(--col-gap);
+  }
+  .arow__more .link-line {
+    grid-column: 2;
+  }
+}
+
+/* ==========================================================================
+   Nossa História
+   ========================================================================== */
+
+/* Title at the top of its field, close to the edges. */
+.story__field {
+  align-items: flex-start;
+  padding: calc(var(--header-h) + var(--sec-pad) * 0.5) var(--gutter) var(--sec-pad);
+  border: 0;
+}
+
+.story__field::before,
+.story__field::after {
+  display: none;
+}
+
+/* Placeholder story section (same composition as the manual's statement page). */
+.story2 {
+  background: var(--cma-stone);
+  color: var(--cma-earth);
+}
+
+.story2__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: clamp(4rem, 14vh, 9rem);
+  min-height: 82svh;
+  padding-block: var(--sec-pad);
+}
+
+.story2__lead {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  line-height: 1.12;
+  letter-spacing: var(--track-heading);
+  color: var(--cma-earth);
+  max-width: 24ch;
+  text-align: left !important;
+}
+
+.story2__tag {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+  opacity: 0.6;
+}
+
+.story2__foot {
+  align-self: end;
+  display: grid;
+  gap: var(--space-m);
+}
+
+.story2__cols {
+  display: grid;
+  gap: 1rem;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.story2__mark {
+  width: 170px;
+  color: var(--cma-earth);
+}
+
+@media (min-width: 1024px) {
+  .story2__foot {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+  .story2__cols {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    column-gap: var(--col-gap);
+  }
+}
+
+/* Light header band matches the white page surfaces. */
+.site-header[data-scrolled="true"][data-overlay="false"] {
+  background: rgb(255 255 255 / 0.94);
+}

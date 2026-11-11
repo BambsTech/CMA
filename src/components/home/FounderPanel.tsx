@@ -33,7 +33,7 @@ export function FounderPanel({ name, firstName, role, bio, oab, education, portr
       </div>
 
       <div className="container partner__inner">
-        <span className="label label--rule partner__label">{label}</span>
+        {label && <span className="label label--rule partner__label">{label}</span>}
 
         <div className="partner__glass" data-reveal="">
           <div className="partner__card">

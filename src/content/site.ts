@@ -58,8 +58,8 @@ export const founder = {
 
 export const nav = [
   { href: "/", label: "Início" },
+  { href: "/areas-de-atuacao", label: "Serviços" },
   { href: "/nossa-historia", label: "Nossa História" },
-  { href: "/areas-de-atuacao", label: "Áreas de Atuação" },
   { href: "/contato", label: "Contato" },
 ] as const;
 

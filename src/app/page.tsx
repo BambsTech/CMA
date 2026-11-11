@@ -60,7 +60,7 @@ export default function HomePage() {
       <section className="whom" aria-labelledby="whom-title">
         <div className="container whom__grid">
           <span className="label whom__label" data-reveal="fade">
-            03 · Para quem
+            Para quem
           </span>
           <h2 id="whom-title" className="whom__title" data-reveal="">
             Quem assessoramos.
@@ -85,7 +85,7 @@ export default function HomePage() {
         oab={founder.oab}
         education={founder.education}
         portrait={founder.portrait}
-        label="04 · Quem conduz"
+        label=""
       />
 
       <Closing />
