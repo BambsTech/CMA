@@ -22,7 +22,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--cma-stone);
+  background: var(--cma-white);
   color: var(--cma-espresso);
   font-family: var(--font-body);
   font-size: var(--fs-body);

@@ -14,6 +14,8 @@ export const home = {
     caption: "Advocacia especializada em Direito Imobiliário", // [MANUAL] p. 38
     statementLabel: "O escritório", // [PROPOSTA]
     practicesLabel: "Áreas de atuação",
+    /** The three areas shown on the homepage, in order. The full list of six lives on /areas-de-atuacao. */
+    featured: ["consultoria-e-due-diligence-imobiliaria", "elaboracao-e-revisao-de-contratos", "regularizacao-de-imoveis"],
     practicesIntro: "Seis frentes dentro do Direito Imobiliário, da análise que antecede um negócio à solução de conflitos já instaurados.", // [PROPOSTA]
   },
   intro: {

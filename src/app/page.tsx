@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { HomeSequence } from "@/components/home/HomeSequence";
 import { Logo } from "@/components/brand/Logo";
 import { FounderPanel } from "@/components/home/FounderPanel";
-import { ExpandFrame } from "@/components/motion/ExpandFrame";
 import { Lines } from "@/components/Lines";
 import { Closing } from "@/components/Closing";
 import { ArrowRight, ArrowUpRight } from "@/components/Icons";
@@ -40,7 +39,10 @@ export default function HomePage() {
     <>
       {/* 01 — Hero → statement → practice chapters (one continuous sequence) */}
       <HomeSequence
-        practices={practices.map(({ slug, number, title, summary, image, imageAlt }) => ({ slug, number, title, summary, image, imageAlt }))}
+        practices={home.sequence.featured
+          .map((slug) => practices.find((p) => p.slug === slug))
+          .filter((p) => p !== undefined)
+          .map(({ slug, title, summary, image, imageAlt }, i) => ({ slug, number: String(i + 1).padStart(2, "0"), title, summary, image, imageAlt }))}
         copy={{
           caption: home.sequence.caption,
           practicesLabel: home.sequence.practicesLabel,
@@ -71,7 +73,6 @@ export default function HomePage() {
               <ArrowRight />
             </Link>
           </div>
-          <span className="statement__rule" aria-hidden="true" />
         </div>
       </section>
 
@@ -107,42 +108,12 @@ export default function HomePage() {
         label="04 · Quem conduz"
       />
 
-      {/* 05 — Brasília (manual p. 32): title lower-left, quiet text lower-right */}
-      <section className="place3" aria-labelledby="place-title">
-        <div className="container place3__head">
-          <SectionLabel n="05">Lugar</SectionLabel>
-          <p className="num place3__coords" data-reveal="fade">
-            15°47′ S — 47°52′ O
-          </p>
-        </div>
-        <ExpandFrame className="place3__frame" from="inset(0% 9% 0% 9%)" tone="dark" end="top 10%">
-          <Image
-            src="/assets/architecture/pavilion.webp"
-            alt="Imagem conceitual: pavilhão de concreto com fachada de vidro e colunas sob o sol poente."
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "50% 55%" }}
-          />
-          <div className="place3__veil" />
-          <div className="place3__caption">
-            <h2 id="place-title" className="place3__title">
-              Brasília,
-            </h2>
-            <p className="place3__sub">onde o escritório atua.</p>
-            <p className="place3__text">{home.place.text}</p>
-          </div>
-        </ExpandFrame>
-        <div className="container">
-          <p className="concept-note">Imagem conceitual. Não retrata um edifício real nem as instalações do escritório.</p>
-        </div>
-      </section>
-
-      {/* 06 — Insights */}
+      {/* 05 — Insights */}
       <section className="section section--paper insights" aria-labelledby="insights-title">
         <div className="container">
           <div className="grid insights__head">
             <div className="insights__label">
-              <SectionLabel n="06">Conteúdos</SectionLabel>
+              <SectionLabel n="05">Conteúdos</SectionLabel>
             </div>
             <Lines as="h2" id="insights-title" className="t-h1 insights__title" lines={home.insights.title} />
             <Link href="/conteudos" className="link-line insights__all">

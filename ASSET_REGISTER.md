@@ -42,3 +42,16 @@ A dedicated photo shoot of real Brasília architecture and the firm's workspace 
 ## Image generation
 
 No new images were AI-generated during this build. The eight detail images are crops of the three supplied concept images.
+
+## Stock photographs in use (provisional, added Nov 2026)
+
+The six practice areas use free Unsplash photographs of Brasília, loaded from Unsplash's CDN (`images.unsplash.com`, allowed in `next.config.ts`). They are placeholders so the layout can be judged with distinct images. Each still needs a rights check before publication (several show recognisable public buildings and monuments).
+
+| Area | Photo | Author |
+|---|---|---|
+| 01 Consultoria e Due Diligence | https://unsplash.com/photos/cwPmQ2VPwQ0 | Luis Felipe Lins |
+| 02 Contratos | https://unsplash.com/photos/CVbAcETwNIc | Luis Felipe Lins |
+| 03 Regularização | https://unsplash.com/photos/6ivpBG-JTTI | Gustavo Leighton |
+| 04 Locação e Condomínios | https://unsplash.com/photos/WR0Eoitinok | Gustavo Leighton |
+| 05 Litígios | https://unsplash.com/photos/OFEOxeEhvqs | Daniel Costa |
+| 06 Registral e Notarial | https://unsplash.com/photos/_8agoklTQSU | Gustavo Leighton |

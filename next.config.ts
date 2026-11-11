@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     qualities: [75, 82],
     deviceSizes: [480, 768, 1080, 1440, 1920],
     imageSizes: [160, 320, 480, 640],
+    // Placeholder stock photographs of Brasília (Unsplash), served from their CDN.
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com", pathname: "/photo-**" }],
   },
   async headers() {
     return [

@@ -23,10 +23,10 @@
 }
 
 .section--stone {
-  --surface: var(--cma-stone);
+  --surface: var(--cma-white);
 }
 .section--paper {
-  --surface: var(--cma-paper);
+  --surface: var(--cma-white);
 }
 .section--taupe {
   --surface: var(--cma-taupe);
@@ -455,7 +455,7 @@
 }
 
 .site-header[data-scrolled="true"][data-overlay="false"] {
-  background: rgb(206 203 196 / 0.94);
+  background: rgb(255 255 255 / 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }

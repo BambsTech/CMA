@@ -118,7 +118,7 @@
 
 /* — Page hero (plain, light) — */
 .page-hero--plain {
-  --surface: var(--cma-stone);
+  --surface: var(--cma-white);
   padding-top: calc(var(--header-h) + var(--space-m));
   padding-bottom: var(--space-l);
   border-bottom: 1px solid var(--rule);
@@ -834,7 +834,7 @@
 
 /* — Article — */
 .article__head {
-  background: var(--cma-stone);
+  background: var(--cma-white);
   padding-top: calc(var(--header-h) + var(--space-m));
   padding-bottom: var(--space-l);
 }
@@ -877,7 +877,7 @@
 }
 
 .article__figure {
-  background: linear-gradient(var(--cma-stone) 50%, var(--cma-paper) 50%);
+  background: var(--cma-white);
   max-width: none;
 }
 
@@ -889,14 +889,14 @@
 }
 
 .article__layout {
-  background: var(--cma-paper);
+  background: var(--cma-white);
   padding-block: var(--space-l) var(--space-xl);
   max-width: none;
   row-gap: var(--space-l);
 }
 
 .article {
-  background: var(--cma-paper);
+  background: var(--cma-white);
 }
 
 .article__aside {
@@ -933,7 +933,7 @@
   grid-template-columns: 1fr auto;
   gap: 0.6rem 1rem;
   padding: 1.1rem 1.2rem;
-  background: var(--cma-stone);
+  background: var(--cma-white);
   align-items: end;
 }
 
@@ -1198,7 +1198,7 @@
 
 /* — Page hero (window: title on stone, frame opens to full bleed) — */
 .page-hero--window {
-  --surface: var(--cma-stone);
+  --surface: var(--cma-white);
   padding-top: calc(var(--header-h) + var(--space-m));
   padding-bottom: var(--space-m);
 }
@@ -1236,7 +1236,7 @@
 
 /* — Escritório strip (window) — */
 .strip-wrap {
-  background: var(--cma-paper);
+  background: var(--cma-white);
 }
 
 .strip.xframe {
@@ -1313,7 +1313,7 @@
   min-height: 80svh;
   padding: calc(var(--header-h) + var(--space-m)) 0 var(--space-m);
   display: flex;
-  background: var(--cma-stone);
+  background: var(--cma-white);
   color: var(--cma-espresso);
 }
 

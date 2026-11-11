@@ -10,7 +10,7 @@
   --split-top: calc(var(--header-h) + 1.25rem);
   --split-bottom: 2rem;
   position: relative;
-  background: var(--cma-stone);
+  background: var(--cma-white);
   color: var(--cma-espresso);
 }
 
@@ -231,7 +231,7 @@
   height: 100vh;
   height: 100svh;
   overflow: hidden;
-  background: var(--cma-stone);
+  background: var(--cma-white);
 }
 
 .seq.is-pinned .seq__box {
@@ -598,11 +598,8 @@
 }
 
 .statement__link {
+  align-self: flex-start; /* the underline runs under the words only, not across the column */
   color: var(--cma-stone);
-}
-
-.statement__rule {
-  display: none;
 }
 
 @media (min-width: 1024px) {
@@ -624,15 +621,6 @@
   .statement__cols {
     grid-template-columns: 1fr 1fr;
     column-gap: var(--col-gap);
-  }
-  .statement__rule {
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: var(--space-l);
-    width: 16%;
-    height: 1px;
-    background: var(--cma-taupe);
   }
 }
 
@@ -813,92 +801,11 @@
 }
 
 /* ==========================================================================
-   Brasília (manual p. 32)
-   ========================================================================== */
-
-.place3 {
-  background: var(--cma-stone);
-  padding-block: var(--space-xl) var(--space-m);
-}
-
-.place3__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-m);
-}
-
-.place3__coords {
-  font-size: var(--fs-caption);
-  letter-spacing: 0.2em;
-  color: var(--ink-soft);
-}
-
-.place3__frame {
-  height: min(82svh, 50rem);
-  background: var(--cma-earth);
-}
-
-.place3__veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgb(48 18 6 / 0.72) 0%, rgb(48 18 6 / 0.1) 46%);
-}
-
-.place3__caption {
-  position: absolute;
-  /* Inside the window even before it has fully opened. */
-  left: calc(9% + clamp(1rem, 2.5vw, 2.5rem));
-  right: calc(9% + clamp(1rem, 2.5vw, 2.5rem));
-  bottom: clamp(1.25rem, 4vh, 2.5rem);
-  display: grid;
-  gap: 0.75rem 2rem;
-  align-items: end;
-  color: var(--cma-stone);
-}
-
-.place3__title {
-  font-size: var(--fs-h1);
-  font-weight: 300;
-  color: var(--cma-stone);
-}
-
-.place3__sub {
-  font-family: var(--font-heading);
-  font-weight: 300;
-  font-size: var(--fs-body);
-  line-height: 1.35;
-}
-
-.place3__text {
-  font-size: var(--fs-small);
-  line-height: 1.6;
-  max-width: 24rem;
-  color: rgb(206 203 196 / 0.92);
-}
-
-.place3 .concept-note {
-  margin-top: 0.75rem;
-}
-
-@media (min-width: 1024px) {
-  .place3__caption {
-    grid-template-columns: auto minmax(8rem, 12rem) 1fr;
-  }
-  .place3__sub {
-    padding-bottom: 0.55rem;
-  }
-  .place3__text {
-    justify-self: end;
-  }
-}
-
-/* ==========================================================================
    Closing — "Obrigado," (manual p. 32)
    ========================================================================== */
 
 .closing2 {
-  background: var(--cma-stone);
+  background: var(--cma-white);
   color: var(--cma-espresso);
   padding-block: var(--space-xl) var(--space-l);
 }
@@ -999,25 +906,16 @@
   }
 }
 
-@media (max-width: 719px) {
-  .place3__caption {
-    left: calc(5% + 1rem);
-    right: calc(5% + 1rem);
-  }
-  .place3__veil {
-    background: linear-gradient(0deg, rgb(48 18 6 / 0.88) 0%, rgb(48 18 6 / 0.45) 55%, rgb(48 18 6 / 0.1) 80%);
-  }
-}
-
 /* Chapter column holds three things only: title, one line of summary, the link. */
 .seq.is-pinned .seq__panel-num {
   display: none;
 }
 
+/* The text sits low on the left, anchored to the bottom of the photograph's column. */
 .seq.is-pinned .seq__panel {
-  justify-content: center;
+  justify-content: flex-end;
   gap: clamp(0.9rem, 2vh, 1.4rem);
-  padding: 0 0 6vh;
+  padding: 0;
 }
 
 .seq.is-pinned .seq__panel-title {
@@ -1036,7 +934,7 @@
    ========================================================================== */
 
 .whom {
-  background: var(--cma-stone);
+  background: var(--cma-white);
   color: var(--cma-earth);
 }
 

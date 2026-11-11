@@ -30,7 +30,7 @@ type Props = { practices: SeqPractice[]; copy: Copy };
  * official signature spread across the band beneath it.
  *
  * On scroll (desktop), the photograph contracts from the left into a right-hand column
- * and the six practice areas follow as editorial chapters: each photograph slides up
+ * and the featured practice areas follow as editorial chapters: each photograph slides up
  * inside the frame while a small numbered index (manual p. 32, "Serviços") marks the place.
  *
  * Tablet/mobile: un-pinned flow. Reduced motion: static. Every practice link is a real link.
@@ -95,7 +95,8 @@ export function HomeSequence({ practices, copy }: Props) {
         scrollTrigger: {
           trigger: el,
           start: "top top",
-          end: () => `+=${Math.round(window.innerHeight * 4.4)}`,
+          // About 0.52 viewport of scroll per unit of timeline, whatever the number of chapters.
+          end: () => `+=${Math.round(window.innerHeight * 0.52 * (CH + practices.length * STEP + 0.6))}`,
           pin: stage,
           scrub: 0.8,
           anticipatePin: 1,
@@ -241,7 +242,7 @@ export function HomeSequence({ practices, copy }: Props) {
                 <p data-mask="">
                   <span>
                     <Link href={`/areas-de-atuacao/${p.slug}`} className="link-line">
-                      Conhecer a área
+                      Conhecer mais
                       <ArrowRight />
                     </Link>
                   </span>
@@ -249,7 +250,6 @@ export function HomeSequence({ practices, copy }: Props) {
               </li>
             ))}
           </ol>
-
         </div>
       </div>
     </section>

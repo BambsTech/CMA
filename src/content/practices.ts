@@ -39,9 +39,8 @@ export const practices: Practice[] = [
       "análise de matrícula de imóvel",
       "consultoria imobiliária em Brasília",
     ],
-    image: "/assets/architecture/detail-glass-reflection.webp",
-    imageAlt:
-      "Imagem conceitual: fachada de vidro refletindo luz quente sob uma marquise de concreto.",
+    image: "https://images.unsplash.com/photo-1596750811838-0f39be60e8f0?auto=format&fit=crop&w=1800&q=80",
+    imageAlt: "Brasília: fachada de madeira e vidro sob uma marquise, com céu azul.",
     lead:
       "Antes de uma aquisição, de um investimento ou de uma operação estruturada, é prudente conhecer a situação jurídica do imóvel e de quem o negocia. O escritório conduz essa análise de forma organizada, identificando pontos de atenção e indicando caminhos para tratá-los antes da assinatura.",
     scope: [
@@ -120,8 +119,8 @@ export const practices: Practice[] = [
       "advogado para contrato imobiliário em Brasília",
       "compromisso de compra e venda",
     ],
-    image: "/assets/architecture/detail-colonnade-rhythm.webp",
-    imageAlt: "Imagem conceitual: ritmo de colunas de concreto ao pôr do sol.",
+    image: "https://images.unsplash.com/photo-1596750812220-b058883c7f65?auto=format&fit=crop&w=1800&q=80",
+    imageAlt: "Brasília: painel de azulejos e colunas de um edifício modernista.",
     lead:
       "Um contrato imobiliário bem estruturado traduz o que foi negociado e antecipa situações que podem surgir ao longo da sua execução. O escritório elabora e revisa instrumentos para operações de diferentes portes, buscando redação precisa e cláusulas coerentes com o negócio.",
     scope: [
@@ -201,9 +200,8 @@ export const practices: Practice[] = [
       "imóvel sem escritura em Brasília",
       "averbação de construção",
     ],
-    image: "/assets/architecture/detail-curved-wall.webp",
-    imageAlt:
-      "Imagem conceitual: parede curva de concreto com sombras de folhas.",
+    image: "https://images.unsplash.com/photo-1736383173563-30f833812031?auto=format&fit=crop&w=1800&q=80",
+    imageAlt: "Brasília: arcos de concreto de um palácio modernista, em preto e branco.",
     lead:
       "Imóveis sem escritura, sem registro ou com área e construção diferentes do que consta na matrícula enfrentam limitações para venda, financiamento e sucessão. A atuação do escritório começa pelo diagnóstico da situação e segue pelo procedimento mais adequado aos documentos disponíveis.",
     scope: [
@@ -287,9 +285,8 @@ export const practices: Practice[] = [
       "assessoria jurídica para condomínio",
       "cobrança de taxa condominial",
     ],
-    image: "/assets/architecture/detail-ceiling.webp",
-    imageAlt:
-      "Imagem conceitual: teto e colunas de concreto de uma longa galeria.",
+    image: "https://images.unsplash.com/photo-1598986347094-3857f4505fff?auto=format&fit=crop&w=1800&q=80",
+    imageAlt: "Brasília: colunas de concreto de um palácio modernista, em preto e branco.",
     lead:
       "Locações e condomínios concentram relações continuadas, em que pequenas questões podem se acumular ao longo do tempo. O escritório assessora proprietários, locatários e administrações condominiais na prevenção e no encaminhamento dessas questões, com atenção às regras da Lei do Inquilinato e do Código Civil.",
     scope: [
@@ -370,9 +367,8 @@ export const practices: Practice[] = [
       "rescisão de contrato de imóvel",
       "distrato imobiliário",
     ],
-    image: "/assets/architecture/detail-leaf-shadow.webp",
-    imageAlt:
-      "Imagem conceitual: parede de concreto aparente com marcas de fôrma e sombras de folhas.",
+    image: "https://images.unsplash.com/photo-1593458018624-21ae71908e8c?auto=format&fit=crop&w=1800&q=80",
+    imageAlt: "Brasília: monumento de concreto contra o sol na Praça dos Três Poderes.",
     lead:
       "Conflitos envolvendo imóveis costumam reunir questões contratuais, registrais e possessórias ao mesmo tempo. O escritório avalia cada caso a partir dos documentos e dos fatos específicos, considera primeiro as possibilidades de composição e, quando necessário, adota as medidas judiciais ou extrajudiciais cabíveis.",
     scope: [
@@ -451,9 +447,8 @@ export const practices: Practice[] = [
       "nota devolutiva cartório",
       "registro de imóveis em Brasília",
     ],
-    image: "/assets/architecture/detail-vanishing-point.webp",
-    imageAlt:
-      "Imagem conceitual: colunata que se estende até um ponto de fuga.",
+    image: "https://images.unsplash.com/photo-1601051671803-c379fa5172e8?auto=format&fit=crop&w=1800&q=80",
+    imageAlt: "Brasília: cúpula e rampa de concreto branco, em preto e branco.",
     lead:
       "No direito brasileiro, a transmissão da propriedade imobiliária se completa com o registro do título no cartório competente. O escritório acompanha a preparação, a lavratura e o registro de atos notariais e registrais, e atua na solução de exigências que impedem sua conclusão.",
     scope: [
