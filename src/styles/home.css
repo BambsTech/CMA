@@ -1033,7 +1033,7 @@
   display: flex;
   align-items: flex-end;
   min-height: 16rem;
-  padding: var(--space-l) var(--gutter) var(--space-m);
+  padding: calc(var(--header-h) + var(--space-l)) var(--gutter) var(--space-m);
 }
 
 .story__title {
@@ -1063,7 +1063,8 @@
 .story__glass {
   position: relative;
   z-index: 1;
-  width: min(100%, 26rem);
+  box-sizing: border-box;
+  width: min(100%, 28rem);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1109,7 +1110,7 @@
 @media (min-width: 1024px) {
   .story {
     grid-template-columns: 1fr 1fr;
-    min-height: min(92svh, 56rem);
+    min-height: 100svh;
   }
   .story__field {
     padding-bottom: var(--space-l);
