@@ -17,6 +17,7 @@ export default function ContatoPage() {
     <>
       <PageHero
         label="Contato"
+        dark
         title={["Fale com o", "escritório."]}
         intro="Descreva brevemente a situação. O escritório analisará a mensagem e retornará para entender a demanda e indicar os próximos passos."
         crumbs={[

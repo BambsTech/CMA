@@ -30,8 +30,8 @@ type Props = { practices: SeqPractice[]; copy: Copy };
  * official signature spread across the band beneath it.
  *
  * On scroll (desktop), the photograph contracts from the left into a right-hand column
- * and the featured practice areas follow as editorial chapters: each photograph slides up
- * inside the frame while a small numbered index (manual p. 32, "Serviços") marks the place.
+ * and the featured practice areas follow as editorial chapters. The first area appears
+ * with the opening photograph itself; each later photograph slides up inside the frame.
  *
  * Tablet/mobile: un-pinned flow. Reduced motion: static. Every practice link is a real link.
  */
@@ -87,23 +87,30 @@ export function HomeSequence({ practices, copy }: Props) {
       gsap.set(q(".seq__panel [data-mask] > *"), { yPercent: 110, y: 0 });
       gsap.set(q(".seq__chapters"), { opacity: 0 });
 
-      const CH = 1.2; // timeline time at which the chapters begin
-      const STEP = 1.1; // length of one chapter
+      // The first area arrives with the split itself, over the opening photograph, so the
+      // column is never empty. Each later area brings its own photograph.
+      const FIRST = 0.8; // timeline time at which the first area's text arrives
+      const NEXT = 2.0; // timeline time at which the second area begins
+      const STEP = 1.1; // length of one area
+      const startOf = (i: number) => (i === 0 ? FIRST : NEXT + (i - 1) * STEP);
+      const total = startOf(practices.length - 1) + STEP + 0.4;
 
       const tl = gsap.timeline({
         defaults: { ease: "none" },
         scrollTrigger: {
           trigger: el,
           start: "top top",
-          // About 0.52 viewport of scroll per unit of timeline, whatever the number of chapters.
-          end: () => `+=${Math.round(window.innerHeight * 0.52 * (CH + practices.length * STEP + 0.6))}`,
+          // About half a viewport of scroll per unit of timeline, whatever the number of areas.
+          end: () => `+=${Math.round(window.innerHeight * 0.52 * total)}`,
           pin: stage,
           scrub: 0.8,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             const t = self.progress * tl.duration();
-            const idx = t < CH - 0.35 ? -1 : Math.min(practices.length - 1, Math.max(0, Math.floor((t - CH - 0.3) / STEP)));
+            let idx = -1;
+            if (t >= FIRST - 0.1) idx = 0;
+            for (let i = 1; i < practices.length; i++) if (t >= startOf(i) + 0.3) idx = i;
             setActive((prev) => (prev === idx ? prev : idx));
           },
         },
@@ -118,19 +125,23 @@ export function HomeSequence({ practices, copy }: Props) {
         .to(q(".seq__chapters"), { opacity: 1, duration: 0.01 }, 0.75)
         .from(q(".seq__chapters-head > *"), { y: 22, autoAlpha: 0, stagger: 0.025, duration: 0.45, ease: "power3.out" }, 0.75);
 
-      // Chapters.
+      // Areas.
       panels.forEach((panel, i) => {
-        const at = CH + i * STEP;
+        const at = startOf(i);
         const parts = panel.querySelectorAll("[data-mask] > *");
-        tl.to(shots[i], { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8, ease: "power3.inOut" }, at)
-          .fromTo(shotImgs[i], { yPercent: 14, scale: 1.06 }, { yPercent: 0, scale: 1, duration: 0.95, ease: "power2.out" }, at)
-          .to(i === 0 ? heroImg : shotImgs[i - 1], { yPercent: -10, duration: 0.8, ease: "power3.inOut" }, at)
-          .fromTo(parts, { yPercent: 110, y: 0, autoAlpha: 1 }, { yPercent: 0, y: 0, duration: 0.55, stagger: 0.05, ease: "power3.out" }, at + 0.32);
-        if (i > 0) {
-          tl.to(panels[i - 1].querySelectorAll("[data-mask] > *"), { yPercent: -60, autoAlpha: 0, duration: 0.3, stagger: 0.02, ease: "power2.in" }, at);
+        if (i === 0) {
+          tl.fromTo(parts, { yPercent: 110, y: 0, autoAlpha: 1 }, { yPercent: 0, y: 0, duration: 0.55, stagger: 0.05, ease: "power3.out" }, at);
+          return;
         }
+        const shot = shots[i - 1];
+        const img = shotImgs[i - 1];
+        tl.to(shot, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8, ease: "power3.inOut" }, at)
+          .fromTo(img, { yPercent: 14, scale: 1.06 }, { yPercent: 0, scale: 1, duration: 0.95, ease: "power2.out" }, at)
+          .to(i === 1 ? heroImg : shotImgs[i - 2], { yPercent: -10, duration: 0.8, ease: "power3.inOut" }, at)
+          .to(panels[i - 1].querySelectorAll("[data-mask] > *"), { yPercent: -60, autoAlpha: 0, duration: 0.3, stagger: 0.02, ease: "power2.in" }, at)
+          .fromTo(parts, { yPercent: 110, y: 0, autoAlpha: 1 }, { yPercent: 0, y: 0, duration: 0.55, stagger: 0.05, ease: "power3.out" }, at + 0.32);
       });
-      tl.to({}, { duration: 0.6 });
+      tl.to({}, { duration: total - tl.duration() > 0 ? total - tl.duration() : 0.01 });
 
       // Keyboard: focusing a chapter link scrolls to the moment it is shown.
       const onFocus = (e: FocusEvent) => {
@@ -139,11 +150,11 @@ export function HomeSequence({ practices, copy }: Props) {
         if (!st || !target.closest) return;
         let at: number | null = null;
         const panel = target.closest<HTMLElement>(".seq__panel");
-        if (panel) at = CH + panels.indexOf(panel) * STEP + 0.95;
-        else if (target.closest(".seq__chapters")) at = Math.max(tl.time(), CH + 0.95);
+        if (panel) at = startOf(panels.indexOf(panel)) + 0.95;
+        else if (target.closest(".seq__chapters")) at = Math.max(tl.time(), FIRST + 0.95);
         if (at === null) return;
         const y = st.start + (at / tl.duration()) * (st.end - st.start);
-        if (Math.abs(window.scrollY - y) > 4 && (Math.abs(at - tl.time()) > 0.2 || tl.time() < CH)) {
+        if (Math.abs(window.scrollY - y) > 4 && (Math.abs(at - tl.time()) > 0.2 || tl.time() < FIRST)) {
           window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
         }
       };
@@ -194,8 +205,9 @@ export function HomeSequence({ practices, copy }: Props) {
               />
             </div>
           </div>
-          {practices.map((p, i) => (
-            <div key={p.slug} className="seq__shot seq__shot--chapter" data-i={i} aria-hidden="true">
+          {/* The first area keeps the opening photograph; the others bring their own. */}
+          {practices.slice(1).map((p, i) => (
+            <div key={p.slug} className="seq__shot seq__shot--chapter" data-i={i + 1} aria-hidden="true">
               <Image src={p.image} alt="" fill sizes="50vw" loading="lazy" />
             </div>
           ))}

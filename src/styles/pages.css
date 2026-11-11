@@ -121,7 +121,11 @@
   --surface: var(--cma-white);
   padding-top: calc(var(--header-h) + var(--space-m));
   padding-bottom: var(--space-l);
-  border-bottom: 1px solid var(--rule);
+}
+
+/* Dark variant: the title block sits on espresso. */
+.page-hero--plain.page-hero--dark {
+  --surface: var(--cma-espresso);
 }
 
 .page-hero__plain-grid {
@@ -471,8 +475,6 @@
   grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   gap: var(--col-gap);
   align-items: start;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--rule-strong);
 }
 
 .area-card__frame {

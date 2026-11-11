@@ -80,7 +80,6 @@ export function FounderPanel({ name, firstName, role, bio, oab, education, portr
         <p className="partner__name" aria-hidden="true" data-reveal="">
           {firstName}.
         </p>
-        <p className="concept-note partner__note">Imagem arquitetônica conceitual.</p>
       </div>
     </section>
   );

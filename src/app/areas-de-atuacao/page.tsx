@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ServicesPanel } from "@/components/editorial/ServicesPanel";
+import { PageHero } from "@/components/PageHero";
 import { Closing } from "@/components/Closing";
 import { ArrowUpRight } from "@/components/Icons";
 import { practices } from "@/content/practices";
@@ -18,7 +18,12 @@ export const metadata: Metadata = pageMetadata({
 export default function AreasPage() {
   return (
     <>
-      <ServicesPanel intro="A atuação do escritório cobre o ciclo jurídico de um imóvel: a análise que antecede o negócio, a formalização, a regularização, a gestão do uso e a solução de conflitos." />
+      <PageHero
+        label="Direito Imobiliário"
+        title={["Áreas de", "atuação."]}
+        intro="A atuação do escritório cobre o ciclo jurídico de um imóvel: a análise que antecede o negócio, a formalização, a regularização, a gestão do uso e a solução de conflitos."
+        image={{ src: "/assets/architecture/colonnade.webp", alt: "Colunata de concreto com luz do entardecer.", width: 1672, height: 941, position: "50% 55%" }}
+      />
 
       <section className="section section--paper areas-overview" aria-label="Lista das áreas de atuação">
         <div className="container">

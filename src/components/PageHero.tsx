@@ -14,6 +14,8 @@ type Props = {
   /** Frame the split-hero image as an arch (the founder's signature shape). */
   arch?: boolean;
   note?: string;
+  /** Plain hero only: set the title block on the dark brand colour. */
+  dark?: boolean;
   children?: React.ReactNode;
 };
 
@@ -21,7 +23,7 @@ type Props = {
  * Secondary-page opening. With an image: dark, full-bleed, cinematic.
  * Without: a light editorial title block on stone.
  */
-export function PageHero({ label, title, intro, crumbs, image, note, arch, children }: Props) {
+export function PageHero({ label, title, intro, crumbs, image, note, arch, dark, children }: Props) {
   const breadcrumb = crumbs && (
     <nav aria-label="Trilha de navegação" className="crumbs" data-reveal="fade">
       <ol role="list">
@@ -104,7 +106,7 @@ export function PageHero({ label, title, intro, crumbs, image, note, arch, child
   }
 
   return (
-    <section className="page-hero page-hero--plain" aria-labelledby="page-title">
+    <section className={`page-hero page-hero--plain${dark ? " page-hero--dark on-dark" : ""}`} aria-labelledby="page-title">
       <div className="container">
         {breadcrumb}
         <div className="grid page-hero__plain-grid">
