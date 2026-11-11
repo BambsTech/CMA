@@ -49,8 +49,11 @@ export const founder = {
   memberships: null as string[] | null,
   /** Approved biography paragraphs. Until supplied, the site shows a neutral introduction. */
   biography: null as string[] | null,
-  /** Path to an authentic, client-approved portrait. Never use a stock photo here. */
-  portrait: null as string | null,
+  /**
+   * Provisional: cropped from the brand manual's "A sócia." mockup (p. 30), low resolution.
+   * Replace with an authentic, client-approved portrait before publication.
+   */
+  portrait: "/assets/editorial/portrait-manual.webp" as string | null,
 } as const;
 
 export const nav = [

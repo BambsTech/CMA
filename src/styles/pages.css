@@ -212,6 +212,10 @@
   align-items: flex-start;
 }
 
+.situations__list {
+  grid-column: 1 / -1;
+}
+
 .scope__list {
   grid-column: 1 / -1;
   display: grid;
@@ -254,10 +258,6 @@
   .process__list {
     grid-column: 6 / -1;
   }
-}
-
-.situations__list {
-  grid-column: 1 / -1;
 }
 
 .situations__list li {

@@ -41,7 +41,13 @@ export function Closing({
         </ul>
 
         <div className="closing2__photo" data-reveal="mask">
-          <Image src="/assets/architecture/detail-horizon.webp" alt="" fill sizes="(min-width: 1024px) 34vw, 80vw" style={{ objectFit: "cover" }} />
+          <Image
+            src="/assets/editorial/leather-case.webp"
+            alt="Pasta de couro com a assinatura Carolina Meirelles & Advogados gravada."
+            fill
+            sizes="(min-width: 1024px) 34vw, 80vw"
+            style={{ objectFit: "cover", objectPosition: "40% 88%" }}
+          />
         </div>
 
         <ul className="closing2__edge closing2__edge--r" role="list" aria-label="E-mail">
