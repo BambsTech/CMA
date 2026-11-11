@@ -12,18 +12,26 @@ import { nav, firm } from "@/content/site";
  * that is mid-transition counts only where it is visible). Dark if the nearest marked
  * ancestor is `[data-tone="dark"]` or an `.on-dark` surface.
  */
-function toneUnderHeader(header: HTMLElement | null): "dark" | "light" {
+function underHeader(header: HTMLElement | null) {
   const y = Math.min(32, (header?.offsetHeight ?? 64) / 2);
-  // Dark only when most of the bar sits over a dark surface (a half-page photo stays light).
-  let dark = 0;
-  for (const x of [window.innerWidth * 0.2, window.innerWidth * 0.4, window.innerWidth * 0.8]) {
+  const probe = (x: number) => {
     const stack = document.elementsFromPoint(x, y);
-    const hit = stack.find((n) => !header?.contains(n) && !n.closest("#mobile-menu"));
-    if (!hit) continue;
-    const marked = hit.closest<HTMLElement>("[data-tone], .on-dark");
-    if (marked && (marked.dataset.tone === "dark" || (!marked.dataset.tone && marked.classList.contains("on-dark")))) dark += 1;
-  }
-  return dark >= 2 ? "dark" : "light";
+    return stack.find((n) => !header?.contains(n) && !n.closest("#mobile-menu")) ?? null;
+  };
+  const isDark = (hit: Element | null) => {
+    const marked = hit?.closest<HTMLElement>("[data-tone], .on-dark");
+    return !!marked && (marked.dataset.tone === "dark" || (!marked.dataset.tone && marked.classList.contains("on-dark")));
+  };
+  // Dark only when most of the bar sits over a dark surface (a half-page photo stays light).
+  const hits = [0.2, 0.4, 0.8].map((f) => probe(window.innerWidth * f));
+  const majority = hits.filter(isDark).length >= 2;
+  // The contact link at the far right takes the tone of whatever is directly under it.
+  const endDark = isDark(probe(window.innerWidth - 60));
+  // Over the pinned opening sequence nothing scrolls under the bar, so it needs no band.
+  const bare = hits.some((h) => !!h?.closest(".seq"));
+  // Without a band the logo and pages take the tone of what is under them on the left.
+  const dark = bare ? [0.06, 0.2, 0.33].map((f) => probe(window.innerWidth * f)).filter(isDark).length >= 2 : majority;
+  return { dark, endDark, bare };
 }
 
 function isCurrent(pathname: string, href: string) {
@@ -34,6 +42,8 @@ export function Header() {
   const pathname = usePathname() || "/";
   const [overlay, setOverlay] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [endDark, setEndDark] = useState(false);
+  const [bare, setBare] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   // The menu is tied to the route it was opened on, so any navigation closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
@@ -50,7 +60,10 @@ export function Header() {
         frame = 0;
         const y = window.scrollY;
         setScrolled(y > 24);
-        setOverlay(toneUnderHeader(headerRef.current) === "dark");
+        const t = underHeader(headerRef.current);
+        setOverlay(t.dark);
+        setEndDark(t.endDark);
+        setBare(t.bare);
       });
     };
     const settle = window.setTimeout(onScroll, 120);
@@ -106,6 +119,8 @@ export function Header() {
         data-overlay={overlay ? "true" : "false"}
         data-scrolled={scrolled ? "true" : "false"}
         data-home-top={pathname === "/" && !scrolled ? "true" : "false"}
+        data-end={endDark ? "dark" : "light"}
+        data-bare={bare ? "true" : "false"}
       >
         <div className="container site-header__inner">
           <Link

@@ -16,14 +16,10 @@ export default function ContatoPage() {
   return (
     <>
       <PageHero
-        label="Contato"
+        label=""
         dark
-        title={["Fale com o", "escritório."]}
+        title={["Fale com o escritório."]}
         intro="Descreva brevemente a situação. O escritório analisará a mensagem e retornará para entender a demanda e indicar os próximos passos."
-        crumbs={[
-          { name: "Início", path: "/" },
-          { name: "Contato", path: "/contato" },
-        ]}
       />
       <section className="section section--paper contact" aria-label="Formulário e canais de contato">
         <div className="container grid">

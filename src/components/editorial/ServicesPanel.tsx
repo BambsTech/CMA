@@ -1,27 +1,14 @@
 import Link from "next/link";
-import { LOGOS } from "@/components/brand/logo-data";
 import { practices } from "@/content/practices";
 
-function Word({ k }: { k: "palavra-carolina" | "palavra-meirelles" }) {
-  const l = LOGOS[k];
-  return <svg viewBox={`0 0 ${l.width} ${l.height}`} fill="currentColor" aria-hidden="true" focusable="false" dangerouslySetInnerHTML={{ __html: l.markup }} />;
-}
-
 /**
- * "Serviços" (manual p. 32, reproduced as the agency drew it): taupe field, the
- * signature's two words at the left edge, the numbered list top right and the
- * title pale and low.
+ * "Serviços" (manual p. 32): taupe field, the numbered list on the right and the
+ * title set in line beneath it.
  */
 export function ServicesPanel({ title = "Serviços" }: { title?: string }) {
   return (
     <section className="svc" aria-labelledby="svc-title">
       <div className="container svc__inner">
-        <span className="svc__edge svc__edge--tl">
-          <Word k="palavra-carolina" />
-        </span>
-        <span className="svc__edge svc__edge--bl">
-          <Word k="palavra-meirelles" />
-        </span>
         <ol className="svc__list" role="list">
           {practices.map((p) => (
             <li key={p.slug}>

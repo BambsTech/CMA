@@ -47,12 +47,11 @@ export default async function PracticePage({ params }: Params) {
   ];
 
   return (
-    <>
+    <div className="practice-page">
       <PageHero
-        label={`Área ${p.number} / 0${practices.length}`}
-        title={splitTitle(p.title)}
+        label=""
+        title={[p.title]}
         intro={p.summary}
-        crumbs={crumbs}
         image={{ src: p.image, alt: p.imageAlt, width: 900, height: 1200 }}
         note="Fotografia de banco de imagens (provisória)."
       />
@@ -84,7 +83,7 @@ export default async function PracticePage({ params }: Params) {
               <span className="label__num">A</span>
               Escopo
             </span>
-            <Lines as="h2" id="scope-title" className="t-h1" lines={["O que", "envolve."]} />
+            <Lines as="h2" id="scope-title" className="t-h1" lines={["O que envolve."]} />
           </div>
           <ol role="list" className="scope__list">
             {p.scope.map((s, i) => (
@@ -106,7 +105,7 @@ export default async function PracticePage({ params }: Params) {
               <span className="label__num">B</span>
               Situações
             </span>
-            <Lines as="h2" id="sit-title" className="t-h1" lines={["Quando buscar", "orientação."]} />
+            <Lines as="h2" id="sit-title" className="t-h1" lines={["Quando buscar orientação."]} />
           </div>
           <ul role="list" className="situations__list">
             {p.situations.map((s, i) => (
@@ -127,7 +126,7 @@ export default async function PracticePage({ params }: Params) {
               <span className="label__num">C</span>
               Método
             </span>
-            <Lines as="h2" id="appr-title" className="t-h1 approach__title" lines={["Como", "atuamos."]} />
+            <Lines as="h2" id="appr-title" className="t-h1 approach__title" lines={["Como atuamos."]} />
           </div>
           <ol role="list" className="approach__steps">
             {p.approach.map((s, i) => (
@@ -210,26 +209,6 @@ export default async function PracticePage({ params }: Params) {
           url: `${SITE_URL}/areas-de-atuacao/${p.slug}`,
         }}
       />
-    </>
+    </div>
   );
-}
-
-/** Breaks long practice titles into two balanced display lines. */
-function splitTitle(title: string): string[] {
-  const words = title.split(" ");
-  if (words.length < 3) return [title];
-  let best = 1;
-  let bestDiff = Infinity;
-  for (let i = 1; i < words.length; i++) {
-    const a = words.slice(0, i).join(" ").length;
-    const b = words.slice(i).join(" ").length;
-    const diff = Math.abs(a - b);
-    // avoid ending a line on a short connective
-    if (["e", "de", "em", "para", "do", "da"].includes(words[i - 1].toLowerCase())) continue;
-    if (diff < bestDiff) {
-      bestDiff = diff;
-      best = i;
-    }
-  }
-  return [words.slice(0, best).join(" "), words.slice(best).join(" ")];
 }

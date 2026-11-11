@@ -44,9 +44,11 @@ export function PageHero({ label, title, intro, crumbs, image, note, arch, dark,
           <div className="page-hero__split-text">
             {breadcrumb}
             <div className="page-hero__main">
-              <span className="label label--rule" data-reveal="fade">
-                {label}
-              </span>
+              {label && (
+                <span className="label label--rule" data-reveal="fade">
+                  {label}
+                </span>
+              )}
               <Lines as="h1" id="page-title" className="t-display page-hero__title" lines={title} delay={150} />
             </div>
             {intro && (
@@ -106,13 +108,15 @@ export function PageHero({ label, title, intro, crumbs, image, note, arch, dark,
   }
 
   return (
-    <section className={`page-hero page-hero--plain${dark ? " page-hero--dark on-dark" : ""}`} aria-labelledby="page-title">
+    <section className={`page-hero page-hero--plain${dark ? " page-hero--dark on-dark" : ""}${label ? "" : " page-hero--bare"}`} aria-labelledby="page-title">
       <div className="container">
         {breadcrumb}
         <div className="grid page-hero__plain-grid">
-          <span className="label label--rule page-hero__label" data-reveal="fade">
-            {label}
-          </span>
+          {label && (
+            <span className="label label--rule page-hero__label" data-reveal="fade">
+              {label}
+            </span>
+          )}
           <Lines as="h1" id="page-title" className="t-display page-hero__title" lines={title} delay={100} />
           {intro && (
             <p className="t-lead page-hero__intro" data-reveal="" style={{ ["--delay" as string]: "350ms" }}>

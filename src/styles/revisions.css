@@ -522,3 +522,181 @@ details[open] .arow__toggle::after {
 .site-header[data-scrolled="true"][data-overlay="false"] {
   background: rgb(255 255 255 / 0.94);
 }
+
+/* ==========================================================================
+   Review round 2 (Vercel Toolbar)
+   ========================================================================== */
+
+/* Header over the pinned opening: no band (nothing scrolls beneath it), and the
+   contact link turns white whenever the photograph is under it. */
+.site-header[data-bare="true"] {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.site-header[data-end="dark"] .site-header__contact {
+  color: var(--cma-white);
+}
+
+/* Serviços: edge words removed; list on the right, bolder; title in line below it. */
+.svc__edge {
+  display: none;
+}
+
+.svc__list a {
+  grid-template-columns: 2.5rem 1fr;
+  font-weight: 400;
+}
+
+.svc__n {
+  opacity: 1;
+}
+
+.svc__title {
+  font-size: calc(var(--fs-h1) * 1.15);
+  font-weight: 400;
+}
+
+@media (min-width: 1024px) {
+  .svc__list,
+  .svc__foot {
+    grid-column: 8 / -1;
+  }
+  .svc__foot {
+    align-self: end;
+  }
+}
+
+/* Para quem: the three entries sit on the right. */
+@media (min-width: 1024px) {
+  .whom__list {
+    justify-content: end;
+  }
+}
+
+/* Closing: everything starts from the left; text justified. */
+.closing2__inner {
+  justify-items: start;
+  text-align: left;
+}
+
+.closing2__text {
+  text-align: justify;
+  text-align-last: left;
+}
+
+@media (min-width: 1024px) {
+  .closing2__photo {
+    justify-self: stretch;
+  }
+}
+
+/* Plain page heads without a label (Contato): title in the top-left corner,
+   small justified intro, short bottom margin. */
+.page-hero--bare {
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+  padding-bottom: var(--sec-pad);
+}
+
+.page-hero--bare .page-hero__plain-grid {
+  margin-top: 0;
+  row-gap: clamp(2.5rem, 7vh, 4.5rem);
+}
+
+.page-hero--bare .page-hero__title {
+  grid-column: 1 / -1 !important;
+  max-width: none;
+  font-size: var(--fs-h1);
+}
+
+.page-hero--bare .page-hero__intro {
+  grid-column: 1 / -1 !important;
+  max-width: 22rem;
+  margin-top: 0;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* Area pages: same system as the other pages — title one line in the top-left
+   corner, small narrow text, no labels with rules, tighter section spacing. */
+.practice-page .section {
+  padding-block: var(--sec-pad) calc(var(--sec-pad) * 1.6);
+}
+
+.practice-page .page-hero--split {
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+  padding-bottom: var(--sec-pad);
+  min-height: 0;
+}
+
+.practice-page .page-hero__split {
+  align-items: start;
+}
+
+.practice-page .page-hero__split-text {
+  gap: clamp(2.5rem, 8vh, 5rem);
+}
+
+.practice-page .page-hero__split-text .page-hero__main {
+  margin-top: 0;
+}
+
+.practice-page .page-hero--split .page-hero__title {
+  font-size: var(--fs-h2);
+  line-height: 1.15;
+  max-width: none;
+}
+
+.practice-page .page-hero--split .page-hero__intro {
+  max-width: 22rem;
+  padding-top: 0;
+  border-top: 0;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.practice-page .page-hero__split-frame {
+  max-height: 64svh;
+}
+
+.practice-page .label--rule {
+  display: none;
+}
+
+.practice-page .t-h1 {
+  font-size: var(--fs-h2);
+}
+
+.practice-lead__text {
+  max-width: 30rem;
+  font-size: var(--fs-h4);
+  line-height: 1.5;
+}
+
+.practice-page .scope__list p,
+.practice-page .approach__steps p {
+  max-width: 15rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.practice-page .situations__list p {
+  max-width: 30rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.practice-page .situations__list li {
+  padding-block: 1rem;
+}
+
+.practice-page .basis {
+  margin-top: var(--space-l);
+}
+
+@media (min-width: 1024px) {
+  .practice-page .approach__title {
+    grid-column: 1 / -1 !important;
+  }
+}
