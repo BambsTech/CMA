@@ -700,3 +700,80 @@ details[open] .arow__toggle::after {
     grid-column: 1 / -1 !important;
   }
 }
+
+/* ==========================================================================
+   Review round 3 (Vercel Toolbar)
+   ========================================================================== */
+
+/* Serviços — the reference: list from the middle, a wide gap between number and
+   title, "Serviços" in line with the numbers. */
+.svc__list a {
+  grid-template-columns: clamp(4rem, 12.5vw, 13rem) 1fr;
+  padding-block: 0.25rem;
+  font-size: clamp(1.1rem, 0.6rem + 0.9vw, 1.6rem);
+}
+
+@media (min-width: 1024px) {
+  .svc__list,
+  .svc__foot {
+    grid-column: 7 / -1;
+  }
+}
+
+/* Closing — title, text and action start at the photograph's left edge;
+   no signature (it is in the footer); tighter contact details. */
+@media (min-width: 1024px) {
+  .closing2__title,
+  .closing2__text,
+  .closing2__action {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+  .closing2__text {
+    max-width: 30rem;
+  }
+}
+
+.closing2__edge {
+  gap: 0.5rem;
+}
+
+.closing2__edge li {
+  gap: 0;
+  line-height: 1.35;
+}
+
+/* Statement and Para quem: equal heights, a 50/50 rhythm. */
+.statement__grid,
+.whom__grid {
+  min-height: min(82svh, 46rem);
+}
+
+/* Area pages: no lines anywhere; photo without caption. */
+.practice-page li,
+.practice-page ul,
+.practice-page ol,
+.practice-page aside,
+.practice-page .basis,
+.practice-page .related__link,
+.practice-page .related__head {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+/* Nossa História — title low in its field, as in the manual (p. 31). */
+.story__field {
+  align-items: flex-end;
+  padding-bottom: var(--sec-pad);
+}
+
+@media (min-width: 1024px) {
+  .practice-page .scope__head,
+  .practice-page .situations__head {
+    grid-column: 1 / 7;
+  }
+  .practice-page .scope__list,
+  .practice-page .situations__list {
+    grid-column: 7 / -1;
+  }
+}

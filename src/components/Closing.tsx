@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "./Icons";
-import { Logo } from "./brand/Logo";
 import { Pending } from "./Pending";
 import { firm, whatsappHref } from "@/content/site";
 
@@ -34,10 +33,9 @@ export function Closing({
           {text}
         </p>
 
-        <ul className="closing2__edge closing2__edge--l" role="list" aria-label="Telefone e endereço">
+        <ul className="closing2__edge closing2__edge--l" role="list" aria-label="Telefone e WhatsApp">
           {item("Telefone", firm.phone ? <a href={`tel:${firm.phone.replace(/[^+\d]/g, "")}`}>{firm.phone}</a> : <Pending />)}
           {item("WhatsApp", wa ? <a href={wa} target="_blank" rel="noopener noreferrer">Iniciar conversa</a> : <Pending />)}
-          {item("Endereço", firm.address ?? `${firm.city}, ${firm.state}`)}
         </ul>
 
         <div className="closing2__photo" data-reveal="mask">
@@ -61,10 +59,6 @@ export function Closing({
             <ArrowRight />
           </Link>
         )}
-
-        <div className="closing2__mark" aria-hidden="true">
-          <Logo variant="completo-horizontal" title={null} />
-        </div>
       </div>
     </section>
   );

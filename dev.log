@@ -1,0 +1,362 @@
+▲ Next.js 16.4.3 (Turbopack)
+- Local:         http://localhost:3100
+- Network:       http://192.0.2.2:3100
+✓ Ready in 502ms
+✓ Running next.config.ts took 146ms
+
+ GET /nossa-historia 200 in 516ms (next.js: 268ms, application-code: 248ms)
+ GET / 200 in 93ms (next.js: 8ms, application-code: 85ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 316ms (next.js: 261ms, application-code: 55ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 317ms (next.js: 261ms, application-code: 55ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 324ms (next.js: 295ms, application-code: 29ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 324ms (next.js: 295ms, application-code: 29ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 320ms (next.js: 299ms, application-code: 20ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 320ms (next.js: 299ms, application-code: 20ms)
+✓ Compiled in 40ms
+ GET /areas-de-atuacao 200 in 104ms (next.js: 11ms, application-code: 93ms)
+ GET /nossa-historia 200 in 47ms (next.js: 1.1ms, application-code: 46ms)
+ GET / 200 in 64ms (next.js: 1.4ms, application-code: 63ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 69ms (next.js: 26ms, application-code: 42ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 69ms (next.js: 26ms, application-code: 43ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 68ms (next.js: 41ms, application-code: 27ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 68ms (next.js: 41ms, application-code: 27ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 61ms (next.js: 46ms, application-code: 15ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 61ms (next.js: 46ms, application-code: 16ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 28ms (next.js: 9ms, application-code: 19ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 28ms (next.js: 9ms, application-code: 19ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 27ms (next.js: 17ms, application-code: 10ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 27ms (next.js: 17ms, application-code: 10ms)
+ GET / 200 in 77ms (next.js: 1.6ms, application-code: 75ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 54ms (next.js: 18ms, application-code: 36ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 54ms (next.js: 18ms, application-code: 37ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 53ms (next.js: 28ms, application-code: 25ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 54ms (next.js: 28ms, application-code: 25ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 58ms (next.js: 41ms, application-code: 17ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 58ms (next.js: 41ms, application-code: 17ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 28ms (next.js: 8ms, application-code: 20ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 29ms (next.js: 8ms, application-code: 20ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 31ms (next.js: 22ms, application-code: 9ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 31ms (next.js: 22ms, application-code: 10ms)
+ GET / 200 in 63ms (next.js: 1.1ms, application-code: 61ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 40ms (next.js: 17ms, application-code: 24ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 41ms (next.js: 17ms, application-code: 24ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 40ms (next.js: 24ms, application-code: 16ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 40ms (next.js: 24ms, application-code: 17ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 40ms (next.js: 31ms, application-code: 9ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 40ms (next.js: 31ms, application-code: 9ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 26ms (next.js: 9ms, application-code: 18ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750812220-b058883c7f65%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 26ms (next.js: 9ms, application-code: 18ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 25ms (next.js: 16ms, application-code: 9ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=768&q=75 500 in 25ms (next.js: 16ms, application-code: 9ms)
+ GET /areas-de-atuacao/direito-registral-e-notarial 200 in 586ms (next.js: 19ms, generate-params: 445ms, application-code: 121ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 42ms (next.js: 29ms, application-code: 13ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 42ms (next.js: 29ms, application-code: 14ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 58ms (next.js: 26ms, application-code: 32ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 58ms (next.js: 26ms, application-code: 32ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 61ms (next.js: 44ms, application-code: 16ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 61ms (next.js: 44ms, application-code: 17ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 56ms (next.js: 44ms, application-code: 11ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 56ms (next.js: 44ms, application-code: 11ms)
+ GET /areas-de-atuacao/direito-registral-e-notarial 200 in 89ms (next.js: 1.2ms, generate-params: 11ms, application-code: 77ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 22ms (next.js: 9ms, application-code: 13ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 22ms (next.js: 9ms, application-code: 13ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 61ms (next.js: 30ms, application-code: 31ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 61ms (next.js: 30ms, application-code: 32ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 60ms (next.js: 39ms, application-code: 21ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 60ms (next.js: 39ms, application-code: 21ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 59ms (next.js: 47ms, application-code: 12ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 59ms (next.js: 47ms, application-code: 12ms)
+ GET /areas-de-atuacao/direito-registral-e-notarial 200 in 91ms (next.js: 1.3ms, generate-params: 9ms, application-code: 81ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 37ms (next.js: 18ms, application-code: 20ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 38ms (next.js: 18ms, application-code: 20ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 47ms (next.js: 24ms, application-code: 23ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 47ms (next.js: 24ms, application-code: 23ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 51ms (next.js: 40ms, application-code: 10ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 51ms (next.js: 40ms, application-code: 10ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 30ms (next.js: 13ms, application-code: 17ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 30ms (next.js: 13ms, application-code: 17ms)
+ GET /areas-de-atuacao/direito-registral-e-notarial 200 in 67ms (next.js: 1.1ms, generate-params: 9ms, application-code: 58ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 23ms (next.js: 9ms, application-code: 14ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 24ms (next.js: 9ms, application-code: 14ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 41ms (next.js: 19ms, application-code: 22ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 41ms (next.js: 19ms, application-code: 23ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 39ms (next.js: 29ms, application-code: 10ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 40ms (next.js: 29ms, application-code: 11ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 39ms (next.js: 29ms, application-code: 10ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 39ms (next.js: 29ms, application-code: 10ms)
+ GET / 200 in 76ms (next.js: 1.7ms, application-code: 74ms)
+ GET /areas-de-atuacao/direito-registral-e-notarial 200 in 92ms (next.js: 1.0ms, generate-params: 9ms, application-code: 82ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 26ms (next.js: 10ms, application-code: 16ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1601051671803-c379fa5172e8%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=640&q=75 500 in 27ms (next.js: 10ms, application-code: 16ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 26ms (next.js: 14ms, application-code: 12ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1736383173563-30f833812031%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 26ms (next.js: 14ms, application-code: 12ms)
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+Error: getaddrinfo ENOTFOUND images.unsplash.com
+    at ignore-listed frames {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'images.unsplash.com'
+}
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 32ms (next.js: 8ms, application-code: 24ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=320&q=75 500 in 32ms (next.js: 8ms, application-code: 24ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 31ms (next.js: 16ms, application-code: 14ms)
+ GET /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1596750811838-0f39be60e8f0%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&w=1920&q=75 500 in 31ms (next.js: 16ms, application-code: 15ms)

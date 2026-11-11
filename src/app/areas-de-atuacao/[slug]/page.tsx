@@ -53,7 +53,6 @@ export default async function PracticePage({ params }: Params) {
         title={[p.title]}
         intro={p.summary}
         image={{ src: p.image, alt: p.imageAlt, width: 900, height: 1200 }}
-        note="Fotografia de banco de imagens (provisória)."
       />
 
       {/* Lead */}
