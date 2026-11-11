@@ -8,7 +8,6 @@ import { Lines } from "@/components/Lines";
 import { ExpandFrame } from "@/components/motion/ExpandFrame";
 import { ArrowRight, ArrowUpRight } from "@/components/Icons";
 import { getPractice, practices } from "@/content/practices";
-import { articles } from "@/content/articles";
 import { audiences, firm } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
@@ -41,7 +40,6 @@ export default async function PracticePage({ params }: Params) {
   const next = practices[(index + 1) % practices.length];
   const related = p.related.map((s) => getPractice(s)).filter((x) => x !== undefined);
   const forWhom = audiences.filter((a) => p.audiences.includes(a.key));
-  const reading = articles.filter((a) => a.relatedPractice === p.slug);
   const crumbs = [
     { name: "Início", path: "/" },
     { name: "Áreas de atuação", path: "/areas-de-atuacao" },
@@ -164,19 +162,6 @@ export default async function PracticePage({ params }: Params) {
             <h2 id="rel-title" className="label label--rule">
               Áreas relacionadas
             </h2>
-            {reading.length > 0 && (
-              <p className="t-small">
-                Leitura sugerida:{" "}
-                {reading.map((a, i) => (
-                  <span key={a.slug}>
-                    {i > 0 && " · "}
-                    <Link className="inline-link" href={`/conteudos/${a.slug}`}>
-                      {a.title}
-                    </Link>
-                  </span>
-                ))}
-              </p>
-            )}
           </div>
           <ul role="list" className="related__list">
             {related.map((r) => (

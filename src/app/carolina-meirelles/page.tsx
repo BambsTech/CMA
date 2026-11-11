@@ -22,7 +22,6 @@ export const metadata: Metadata = pageMetadata({
 export default function CarolinaPage() {
   const crumbs = [
     { name: "Início", path: "/" },
-    { name: "O escritório", path: "/escritorio" },
     { name: founder.name, path: "/carolina-meirelles" },
   ];
   const bio = founder.biography ?? home.founder.intro;

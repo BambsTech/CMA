@@ -1,14 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { HomeSequence } from "@/components/home/HomeSequence";
 import { Logo } from "@/components/brand/Logo";
 import { FounderPanel } from "@/components/home/FounderPanel";
-import { Lines } from "@/components/Lines";
 import { Closing } from "@/components/Closing";
-import { ArrowRight, ArrowUpRight } from "@/components/Icons";
 import { practices } from "@/content/practices";
-import { articles, readingMinutes } from "@/content/articles";
 import { audiences, firm, founder } from "@/content/site";
 import { home } from "@/content/home";
 import { pageMetadata } from "@/lib/seo";
@@ -23,18 +18,7 @@ export const metadata: Metadata = {
   title: { absolute: `${firm.name} | Advocacia em Direito Imobiliário em Brasília` },
 };
 
-function SectionLabel({ n, children }: { n: string; children: React.ReactNode }) {
-  return (
-    <span className="label label--rule" data-reveal="fade">
-      <span className="label__num">{n}</span>
-      {children}
-    </span>
-  );
-}
-
 export default function HomePage() {
-  const [featured, ...moreArticles] = articles;
-
   return (
     <>
       {/* 01 — Hero → statement → practice chapters (one continuous sequence) */}
@@ -68,10 +52,6 @@ export default function HomePage() {
               <p>{home.intro.lead}</p>
               <p>{home.intro.body}</p>
             </div>
-            <Link href="/escritorio" className="link-line statement__link">
-              Conheça o escritório
-              <ArrowRight />
-            </Link>
           </div>
         </div>
       </section>
@@ -107,53 +87,6 @@ export default function HomePage() {
         portrait={founder.portrait}
         label="04 · Quem conduz"
       />
-
-      {/* 05 — Insights */}
-      <section className="section section--paper insights" aria-labelledby="insights-title">
-        <div className="container">
-          <div className="grid insights__head">
-            <div className="insights__label">
-              <SectionLabel n="05">Conteúdos</SectionLabel>
-            </div>
-            <Lines as="h2" id="insights-title" className="t-h1 insights__title" lines={home.insights.title} />
-            <Link href="/conteudos" className="link-line insights__all">
-              Todos os conteúdos
-              <ArrowRight />
-            </Link>
-          </div>
-
-          <div className="grid insights__grid">
-            <article className="feature" data-reveal="">
-              <Link href={`/conteudos/${featured.slug}`} className="feature__link">
-                <div className="frame frame--wide feature__frame">
-                  <Image src={featured.image} alt={featured.imageAlt} fill sizes="(min-width: 1024px) 50vw, 100vw" />
-                </div>
-                <p className="label feature__meta">
-                  <span>{featured.category}</span>
-                  <span className="label__num">{readingMinutes(featured)} min de leitura</span>
-                </p>
-                <h3 className="t-h2 feature__title">{featured.title}</h3>
-                <p className="t-body">{featured.excerpt}</p>
-              </Link>
-            </article>
-
-            <ol className="index-list" role="list">
-              {moreArticles.map((a, i) => (
-                <li key={a.slug} data-reveal="" style={{ ["--delay" as string]: `${i * 90}ms` }}>
-                  <Link href={`/conteudos/${a.slug}`} className="index-list__link">
-                    <span className="num index-list__num">{String(i + 2).padStart(2, "0")}</span>
-                    <span className="index-list__body">
-                      <span className="label">{a.category}</span>
-                      <span className="t-h4 index-list__title">{a.title}</span>
-                    </span>
-                    <ArrowUpRight className="arrow index-list__arrow" />
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
 
       <Closing />
     </>

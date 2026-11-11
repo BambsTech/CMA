@@ -49,7 +49,4 @@ export const home = {
     // [PROPOSTA]
     text: "O escritório atua a partir de Brasília. A arquitetura moderna da capital — estrutura aparente, luz intensa, ritmo e proporção — inspira a identidade da CMA e traduz a forma como conduzimos cada trabalho: estrutura clara e precisão nos detalhes.",
   },
-  insights: {
-    title: ["Leituras para", "decisões informadas."], // [PROPOSTA]
-  },
 } as const;
