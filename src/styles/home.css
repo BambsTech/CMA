@@ -1016,3 +1016,102 @@
     column-gap: var(--col-gap);
   }
 }
+
+/* ==========================================================================
+   Nossa História (manual p. 31): espresso field, title low on the left; a
+   photograph on the right with a glass panel.
+   ========================================================================== */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--cma-espresso);
+  color: var(--cma-stone);
+}
+
+.story__field {
+  display: flex;
+  align-items: flex-end;
+  min-height: 16rem;
+  padding: var(--space-l) var(--gutter) var(--space-m);
+}
+
+.story__title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  line-height: 1.02;
+  letter-spacing: var(--track-display);
+  color: var(--cma-stone);
+}
+
+.story__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30rem;
+  padding: var(--space-l) var(--gutter);
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.story__media > img {
+  z-index: 0;
+}
+
+.story__glass {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 26rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border: 1px solid rgb(206 203 196 / 0.45);
+  border-radius: 18px;
+  background: rgb(56 44 35 / 0.42);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+  backdrop-filter: blur(12px) saturate(1.05);
+  color: var(--cma-stone);
+}
+
+.story__tag {
+  position: absolute;
+  top: -0.7rem;
+  left: clamp(1.5rem, 2.5vw, 2.25rem);
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  background: var(--cma-stone);
+  color: var(--cma-espresso);
+  font-family: var(--font-caption);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.story__heading {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h2);
+  line-height: 1.15;
+  color: var(--cma-stone);
+}
+
+.story__text {
+  display: grid;
+  gap: 0.9rem;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  color: var(--cma-stone);
+}
+
+@media (min-width: 1024px) {
+  .story {
+    grid-template-columns: 1fr 1fr;
+    min-height: min(92svh, 56rem);
+  }
+  .story__field {
+    padding-bottom: var(--space-l);
+  }
+}

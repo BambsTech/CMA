@@ -1,8 +1,10 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { HomeSequence } from "@/components/home/HomeSequence";
 import { Logo } from "@/components/brand/Logo";
 import { FounderPanel } from "@/components/home/FounderPanel";
 import { Closing } from "@/components/Closing";
+import { Pending } from "@/components/Pending";
 import { practices } from "@/content/practices";
 import { audiences, firm, founder } from "@/content/site";
 import { home } from "@/content/home";
@@ -74,6 +76,32 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* Nossa História (manual p. 31): espresso field with the title low on the left,
+          a photograph on the right carrying a glass panel. */}
+      <section className="story on-dark" aria-labelledby="story-title">
+        <div className="story__field">
+          <h2 id="story-title" className="story__title" data-reveal="">
+            {home.story.title[0]}
+            <br />
+            {home.story.title[1]}
+          </h2>
+        </div>
+        <div className="story__media" data-tone="dark">
+          <Image src="/assets/architecture/pavilion.webp" alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" style={{ objectFit: "cover", objectPosition: "50% 55%" }} />
+          <div className="story__glass" data-reveal="">
+            <span className="story__tag">{home.story.label}</span>
+            <h3 className="story__heading">
+              {home.story.heading[0]}
+              <br />
+              {home.story.heading[1]}
+            </h3>
+            <div className="story__text">
+              {home.story.text.length > 0 ? home.story.text.map((t, i) => <p key={i}>{t}</p>) : <Pending>História do escritório a confirmar</Pending>}
+            </div>
+          </div>
         </div>
       </section>
 

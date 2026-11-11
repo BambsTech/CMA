@@ -31,6 +31,14 @@ export const home = {
       { title: "Transparência", text: "Clareza sobre riscos, alternativas e etapas, sem linguagem desnecessária." },
     ],
   },
+  story: {
+    title: ["Nossa", "História"], // [MANUAL] p. 31
+    label: "Carreira", // [MANUAL] p. 31
+    heading: ["Tradição no", "direito imobiliário."], // [MANUAL] p. 31
+    // The manual shows placeholder text here. Paragraphs go in this list once the firm supplies
+    // its history; until then the section shows a discreet "a confirmar" marker. Never invent dates or facts.
+    text: [] as string[],
+  },
   practices: {
     intro: "Seis frentes de atuação dentro do Direito Imobiliário, da análise que antecede um negócio à solução de conflitos já instaurados.", // [PROPOSTA]
   },
