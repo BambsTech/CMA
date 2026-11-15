@@ -1,0 +1,26 @@
+{
+  "slug": "direito-tributario",
+  "ordem": 4,
+  "publicado": true,
+  "titulo": "Direito Tributário",
+  "tituloCurto": "Tributário",
+  "chamada": "Aspectos tributários de estruturas patrimoniais e operações imobiliárias.",
+  "introducao": "A atuação tributária está voltada às questões que acompanham o patrimônio e as operações imobiliárias: o planejamento tributário lícito, a estruturação e a reorganização patrimonial e a análise dos efeitos fiscais de cada operação antes de sua realização.",
+  "servicos": [
+    { "titulo": "Planejamento tributário lícito", "texto": "Análise de alternativas legais para a organização de operações e estruturas." },
+    { "titulo": "Estruturação patrimonial", "texto": "Avaliação dos efeitos tributários na constituição de estruturas patrimoniais." },
+    { "titulo": "Reorganização patrimonial", "texto": "Aspectos tributários de reorganizações societárias e patrimoniais." },
+    { "titulo": "Operações imobiliárias", "texto": "Tributos incidentes sobre aquisições, alienações, incorporações e permutas." }
+  ],
+  "conexoes": [
+    { "area": "sucessorio-patrimonial", "texto": "Holdings e planejamento sucessório precisam de análise tributária desde o início." },
+    { "area": "direito-imobiliario", "texto": "A tributação influencia a forma e o momento de uma operação imobiliária." }
+  ],
+  "publicos": ["empresas", "investidores", "familias"],
+  "imagem": "/assets/architecture/detail-ceiling.webp",
+  "imagemAlt": "Imagem conceitual: geometria de forro em concreto.",
+  "seo": {
+    "titulo": "Direito Tributário patrimonial e imobiliário",
+    "descricao": "Planejamento tributário lícito, estruturação e reorganização patrimonial e aspectos tributários de operações imobiliárias."
+  }
+}

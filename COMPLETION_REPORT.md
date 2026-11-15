@@ -1,3 +1,6 @@
+> **Superseded by V3 (November 2026).** See `V3_AUDIT.md` for the current state and `CLIENT_APPROVAL_REQUIRED.md`
+> for pending items. The report below describes V2.
+
 # Completion report
 
 ## Redesign (round 2): architectural motion

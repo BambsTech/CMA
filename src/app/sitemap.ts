@@ -1,19 +1,24 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/content/site";
-import { practices } from "@/content/practices";
+import { areas, artigos, equipe } from "@/lib/content";
 
+/** Published content only — drafts and unpublished areas never reach the sitemap. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const page = (path: string, priority: number): MetadataRoute.Sitemap[number] => ({
+  const page = (path: string, priority: number, lastModified?: string): MetadataRoute.Sitemap[number] => ({
     url: `${SITE_URL}${path}`,
     changeFrequency: "monthly",
     priority,
+    ...(lastModified ? { lastModified } : {}),
   });
   return [
     page("/", 1),
-    page("/nossa-historia", 0.8),
-    page("/carolina-meirelles", 0.7),
+    page("/escritorio", 0.8),
     page("/areas-de-atuacao", 0.9),
-    ...practices.map((p) => page(`/areas-de-atuacao/${p.slug}`, 0.85)),
+    ...areas().map((a) => page(`/areas-de-atuacao/${a.slug}`, 0.85)),
+    page("/equipe", 0.7),
+    ...equipe().map((p) => page(`/equipe/${p.slug}`, 0.6)),
+    page("/conhecimento", 0.6),
+    ...artigos().map((a) => page(`/conhecimento/${a.slug}`, 0.6, a.data ?? undefined)),
     page("/contato", 0.6),
     page("/privacidade", 0.2),
   ];

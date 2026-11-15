@@ -1,0 +1,40 @@
+{
+  "assinatura": ["Excelência jurídica.", "Visão estratégica."],
+  "essencia": "Advocacia estratégica para patrimônio, negócios e questões de alta complexidade.",
+  "assinaturaAlternativa": "Advocacia estratégica para patrimônio e negócios.",
+  "fraseOriginal": "Objetividade e inteligência.",
+  "introducao": {
+    "titulo": "Uma perspectiva jurídica integrada.",
+    "paragrafos": [
+      "A CMA é um escritório de advocacia dedicado a questões que envolvem patrimônio, negócios e imóveis. Operações imobiliárias, regularização fundiária, sucessão e tributação raramente se apresentam isoladas — e são tratadas aqui em conjunto.",
+      "O trabalho combina profundidade técnica, conhecimento do contexto empresarial e familiar de cada cliente e atendimento próximo, conduzido com discrição e pensado para relações profissionais de longo prazo."
+    ]
+  },
+  "abordagem": {
+    "titulo": "Um escritório boutique.",
+    "texto": "Poucos assuntos, tratados com atenção integral: cada demanda é conduzida diretamente pelos advogados responsáveis, do primeiro diagnóstico à solução.",
+    "temas": [
+      { "titulo": "Profundidade técnica", "texto": "Estudo cuidadoso de cada questão, da legislação aplicável à jurisprudência e à prática dos cartórios e órgãos envolvidos." },
+      { "titulo": "Visão de negócios", "texto": "Soluções jurídicas pensadas a partir dos objetivos do cliente, do contexto da operação e de seus efeitos ao longo do tempo." },
+      { "titulo": "Relacionamento próximo", "texto": "Contato direto com os advogados responsáveis, linguagem clara e acompanhamento contínuo, com discrição." }
+    ]
+  },
+  "valores": ["Confiança", "Discrição", "Profundidade jurídica", "Visão de negócios", "Ética", "Relacionamentos duradouros"],
+  "publicos": [
+    { "chave": "empresas", "titulo": "Empresas e Incorporadoras", "texto": "Operações imobiliárias, incorporações, contratos e a regularidade dos ativos da empresa.", "areas": ["direito-imobiliario", "direito-fundiario", "direito-tributario"] },
+    { "chave": "investidores", "titulo": "Investidores e Titulares de Patrimônio", "texto": "Análise de riscos, estruturação de aquisições e organização do patrimônio.", "areas": ["direito-imobiliario", "direito-tributario", "sucessorio-patrimonial"] },
+    { "chave": "familias", "titulo": "Famílias Empresárias", "texto": "Sucessão, holdings, governança familiar e continuidade dos negócios.", "areas": ["sucessorio-patrimonial", "direito-tributario"] },
+    { "chave": "proprietarios", "titulo": "Proprietários de Imóveis", "texto": "Compra e venda, regularização, locação e questões registrais e condominiais.", "areas": ["direito-imobiliario", "direito-fundiario"] }
+  ],
+  "modeloDeAtendimento": [
+    { "titulo": "Diagnóstico", "texto": "Compreensão da situação, dos documentos e dos objetivos do cliente." },
+    { "titulo": "Estratégia", "texto": "Definição do caminho jurídico, de seus riscos e de suas alternativas." },
+    { "titulo": "Execução", "texto": "Condução das medidas necessárias, com acompanhamento direto." },
+    { "titulo": "Continuidade", "texto": "Relação profissional mantida ao longo do tempo, para as decisões seguintes." }
+  ],
+  "historia": {
+    "publicado": false,
+    "titulo": "Nossa história",
+    "paragrafos": ["Texto a ser fornecido e aprovado pelo escritório (fundação, trajetória e marcos). Não publicar sem confirmação."]
+  }
+}

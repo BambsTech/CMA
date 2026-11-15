@@ -1,0 +1,28 @@
+{
+  "slug": "direito-fundiario",
+  "ordem": 2,
+  "publicado": true,
+  "titulo": "Direito Fundiário",
+  "tituloCurto": "Fundiário",
+  "chamada": "Regularização, titulação e questões dominiais de imóveis urbanos e rurais.",
+  "introducao": "Questões fundiárias exigem leitura cuidadosa da cadeia dominial, dos registros e da situação de fato de cada área. A atuação envolve a regularização de imóveis urbanos e rurais, a solução de pendências registrais e possessórias e a titulação, em diálogo com cartórios e órgãos públicos.",
+  "servicos": [
+    { "titulo": "Regularização urbana e rural", "texto": "Diagnóstico e condução dos procedimentos de regularização de imóveis e áreas." },
+    { "titulo": "Questões registrais", "texto": "Registros, averbações, retificações e exigências formuladas pelo registro de imóveis." },
+    { "titulo": "Questões dominiais", "texto": "Análise da cadeia de titularidade e solução de inconsistências dominiais." },
+    { "titulo": "Questões possessórias", "texto": "Orientação e atuação em situações que envolvem posse e sua proteção." },
+    { "titulo": "Parcelamento do solo", "texto": "Aspectos jurídicos de loteamentos e desmembramentos." },
+    { "titulo": "Titulação", "texto": "Procedimentos para a obtenção do título de propriedade." }
+  ],
+  "conexoes": [
+    { "area": "direito-imobiliario", "texto": "Uma operação imobiliária só se completa com um título regular." },
+    { "area": "sucessorio-patrimonial", "texto": "Pendências fundiárias afetam inventários, partilhas e a organização do patrimônio." }
+  ],
+  "publicos": ["empresas", "proprietarios", "familias"],
+  "imagem": "/assets/architecture/detail-horizon.webp",
+  "imagemAlt": "Imagem conceitual: horizonte amplo sob estrutura de concreto.",
+  "seo": {
+    "titulo": "Direito Fundiário",
+    "descricao": "Regularização urbana e rural, questões registrais, dominiais e possessórias, parcelamento do solo e titulação."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "direito-imobiliario",
+  "ordem": 1,
+  "publicado": true,
+  "titulo": "Direito Imobiliário",
+  "tituloCurto": "Imobiliário",
+  "chamada": "Operações imobiliárias conduzidas com segurança jurídica, da análise prévia à formalização.",
+  "introducao": "A atuação abrange a estruturação, a análise e a formalização de operações que envolvem imóveis — de aquisições e alienações a incorporações e contratos de longo prazo. Cada operação é examinada em seus aspectos documentais, registrais, contratuais e, quando relevante, sucessórios e tributários.",
+  "servicos": [
+    { "titulo": "Aquisições e alienações", "texto": "Estruturação jurídica da compra e venda de imóveis, com análise de riscos e acompanhamento até o registro." },
+    { "titulo": "Incorporações imobiliárias", "texto": "Apoio jurídico a incorporações, do memorial e do registro à relação com adquirentes." },
+    { "titulo": "Contratos imobiliários", "texto": "Elaboração, revisão e negociação de contratos de compra e venda, permuta, promessa e garantias." },
+    { "titulo": "Due diligence", "texto": "Levantamento documental e análise jurídica do imóvel e das partes antes da decisão." },
+    { "titulo": "Locações", "texto": "Contratos residenciais e comerciais, inclusive modalidades específicas, e sua revisão." },
+    { "titulo": "Condomínios", "texto": "Convenções, regimentos e questões condominiais em empreendimentos residenciais e comerciais." },
+    { "titulo": "Operações imobiliárias complexas", "texto": "Operações com múltiplas partes, garantias ou etapas, estruturadas de forma integrada." }
+  ],
+  "conexoes": [
+    { "area": "direito-fundiario", "texto": "A segurança de uma aquisição depende da regularidade dominial e registral do imóvel." },
+    { "area": "sucessorio-patrimonial", "texto": "Imóveis costumam ser o centro da organização patrimonial e da sucessão." },
+    { "area": "direito-tributario", "texto": "A forma de estruturar a operação tem efeitos tributários que precisam ser avaliados antes." }
+  ],
+  "publicos": ["empresas", "investidores", "proprietarios"],
+  "imagem": "/assets/architecture/pavilion.webp",
+  "imagemAlt": "Imagem conceitual: pavilhão de concreto aberto para o horizonte.",
+  "seo": {
+    "titulo": "Direito Imobiliário em Brasília",
+    "descricao": "Assessoria jurídica em Direito Imobiliário: aquisições, incorporações, contratos, due diligence, locações, condomínios e operações complexas."
+  }
+}

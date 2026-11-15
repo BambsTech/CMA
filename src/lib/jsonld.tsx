@@ -1,24 +1,23 @@
-import { firm, founder, SITE_URL } from "@/content/site";
-import { practices } from "@/content/practices";
+import { firm, SITE_URL } from "@/content/site";
+import { areas } from "@/lib/content";
 
 /**
  * Structured data built ONLY from verified facts. Pending values (address, phone, OAB, e-mail)
- * are added automatically once they are filled in content/site.ts — never guessed.
+ * are added automatically once they are filled in content/contato.json (CMS) — never guessed.
  */
 export function organizationJsonLd() {
   const data: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "LegalService",
     "@id": `${SITE_URL}/#escritorio`,
-    name: firm.name,
-    alternateName: firm.shortName,
+    name: firm.shortName,
+    legalName: firm.name,
     url: SITE_URL,
     logo: `${SITE_URL}/assets/icons/icon-512.png`,
     image: `${SITE_URL}/assets/og/cma-og-default.jpg`,
-    description: `Escritório de advocacia especializado em ${firm.specialty}, em ${firm.city}/${firm.state}.`,
+    description: `Escritório de advocacia em ${firm.city}/${firm.state}: Direito Imobiliário, Fundiário, Sucessório e Patrimonial e Tributário.`,
     areaServed: { "@type": "City", name: "Brasília", containedInPlace: { "@type": "State", name: "Distrito Federal" } },
-    knowsAbout: ["Direito Imobiliário", ...practices.map((p) => p.title)],
-    founder: { "@type": "Person", name: founder.name, jobTitle: "Advogada" },
+    knowsAbout: areas().map((a) => a.titulo),
   };
   if (firm.email) data.email = firm.email;
   if (firm.phone) data.telephone = firm.phone;

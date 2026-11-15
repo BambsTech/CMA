@@ -1,0 +1,199 @@
+# CMA — gestão de conteúdo (Sveltia CMS, compatível com Decap CMS).
+# O conteúdo fica no próprio repositório (pasta /content). Cada "Publicar" grava um commit
+# no GitHub e a Vercel publica a nova versão do site em cerca de 1–2 minutos.
+# Guia em português: GUIA_CMS.md
+
+backend:
+  name: github
+  repo: BambsTech/CMA
+  # Ramo publicado pela Vercel em produção. Ajuste se o ramo de produção mudar.
+  branch: claude/epic-dijkstra-2gry7e
+  commit_messages:
+    create: "Conteúdo: cria {{collection}} “{{slug}}”"
+    update: "Conteúdo: atualiza {{collection}} “{{slug}}”"
+    delete: "Conteúdo: remove {{collection}} “{{slug}}”"
+    uploadMedia: "Conteúdo: envia imagem “{{path}}”"
+    deleteMedia: "Conteúdo: remove imagem “{{path}}”"
+
+locale: pt
+site_url: https://cma-tawny-one.vercel.app
+display_url: https://cma-tawny-one.vercel.app
+logo_url: /assets/icons/icon-192.png
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  # ——— Artigos (Conhecimento) ———
+  - name: artigos
+    label: Artigos
+    label_singular: Artigo
+    description: "Somente artigos com status “Publicado” e com data aparecem no site. Rascunhos ficam visíveis apenas aqui."
+    folder: content/artigos
+    extension: json
+    format: json
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: titulo
+    summary: "{{titulo}} — {{status}}"
+    sortable_fields: [data, titulo, status]
+    fields:
+      - { name: slug, label: "Endereço (URL)", widget: string, hint: "Somente letras minúsculas, números e hífens. Ex.: holding-patrimonial", pattern: ["^[a-z0-9-]+$", "Use letras minúsculas, números e hífens"] }
+      - { name: status, label: Status, widget: select, options: [{ label: Rascunho, value: rascunho }, { label: Em revisão jurídica, value: revisao }, { label: Publicado, value: publicado }], default: rascunho }
+      - { name: titulo, label: Título, widget: string }
+      - { name: categoria, label: Categoria, widget: select, options: ["Direito Imobiliário", "Direito Fundiário", "Planejamento Sucessório", "Tributação Patrimonial", "Decisões dos Tribunais Superiores"] }
+      - { name: data, label: "Data de publicação", widget: datetime, time_format: false, format: "YYYY-MM-DD", required: false, hint: "Obrigatória para publicar. Use a data real de publicação." }
+      - { name: autor, label: Autor, widget: relation, collection: equipe, value_field: slug, search_fields: [nome], display_fields: [nome], required: false }
+      - { name: resumo, label: Resumo, widget: text, hint: "Duas ou três linhas exibidas na listagem." }
+      - { name: corpo, label: Texto, widget: markdown }
+      - { name: imagem, label: "Imagem (opcional)", widget: image, required: false }
+      - name: seo
+        label: SEO
+        widget: object
+        collapsed: true
+        fields:
+          - { name: titulo, label: "Título para buscadores", widget: string, required: false }
+          - { name: descricao, label: "Descrição para buscadores", widget: text, required: false }
+
+  # ——— Equipe ———
+  - name: equipe
+    label: Equipe
+    label_singular: Profissional
+    description: "Somente dados verificáveis. Perfis com “Publicado” desmarcado não aparecem no site."
+    folder: content/equipe
+    extension: json
+    format: json
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: nome
+    summary: "{{nome}} — {{cargo}}"
+    fields:
+      - { name: slug, label: "Endereço (URL)", widget: string, pattern: ["^[a-z0-9-]+$", "Use letras minúsculas, números e hífens"] }
+      - { name: publicado, label: Publicado, widget: boolean, default: false }
+      - { name: ordem, label: "Ordem de exibição", widget: number, value_type: int, default: 10 }
+      - { name: nome, label: Nome, widget: string }
+      - { name: cargo, label: Cargo, widget: string }
+      - { name: oab, label: "Inscrição na OAB", widget: string, required: false, hint: "Ex.: OAB/DF 00.000" }
+      - { name: foto, label: "Fotografia (retrato autoral aprovado)", widget: image, required: false }
+      - { name: fotoAlt, label: "Descrição da fotografia (acessibilidade)", widget: string, required: false }
+      - { name: resumo, label: "Resumo (uma frase)", widget: text }
+      - { name: biografia, label: Biografia, widget: list, field: { name: paragrafo, label: Parágrafo, widget: text } }
+      - { name: formacao, label: Formação, widget: list, field: { name: item, label: Item, widget: string }, required: false }
+      - { name: experiencia, label: "Experiência profissional", widget: list, field: { name: item, label: Item, widget: string }, required: false }
+      - { name: idiomas, label: Idiomas, widget: list, field: { name: item, label: Idioma, widget: string }, required: false }
+      - { name: areas, label: "Áreas de atuação", widget: relation, collection: areas, value_field: slug, search_fields: [titulo], display_fields: [titulo], multiple: true, required: false }
+
+  # ——— Áreas de atuação ———
+  - name: areas
+    label: "Áreas de atuação"
+    label_singular: Área
+    description: "Áreas com “Publicado” desmarcado não aparecem no site (ex.: Tribunais Superiores, até a confirmação)."
+    folder: content/areas
+    extension: json
+    format: json
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: titulo
+    summary: "{{ordem}}. {{titulo}}"
+    fields:
+      - { name: slug, label: "Endereço (URL)", widget: string, pattern: ["^[a-z0-9-]+$", "Use letras minúsculas, números e hífens"] }
+      - { name: publicado, label: Publicado, widget: boolean, default: false }
+      - { name: notaInterna, label: "Nota interna (não aparece no site)", widget: text, required: false }
+      - { name: ordem, label: "Ordem de exibição", widget: number, value_type: int }
+      - { name: titulo, label: Título, widget: string }
+      - { name: tituloCurto, label: "Título curto", widget: string }
+      - { name: chamada, label: "Chamada (uma frase)", widget: text }
+      - { name: introducao, label: Introdução, widget: text }
+      - name: servicos
+        label: Serviços
+        widget: list
+        fields:
+          - { name: titulo, label: Título, widget: string }
+          - { name: texto, label: Descrição, widget: text }
+      - name: conexoes
+        label: "Conexões com outras áreas"
+        widget: list
+        fields:
+          - { name: area, label: Área, widget: relation, collection: areas, value_field: slug, search_fields: [titulo], display_fields: [titulo] }
+          - { name: texto, label: "Por que se conectam", widget: text }
+      - { name: publicos, label: "Públicos", widget: select, multiple: true, options: [{ label: "Empresas e Incorporadoras", value: empresas }, { label: "Investidores e Titulares de Patrimônio", value: investidores }, { label: "Famílias Empresárias", value: familias }, { label: "Proprietários de Imóveis", value: proprietarios }] }
+      - { name: imagem, label: Imagem, widget: image }
+      - { name: imagemAlt, label: "Descrição da imagem (acessibilidade)", widget: string }
+      - name: seo
+        label: SEO
+        widget: object
+        collapsed: true
+        fields:
+          - { name: titulo, label: "Título para buscadores", widget: string, required: false }
+          - { name: descricao, label: "Descrição para buscadores", widget: text, required: false }
+
+  # ——— Institucional ———
+  - name: institucional
+    label: Institucional
+    files:
+      - name: contato
+        label: "Contato e identificação"
+        file: content/contato.json
+        format: json
+        fields:
+          - { name: nomeInstitucional, label: "Nome institucional", widget: string }
+          - { name: nomeFormal, label: "Nome formal da sociedade", widget: string }
+          - { name: registroOAB, label: "Registro da sociedade na OAB", widget: string, required: false }
+          - { name: cidade, label: Cidade, widget: string }
+          - { name: uf, label: UF, widget: string }
+          - { name: endereco, label: "Endereço completo", widget: string, required: false }
+          - { name: email, label: "E-mail institucional", widget: string, required: false }
+          - { name: telefone, label: "Telefone (formato de exibição)", widget: string, required: false, hint: "Ex.: +55 61 0000-0000" }
+          - { name: whatsapp, label: "WhatsApp (somente números, com DDI)", widget: string, required: false, hint: "Ex.: 5561900000000" }
+          - { name: horario, label: "Horário de atendimento", widget: string, required: false }
+          - { name: instagram, label: "Instagram (endereço completo)", widget: string, required: false }
+          - { name: linkedin, label: "LinkedIn (endereço completo)", widget: string, required: false }
+      - name: escritorio
+        label: "O escritório (textos institucionais)"
+        file: content/escritorio.json
+        format: json
+        fields:
+          - { name: assinatura, label: "Assinatura (duas linhas)", widget: list, field: { name: linha, label: Linha, widget: string } }
+          - { name: essencia, label: "Frase de posicionamento", widget: text }
+          - { name: assinaturaAlternativa, label: "Assinatura alternativa", widget: string }
+          - { name: fraseOriginal, label: "Frase editorial secundária", widget: string }
+          - name: introducao
+            label: Introdução
+            widget: object
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: paragrafos, label: Parágrafos, widget: list, field: { name: p, label: Parágrafo, widget: text } }
+          - name: abordagem
+            label: Abordagem
+            widget: object
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: texto, label: Texto, widget: text }
+              - name: temas
+                label: Temas
+                widget: list
+                fields:
+                  - { name: titulo, label: Título, widget: string }
+                  - { name: texto, label: Texto, widget: text }
+          - { name: valores, label: Valores, widget: list, field: { name: v, label: Valor, widget: string } }
+          - name: publicos
+            label: "Públicos"
+            widget: list
+            fields:
+              - { name: chave, label: "Identificador", widget: string }
+              - { name: titulo, label: Título, widget: string }
+              - { name: texto, label: Texto, widget: text }
+              - { name: areas, label: "Áreas relacionadas", widget: relation, collection: areas, value_field: slug, search_fields: [titulo], display_fields: [titulo], multiple: true }
+          - name: modeloDeAtendimento
+            label: "Modelo de atendimento"
+            widget: list
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: texto, label: Texto, widget: text }
+          - name: historia
+            label: "História (publicar somente após aprovação)"
+            widget: object
+            fields:
+              - { name: publicado, label: Publicado, widget: boolean, default: false }
+              - { name: titulo, label: Título, widget: string }
+              - { name: paragrafos, label: Parágrafos, widget: list, field: { name: p, label: Parágrafo, widget: text } }

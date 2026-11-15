@@ -9,3 +9,7 @@ next-env.d.ts
 npm-debug.log*
 /screenshots/
 scripts/.og-render.html
+
+# Client-supplied photo shoot (private residence; rights and use unconfirmed) — never commit
+assets-src/trk/*
+!assets-src/trk/CATALOGUE.md

@@ -3,7 +3,7 @@ import { Pending } from "./Pending";
 
 /** Contact routes. Unconfirmed values render as discreet placeholders — never as invented data. */
 export function ContactDetails({ className }: { className?: string }) {
-  const wa = whatsappHref("Olá. Gostaria de falar com o escritório Carolina Meirelles & Advogados.");
+  const wa = whatsappHref("Olá. Gostaria de falar com a CMA Advogados.");
   const rows: { label: string; value: React.ReactNode }[] = [
     {
       label: "E-mail",

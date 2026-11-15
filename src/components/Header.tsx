@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Logo } from "./brand/Logo";
+import { CmaLockup } from "./brand/Cma";
 import { ArrowRight } from "./Icons";
 import { nav, firm } from "@/content/site";
 
@@ -28,10 +28,12 @@ function underHeader(header: HTMLElement | null) {
   // The contact link at the far right takes the tone of whatever is directly under it.
   const endDark = isDark(probe(window.innerWidth - 60));
   // Over the pinned opening sequence nothing scrolls under the bar, so it needs no band.
-  const bare = hits.some((h) => !!h?.closest(".seq"));
+  const bare = hits.filter((h) => !!h?.closest(".hero.is-pinned .hero__media")).length >= 2;
+  // The mark at the far left takes the tone of what is directly under it.
+  const brandDark = isDark(probe(Math.min(140, window.innerWidth * 0.08)));
   // Without a band the logo and pages take the tone of what is under them on the left.
   const dark = bare ? [0.06, 0.2, 0.33].map((f) => probe(window.innerWidth * f)).filter(isDark).length >= 2 : majority;
-  return { dark, endDark, bare };
+  return { dark, endDark, bare, brandDark };
 }
 
 function isCurrent(pathname: string, href: string) {
@@ -44,6 +46,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [endDark, setEndDark] = useState(false);
   const [bare, setBare] = useState(false);
+  const [brandDark, setBrandDark] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   // The menu is tied to the route it was opened on, so any navigation closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
@@ -64,6 +67,7 @@ export function Header() {
         setOverlay(t.dark);
         setEndDark(t.endDark);
         setBare(t.bare);
+        setBrandDark(t.brandDark);
       });
     };
     const settle = window.setTimeout(onScroll, 120);
@@ -121,12 +125,13 @@ export function Header() {
         data-home-top={pathname === "/" && !scrolled ? "true" : "false"}
         data-end={endDark ? "dark" : "light"}
         data-bare={bare ? "true" : "false"}
+        data-brand={brandDark ? "dark" : "light"}
       >
         <div className="container site-header__inner">
           <Link
             href="/"
             className="site-header__brand"
-            aria-label={`${firm.name} — página inicial`}
+            aria-label={`${firm.shortName} — página inicial`}
             onClick={(e) => {
               // Already home: return to the very top instantly instead of re-navigating.
               if (pathname === "/") {
@@ -135,7 +140,7 @@ export function Header() {
               }
             }}
           >
-            <Logo variant="monograma" title={null} />
+            <CmaLockup variant="inline" title={null} />
           </Link>
 
           <nav className="site-nav" aria-label="Navegação principal">
@@ -189,8 +194,8 @@ export function Header() {
         inert={!open}
       >
         <div className="container mobile-menu__top">
-          <Link href="/" className="site-header__brand" aria-label={`${firm.name} — página inicial`} onClick={() => close(false)}>
-            <Logo variant="completo-horizontal" title={null} />
+          <Link href="/" className="site-header__brand" aria-label={`${firm.shortName} — página inicial`} onClick={() => close(false)}>
+            <CmaLockup variant="inline" title={null} />
           </Link>
           <button ref={closeRef} type="button" className="menu-toggle menu-close" onClick={() => close()}>
             Fechar
@@ -215,7 +220,7 @@ export function Header() {
           </ul>
         </nav>
         <div className="container mobile-menu__foot">
-          <span className="label">Direito Imobiliário</span>
+          <span className="label">Patrimônio · Negócios · Imóveis</span>
           <span className="label">
             {firm.city} · {firm.state}
           </span>

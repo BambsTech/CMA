@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { PageHero } from "@/components/PageHero";
+import { PageHead } from "@/components/v3/PageHead";
 import { Pending } from "@/components/Pending";
 import { firm } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Política de Privacidade",
-  description: "Como o site de Carolina Meirelles & Advogados trata dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD).",
+  description: "Como o site da CMA Advogados trata dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD).",
   path: "/privacidade",
 });
 
@@ -18,15 +18,7 @@ export const metadata: Metadata = pageMetadata({
 export default function PrivacidadePage() {
   return (
     <>
-      <PageHero
-        label="Privacidade"
-        title={["Política de", "Privacidade."]}
-        intro="Esta política descreve como este site trata dados pessoais, nos termos da Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)."
-        crumbs={[
-          { name: "Início", path: "/" },
-          { name: "Privacidade", path: "/privacidade" },
-        ]}
-      />
+      <PageHead label="Privacidade" title="Política de Privacidade." lead="Esta política descreve como este site trata dados pessoais, nos termos da Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)." />
       <section className="section section--paper legal" aria-label="Texto da política">
         <div className="container grid">
           <aside className="legal__aside">

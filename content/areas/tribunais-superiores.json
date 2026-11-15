@@ -1,0 +1,24 @@
+{
+  "slug": "tribunais-superiores",
+  "ordem": 5,
+  "publicado": false,
+  "notaInterna": "NÃO PUBLICAR até a confirmação da experiência efetiva dos profissionais perante o STJ e o STF e a aprovação do texto (briefing, item 03).",
+  "titulo": "Tribunais Superiores",
+  "tituloCurto": "Tribunais Superiores",
+  "chamada": "Recursos e contencioso estratégico perante o STJ e o STF.",
+  "introducao": "Texto provisório. Descrever aqui a atuação recursal e o contencioso estratégico perante os tribunais superiores, de acordo com a experiência efetiva dos profissionais, após confirmação.",
+  "servicos": [
+    { "titulo": "Recursos especiais e extraordinários", "texto": "Texto provisório, sujeito à confirmação da experiência da equipe." },
+    { "titulo": "Contencioso estratégico", "texto": "Texto provisório, sujeito à confirmação da experiência da equipe." }
+  ],
+  "conexoes": [
+    { "area": "direito-imobiliario", "texto": "Texto provisório." }
+  ],
+  "publicos": ["empresas", "investidores"],
+  "imagem": "/assets/architecture/detail-colonnade-rhythm.webp",
+  "imagemAlt": "Imagem conceitual: ritmo de colunas.",
+  "seo": {
+    "titulo": "Tribunais Superiores",
+    "descricao": "Texto provisório — página não publicada."
+  }
+}
