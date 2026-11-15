@@ -13,16 +13,17 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3
 export const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 
 export const firm = {
-  /** Verified: brand manual. */
+  /** Verified: brand manual. Formal name — kept for legal identification (footer, privacy, structured data). */
   name: "Carolina Meirelles & Advogados",
-  shortName: "CMA",
+  /** Institutional name to be emphasised (client feedback, Nov 2026). Pending confirmation as the public short name. */
+  shortName: "CMA Advogados",
   /** Verified: brand manual + client brief. */
   city: "Brasília",
   state: "DF",
-  /** Verified: brand manual ("Advocacia especializada em Direito Imobiliário"). */
-  specialty: "Direito Imobiliário",
-  /** Brand phrase used in the manual's own applications. */
-  motto: "Objetividade e inteligência.",
+  /** Positioning (November 2026 briefing). */
+  specialty: "Advocacia estratégica para patrimônio, negócios e questões de alta complexidade",
+  /** Preferred institutional signature (November 2026 briefing). */
+  motto: "Excelência jurídica. Visão estratégica.",
 
   // ——— Pending client confirmation ———
   /** Registro da sociedade de advogados na OAB/DF (required in advertising — Provimento 205/2021). */
@@ -58,8 +59,10 @@ export const founder = {
 
 export const nav = [
   { href: "/", label: "Início" },
+  { href: "/nossa-historia", label: "O Escritório" },
   { href: "/areas-de-atuacao", label: "Serviços" },
-  { href: "/nossa-historia", label: "Nossa História" },
+  { href: "/equipe", label: "Equipe" },
+  { href: "/conhecimento", label: "Conhecimento" },
   { href: "/contato", label: "Contato" },
 ] as const;
 
@@ -73,25 +76,25 @@ export const audiences = [
   {
     key: "empresas",
     number: "I",
-    title: "Empresas e Empreendimentos",
-    short: "Operações e ativos imobiliários da empresa.",
-    practices: ["consultoria-e-due-diligence-imobiliaria", "elaboracao-e-revisao-de-contratos", "locacao-e-condominios", "litigios-imobiliarios"],
-    text: "Orientação jurídica para operações imobiliárias empresariais, empreendimentos e decisões que envolvem ativos imobiliários da empresa.",
+    title: "Empresários e Incorporadores",
+    short: "Operações, empreendimentos e ativos imobiliários.",
+    practices: ["direito-imobiliario", "direito-fundiario", "direito-tributario"],
+    text: "Orientação jurídica para operações imobiliárias, incorporações e decisões que envolvem os ativos da empresa.",
   },
   {
     key: "investidores",
     number: "II",
-    title: "Investidores e Patrimônio",
-    short: "Aquisições, riscos e gestão patrimonial.",
-    practices: ["consultoria-e-due-diligence-imobiliaria", "elaboracao-e-revisao-de-contratos", "direito-registral-e-notarial", "regularizacao-de-imoveis"],
-    text: "Análise de riscos, estruturação de aquisições e acompanhamento de transações ligadas a investimentos e à gestão patrimonial.",
+    title: "Investidores e Famílias Empresárias",
+    short: "Patrimônio relevante, sucessão e governança.",
+    practices: ["sucessorio-patrimonial", "direito-tributario", "direito-imobiliario"],
+    text: "Organização do patrimônio, planejamento sucessório, holdings e governança familiar para investidores, famílias empresárias e titulares de patrimônio relevante.",
   },
   {
     key: "proprietarios",
     number: "III",
     title: "Proprietários de Imóveis",
-    short: "Compra e venda, regularização, locação e conflitos.",
-    practices: ["regularizacao-de-imoveis", "locacao-e-condominios", "litigios-imobiliarios", "direito-registral-e-notarial"],
-    text: "Apoio a pessoas que lidam com compra e venda, contratos, regularização documental, locação ou conflitos envolvendo seu imóvel.",
+    short: "Compra e venda, regularização e titulação.",
+    practices: ["direito-imobiliario", "direito-fundiario"],
+    text: "Apoio a quem lida com compra e venda, contratos, regularização, titulação ou locação do seu imóvel.",
   },
 ] as const;

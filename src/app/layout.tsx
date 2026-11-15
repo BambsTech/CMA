@@ -14,14 +14,14 @@ import { JsonLd, organizationJsonLd } from "@/lib/jsonld";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${firm.name} | Advocacia em Direito Imobiliário em Brasília`,
-    template: `%s | ${firm.name}`,
+    default: `${firm.shortName} | Advocacia estratégica para patrimônio e negócios`,
+    template: `%s | ${firm.shortName}`,
   },
   description:
-    "Escritório de advocacia especializado em Direito Imobiliário em Brasília/DF: consultoria, due diligence, contratos, regularização de imóveis, locação, condomínios e direito registral.",
-  applicationName: firm.name,
+    "CMA Advogados, Brasília/DF: advocacia estratégica para patrimônio, negócios e questões de alta complexidade.",
+  applicationName: firm.shortName,
   robots: { index: ALLOW_INDEXING, follow: ALLOW_INDEXING },
-  openGraph: { locale: "pt_BR", siteName: firm.name, type: "website", images: [{ url: DEFAULT_OG, width: 1200, height: 630 }] },
+  openGraph: { locale: "pt_BR", siteName: firm.shortName, type: "website", images: [{ url: DEFAULT_OG, width: 1200, height: 630 }] },
   formatDetection: { telephone: false, email: false, address: false },
 };
 

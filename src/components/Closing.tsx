@@ -13,10 +13,10 @@ type Props = { heading?: string[]; text?: string; showAction?: boolean };
  */
 export function Closing({
   heading = ["Vamos conversar."],
-  text = "Cada situação imobiliária tem documentos, prazos e interesses próprios. Conte-nos o contexto e o escritório retornará para entender a demanda e indicar os próximos passos.",
+  text = "Cada situação tem documentos, prazos e interesses próprios. Conte-nos o contexto e o escritório retornará para entender a demanda e indicar os próximos passos.",
   showAction = true,
 }: Props) {
-  const wa = whatsappHref("Olá. Gostaria de falar com o escritório Carolina Meirelles & Advogados.");
+  const wa = whatsappHref("Olá. Gostaria de falar com a CMA Advogados.");
   const item = (label: string, value: React.ReactNode) => (
     <li>
       <span className="closing2__k">{label}</span>

@@ -13,6 +13,9 @@ type Props = {
   education: readonly string[] | null;
   portrait: string | null;
   label: string;
+  /** Panel title (default "A sócia."); the homepage uses "A equipe." to keep the institution first. */
+  title?: string;
+  link?: { href: string; label: string };
 };
 
 /**
@@ -22,7 +25,7 @@ type Props = {
  * set large in the lower right. The portrait remains an explicit placeholder until an
  * authentic photograph is supplied.
  */
-export function FounderPanel({ name, firstName, role, bio, oab, education, portrait, label }: Props) {
+export function FounderPanel({ name, firstName, role, bio, oab, education, portrait, label, title = "A sócia.", link = { href: "/carolina-meirelles", label: "Perfil completo" } }: Props) {
   return (
     <section className="partner on-dark" aria-labelledby="partner-title">
       <div className="partner__media" aria-hidden="true">
@@ -49,7 +52,7 @@ export function FounderPanel({ name, firstName, role, bio, oab, education, portr
 
           <div className="partner__text">
             <h2 id="partner-title" className="partner__title">
-              A sócia.
+              {title}
             </h2>
             <div className="partner__cols">
               {bio.map((p, i) => (
@@ -70,8 +73,8 @@ export function FounderPanel({ name, firstName, role, bio, oab, education, portr
                 <dd>{role}</dd>
               </div>
             </dl>
-            <Link href="/carolina-meirelles" className="link-line partner__link">
-              Perfil completo
+            <Link href={link.href} className="link-line partner__link">
+              {link.label}
               <ArrowRight />
             </Link>
           </div>

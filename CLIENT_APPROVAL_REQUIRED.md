@@ -75,3 +75,22 @@ Notes for the legal reviewer:
 ## 7. Not included, by design
 
 No testimonials, case studies, client logos, success rates, years of experience, rankings or awards. None should be added without verification and an ethics review.
+
+---
+
+## November 2026 content update (on the refined design, commit ca5ab76)
+
+The approved design was kept unchanged; only content and brand hierarchy were updated. Items to confirm:
+
+1. **Hero band.** The band under the opening photograph now reads *CMA · Brasília · DF · ADVOGADOS*, set in Encode Sans (the manual's heading face) at exactly the size of the original *CAROLINA … MEIRELLES* letters. This follows the client's request to emphasise CMA rather than the full signature. No new logo was drawn. Confirm the wording, or ask Estúdio Sarau for an official "CMA" artwork to replace it.
+2. **Official reduced logo (CM&A)** is now also used in the statement section, the Nossa História section and the mobile menu, in place of the full signature. The full signature remains in the footer as the formal identification, with "© CMA Advogados · Carolina Meirelles & Advogados".
+3. **"CMA Advogados"** as the public short name: confirm it alongside the registered name of the sociedade.
+4. **Signature and positioning:** "Excelência jurídica. Visão estratégica." (hero line, statement) and "Advocacia estratégica para patrimônio, negócios e questões de alta complexidade." (statement). Both come from the November briefing; they still need final approval.
+5. **Practice areas.** Direito Imobiliário, Direito Fundiário, Direito Sucessório e Patrimonial and Direito Tributário are published. **Tribunais Superiores** is written but unpublished (`published: false` in `src/content/practices.ts`) until the team's effective experience before the STJ/STF is confirmed. All descriptions and legal references need legal review. The six former URLs redirect permanently.
+6. **Homepage chapters** show three areas (Imobiliário, Sucessório e Patrimonial, Fundiário), as the client previously asked for three. Tributário appears on Serviços. Confirm the choice.
+7. **Audiences:** kept as three entries so the layout is unchanged. They now cover the six briefing audiences: Empresários e Incorporadores; Investidores e Famílias Empresárias (including titulares de patrimônio relevante); Proprietários de Imóveis.
+8. **Team.** On the homepage the panel is now "A equipe." with the large word "CMA.". The new /equipe page keeps "A sócia." for Carolina Meirelles. Confirm her title (sócia / sócia fundadora), OAB number, education and biography. **The portrait is a crop of the agency's mockup (manual p. 30) and has not been confirmed as Carolina Meirelles.** Replace it with an authentic portrait before publication.
+9. **Navigation:** Início · O Escritório (/nossa-historia) · Serviços · Equipe · Conhecimento · Contato. The label "Serviços" was kept as chosen in the earlier review rounds.
+10. **Conhecimento.** The page lists the five editorial lines from the briefing as "Publicações em preparação". No article has been written or published.
+11. **TRK.** No change to the photography. The site does not mention TRK and states no address. The TRK-named photos found in the shared Drive show a private residence and were not used.
+12. **Nossa História.** The placeholder text was replaced with the briefing's institutional description. The firm's actual history (dates, milestones) is still to be supplied.

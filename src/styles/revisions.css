@@ -777,3 +777,41 @@ details[open] .arow__toggle::after {
     grid-column: 7 / -1;
   }
 }
+
+/* ==========================================================================
+   November 2026 content update — CMA emphasis (no layout change)
+   ========================================================================== */
+
+/* Opening band: CMA … ADVOGADOS in the same band, same cap height as the original letters. */
+.spread-mark--cma .spread-mark__a {
+  width: 19.9%;
+}
+
+.spread-mark--cma .spread-mark__b {
+  width: 58.5%;
+}
+
+.spread-mark--cma .spread-mark__mid {
+  width: 9.2%;
+  margin-bottom: 0.5%;
+}
+
+.spread-mark--cma svg {
+  overflow: visible;
+}
+
+/* Statement: the official reduced logo (CM&A) at the header's size, in place of the signature. */
+@media (min-width: 1024px) {
+  .statement__mark--cma {
+    width: 64px;
+  }
+}
+
+.story2__mark--cma {
+  width: 64px;
+}
+
+/* Conhecimento reuses the Serviços panel; its lines are not links yet. */
+.svc__list a[aria-disabled="true"] {
+  pointer-events: none;
+}

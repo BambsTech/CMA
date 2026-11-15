@@ -10,12 +10,12 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: `${firm.name} | Advocacia em Direito Imobiliário em Brasília`,
+    title: `${firm.shortName} | Advocacia estratégica para patrimônio e negócios`,
     description:
-      "Assessoria jurídica estratégica em Direito Imobiliário em Brasília/DF para empresas, investidores e proprietários: due diligence, contratos e regularização.",
+      "CMA Advogados, Brasília/DF: advocacia estratégica para patrimônio, negócios e questões de alta complexidade — Direito Imobiliário, Fundiário, Sucessório e Patrimonial e Tributário.",
     path: "/",
   }),
-  title: { absolute: `${firm.name} | Advocacia em Direito Imobiliário em Brasília` },
+  title: { absolute: `${firm.shortName} | Advocacia estratégica para patrimônio e negócios` },
 };
 
 export default function HomePage() {
@@ -41,12 +41,13 @@ export default function HomePage() {
             <br />
             {home.hero.line2}
           </h2>
-          <div className="statement__mark" aria-hidden="true">
-            <Logo variant="completo-horizontal" title={null} />
+          {/* CMA emphasis (client feedback, Nov 2026): the official reduced logo instead of the full signature. */}
+          <div className="statement__mark statement__mark--cma" aria-hidden="true">
+            <Logo variant="monograma" title={null} />
           </div>
           <div className="statement__aside">
             <p className="statement__sub" data-reveal="">
-              Advocacia especializada em Direito Imobiliário, em Brasília.
+              {home.hero.lede}
             </p>
             <div className="statement__cols" data-reveal="" style={{ ["--delay" as string]: "120ms" }}>
               <p>{home.intro.lead}</p>
@@ -79,8 +80,10 @@ export default function HomePage() {
 
       <FounderPanel
         name={founder.name}
-        firstName={founder.name.split(" ")[0]}
-        role={`Advogada · ${firm.specialty}`}
+        firstName={firm.shortName.split(" ")[0]}
+        title="A equipe."
+        link={{ href: "/equipe", label: "Conheça a equipe" }}
+        role={`Advogada · ${firm.shortName}`}
         bio={founder.biography ?? home.founder.intro}
         oab={founder.oab}
         education={founder.education}

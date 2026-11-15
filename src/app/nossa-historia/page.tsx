@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = pageMetadata({
   title: "Nossa História",
-  description: "A história do escritório Carolina Meirelles & Advogados, dedicado ao Direito Imobiliário em Brasília/DF.",
+  description: "A CMA Advogados: escritório boutique de advocacia em Brasília/DF, com excelência técnica, atenção individualizada e discrição.",
   path: "/nossa-historia",
 });
 
@@ -50,28 +50,31 @@ export default function NossaHistoriaPage() {
         </div>
       </section>
 
-      {/* Placeholder story — same composition as the manual's statement page. Replace with the firm's real history. */}
+      {/* Institutional description (November 2026 briefing) — same composition as the manual's statement page.
+          The firm's actual history (dates, milestones) is still to be supplied; nothing is invented here. */}
       <section className="story2" aria-labelledby="story2-title">
         <div className="container story2__grid">
           <div>
-            <span className="story2__tag">Placeholder · texto provisório</span>
+            <span className="story2__tag">Modelo de atuação</span>
             <h2 id="story2-title" className="story2__lead">
-              Uma trajetória construída com objetividade, discrição e atenção aos detalhes.
+              Profundidade técnica, visão de negócios e relacionamento próximo.
             </h2>
           </div>
           <div className="story2__foot">
             <div className="story2__cols">
               <p>
-                Placeholder. Neste espaço entra a história do escritório: como a advogada Carolina Meirelles iniciou a
-                atuação, os motivos da dedicação ao Direito Imobiliário e o que define a forma de trabalhar da equipe.
+                A CMA Advogados atua em questões que envolvem patrimônio, negócios e imóveis: Direito Imobiliário, Direito
+                Fundiário, Direito Sucessório e Patrimonial e Direito Tributário, tratados em conjunto, porque raramente se
+                apresentam isolados.
               </p>
               <p>
-                Placeholder. Um segundo parágrafo pode tratar da atuação em Brasília e dos valores que orientam o
-                atendimento. O texto definitivo deve ser fornecido e aprovado pelo escritório.
+                Cada assunto é conduzido diretamente pelos advogados responsáveis, com atenção individualizada, discrição e
+                visão de longo prazo, para empresários, investidores, incorporadores, proprietários de imóveis e famílias
+                empresárias.
               </p>
             </div>
-            <div className="story2__mark" aria-hidden="true">
-              <Logo variant="completo-horizontal" title={null} />
+            <div className="story2__mark story2__mark--cma" aria-hidden="true">
+              <Logo variant="monograma" title={null} />
             </div>
           </div>
         </div>

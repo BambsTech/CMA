@@ -15,7 +15,7 @@ import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata: Metadata = pageMetadata({
   title: "Carolina Meirelles — advogada",
   description:
-    "Perfil profissional de Carolina Meirelles, advogada e sócia fundadora do escritório Carolina Meirelles & Advogados, dedicado ao Direito Imobiliário em Brasília.",
+    "Perfil profissional de Carolina Meirelles, advogada da CMA Advogados, em Brasília.",
   path: "/carolina-meirelles",
 });
 
@@ -112,8 +112,8 @@ export default function CarolinaPage() {
           "@type": "Person",
           name: founder.name,
           jobTitle: "Advogada",
-          worksFor: { "@id": `${SITE_URL}/#escritorio`, name: firm.name },
-          knowsAbout: "Direito Imobiliário",
+          worksFor: { "@id": `${SITE_URL}/#escritorio`, name: firm.shortName },
+          knowsAbout: practices.map((p) => p.title),
           url: `${SITE_URL}/carolina-meirelles`,
         }}
       />

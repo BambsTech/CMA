@@ -10,14 +10,14 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "LegalService",
     "@id": `${SITE_URL}/#escritorio`,
-    name: firm.name,
-    alternateName: firm.shortName,
+    name: firm.shortName,
+    legalName: firm.name,
     url: SITE_URL,
     logo: `${SITE_URL}/assets/icons/icon-512.png`,
     image: `${SITE_URL}/assets/og/cma-og-default.jpg`,
-    description: `Escritório de advocacia especializado em ${firm.specialty}, em ${firm.city}/${firm.state}.`,
+    description: `${firm.specialty}. ${firm.city}/${firm.state}.`,
     areaServed: { "@type": "City", name: "Brasília", containedInPlace: { "@type": "State", name: "Distrito Federal" } },
-    knowsAbout: ["Direito Imobiliário", ...practices.map((p) => p.title)],
+    knowsAbout: practices.map((p) => p.title),
     founder: { "@type": "Person", name: founder.name, jobTitle: "Advogada" },
   };
   if (firm.email) data.email = firm.email;

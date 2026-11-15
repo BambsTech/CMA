@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contato",
-  description: "Entre em contato com Carolina Meirelles & Advogados, escritório de Direito Imobiliário em Brasília/DF.",
+  description: "Fale com a CMA Advogados, em Brasília/DF.",
   path: "/contato",
 });
 

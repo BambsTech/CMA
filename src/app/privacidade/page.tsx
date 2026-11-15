@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Política de Privacidade",
-  description: "Como o site de Carolina Meirelles & Advogados trata dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD).",
+  description: "Como o site da CMA Advogados trata dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD).",
   path: "/privacidade",
 });
 

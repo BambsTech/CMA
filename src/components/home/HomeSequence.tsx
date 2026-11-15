@@ -213,7 +213,7 @@ export function HomeSequence({ practices, copy }: Props) {
           ))}
           <div className="seq__caption">
             <h1 id="seq-h1" className="seq__caption-text">
-              <span className="sr-only">Carolina Meirelles & Advogados — </span>
+              <span className="sr-only">CMA Advogados — </span>
               {copy.caption}
             </h1>
             <a href="#areas-lista" className="seq__cue" aria-label="Rolar para as áreas de atuação">
@@ -224,7 +224,7 @@ export function HomeSequence({ practices, copy }: Props) {
 
         {/* The signature, spread across the band beneath the photograph */}
         <div className="seq__brand">
-          <SpreadWordmark />
+          <SpreadWordmark variant="cma" />
         </div>
 
         {/* Chapters */}

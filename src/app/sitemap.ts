@@ -11,7 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     page("/", 1),
     page("/nossa-historia", 0.8),
-    page("/carolina-meirelles", 0.7),
+    page("/equipe", 0.7),
+    page("/carolina-meirelles", 0.6),
+    page("/conhecimento", 0.5),
     page("/areas-de-atuacao", 0.9),
     ...practices.map((p) => page(`/areas-de-atuacao/${p.slug}`, 0.85)),
     page("/contato", 0.6),

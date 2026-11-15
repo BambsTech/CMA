@@ -3,7 +3,7 @@ import { firm } from "@/content/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: firm.name,
+    name: `${firm.shortName} — ${firm.name}`,
     short_name: firm.shortName,
     lang: "pt-BR",
     start_url: "/",

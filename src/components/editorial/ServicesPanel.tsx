@@ -5,17 +5,28 @@ import { practices } from "@/content/practices";
  * "Serviços" (manual p. 32): taupe field, the numbered list on the right and the
  * title set in line beneath it.
  */
-export function ServicesPanel({ title = "Serviços" }: { title?: string }) {
+type Item = { key: string; label: string; href?: string };
+
+export function ServicesPanel({ title = "Serviços", items }: { title?: string; items?: Item[] }) {
+  // Default: the practice areas (anchors to the rows below). Other pages (Conhecimento) pass their own list.
+  const list: Item[] = items ?? practices.map((p) => ({ key: p.slug, label: p.title, href: `#${p.slug}` }));
   return (
     <section className="svc" aria-labelledby="svc-title">
       <div className="container svc__inner">
         <ol className="svc__list" role="list">
-          {practices.map((p) => (
-            <li key={p.slug}>
-              <a href={`#${p.slug}`}>
-                <span className="svc__n">{Number(p.number)}</span>
-                <span>{p.title}</span>
-              </a>
+          {list.map((it, i) => (
+            <li key={it.key}>
+              {it.href ? (
+                <a href={it.href}>
+                  <span className="svc__n">{i + 1}</span>
+                  <span>{it.label}</span>
+                </a>
+              ) : (
+                <a aria-disabled="true">
+                  <span className="svc__n">{i + 1}</span>
+                  <span>{it.label}</span>
+                </a>
+              )}
             </li>
           ))}
         </ol>

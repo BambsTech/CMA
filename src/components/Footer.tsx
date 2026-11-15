@@ -8,11 +8,11 @@ export function Footer() {
   return (
     <footer className="site-footer on-dark">
       <div className="container site-footer__bar">
-        <Link href="/" className="site-footer__logo" aria-label={`${firm.name} — página inicial`}>
+        <Link href="/" className="site-footer__logo" aria-label={`${firm.shortName} — página inicial`}>
           <Logo variant="completo-horizontal" title={null} />
         </Link>
         <p className="caption">
-          © {year} {firm.name}
+          © {year} {firm.shortName} · {firm.name}
           {founder.oab ? ` · ${founder.name} — ${founder.oab}` : ""}
           {firm.societyRegistration ? ` · ${firm.societyRegistration}` : ""}
         </p>

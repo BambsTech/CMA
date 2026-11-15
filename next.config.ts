@@ -11,6 +11,18 @@ const nextConfig: NextConfig = {
     // Placeholder stock photographs of Brasília (Unsplash), served from their CDN.
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com", pathname: "/photo-**" }],
   },
+  // November 2026: six real-estate sub-areas became the briefing's integrated areas.
+  async redirects() {
+    const area = (from: string, to: string) => ({ source: `/areas-de-atuacao/${from}`, destination: `/areas-de-atuacao/${to}`, permanent: true });
+    return [
+      area("consultoria-e-due-diligence-imobiliaria", "direito-imobiliario"),
+      area("elaboracao-e-revisao-de-contratos", "direito-imobiliario"),
+      area("locacao-e-condominios", "direito-imobiliario"),
+      area("litigios-imobiliarios", "direito-imobiliario"),
+      area("regularizacao-de-imoveis", "direito-fundiario"),
+      area("direito-registral-e-notarial", "direito-fundiario"),
+    ];
+  },
   async headers() {
     return [
       {

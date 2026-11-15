@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Serviços em Direito Imobiliário",
+  title: "Serviços",
   description:
     "Due diligence, contratos, regularização de imóveis, locação e condomínios, litígios e direito registral e notarial: as áreas de atuação da CMA em Brasília.",
   path: "/areas-de-atuacao",

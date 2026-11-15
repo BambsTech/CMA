@@ -5,25 +5,25 @@
  */
 export const home = {
   hero: {
-    kicker: "Advocacia em Direito Imobiliário · Brasília", // [PROPOSTA]
-    line1: "Objetividade", // [MANUAL]
-    line2: "e inteligência.", // [MANUAL]
-    lede: "Assessoria jurídica estratégica em Direito Imobiliário para decisões que envolvem negócios, investimentos e patrimônio.", // [PROPOSTA]
+    kicker: "CMA Advogados · Brasília", // [BRIEFING NOV 2026]
+    line1: "Excelência jurídica.", // [BRIEFING NOV 2026] assinatura preferencial
+    line2: "Visão estratégica.", // [BRIEFING NOV 2026]
+    lede: "Advocacia estratégica para patrimônio, negócios e questões de alta complexidade.", // [BRIEFING NOV 2026]
   },
   sequence: {
-    caption: "Advocacia especializada em Direito Imobiliário", // [MANUAL] p. 38
+    caption: "Excelência jurídica. Visão estratégica.", // [BRIEFING NOV 2026] — same position as the manual's p. 38 line
     statementLabel: "O escritório", // [PROPOSTA]
     practicesLabel: "Áreas de atuação",
-    /** The three areas shown on the homepage, in order. The full list of six lives on /areas-de-atuacao. */
-    featured: ["consultoria-e-due-diligence-imobiliaria", "elaboracao-e-revisao-de-contratos", "regularizacao-de-imoveis"],
-    practicesIntro: "Seis frentes dentro do Direito Imobiliário, da análise que antecede um negócio à solução de conflitos já instaurados.", // [PROPOSTA]
+    /** The three areas shown on the homepage, in order (client asked for three). The full list lives on /areas-de-atuacao. */
+    featured: ["direito-imobiliario", "sucessorio-patrimonial", "direito-fundiario"],
+    practicesIntro: "Áreas conectadas — imobiliária, fundiária, sucessória e patrimonial e tributária — tratadas em conjunto.", // [BRIEFING NOV 2026]
   },
   intro: {
-    statement: ["Direito imobiliário", "com estratégia,", "clareza e precisão."], // [PROPOSTA]
-    // [MANUAL] — texto institucional presente nas aplicações do manual (p. 32).
-    lead: "Somos um escritório especializado em Direito Imobiliário, oferecendo assessoria jurídica estratégica para clientes que buscam segurança, agilidade e transparência em transações e disputas imobiliárias.",
-    // [PROPOSTA]
-    body: "Com uma atuação objetiva e atenta aos detalhes, o escritório acompanha decisões que envolvem imóveis — da análise prévia de riscos à formalização de contratos, da regularização documental à condução de conflitos.",
+    statement: ["Advocacia estratégica", "para patrimônio", "e negócios."], // [BRIEFING NOV 2026]
+    // [BRIEFING NOV 2026] — posicionamento institucional (sujeito a aprovação).
+    lead: "A CMA Advogados é um escritório boutique dedicado a questões que envolvem patrimônio, negócios e imóveis — da advocacia imobiliária e fundiária ao planejamento sucessório, patrimonial e tributário.",
+    // [BRIEFING NOV 2026]
+    body: "O trabalho combina profundidade técnica, visão de negócios e atendimento próximo: cada assunto é conduzido diretamente pelos advogados responsáveis, com discrição e pensado para relações profissionais de longo prazo.",
     values: [
       // Os três valores são citados no manual; os textos de apoio são [PROPOSTA].
       { title: "Segurança", text: "Análise documental cuidadosa e decisões fundamentadas antes de cada passo." },
@@ -33,24 +33,27 @@ export const home = {
   },
   story: {
     title: ["Nossa", "História"], // [MANUAL] p. 31
-    label: "Carreira", // [MANUAL] p. 31
-    heading: ["Tradição no", "direito imobiliário."], // [MANUAL] p. 31
+    label: "O escritório", // [BRIEFING NOV 2026] (manual p. 31: "Carreira")
+    heading: ["Um escritório", "boutique."], // [BRIEFING NOV 2026] (manual p. 31: "Tradição no direito imobiliário.")
     // The manual shows placeholder text here. Paragraphs go in this list once the firm supplies
     // its history; until then the section shows a discreet "a confirmar" marker. Never invent dates or facts.
-    text: [] as string[],
+    // [BRIEFING NOV 2026] Institutional description (not a history — no dates or facts invented).
+    text: [
+      "Excelência técnica e atenção individualizada, com discrição e relações profissionais de longo prazo.",
+    ] as string[],
   },
   practices: {
-    intro: "Seis frentes de atuação dentro do Direito Imobiliário, da análise que antecede um negócio à solução de conflitos já instaurados.", // [PROPOSTA]
+    intro: "Direito Imobiliário, Fundiário, Sucessório e Patrimonial e Tributário — áreas conectadas, tratadas em conjunto.", // [BRIEFING NOV 2026]
   },
   audiences: {
     title: ["Quem", "assessoramos."], // [PROPOSTA]
-    intro: "Empresas, investidores e proprietários lidam com questões imobiliárias diferentes. O cuidado com a análise e a clareza na orientação são os mesmos.", // [PROPOSTA]
+    intro: "Empresários, investidores, incorporadores, proprietários de imóveis, famílias empresárias e titulares de patrimônio relevante.", // [BRIEFING NOV 2026]
   },
   founder: {
     // [PROPOSTA] — introdução neutra até o envio da biografia aprovada.
     intro: [
-      "À frente do escritório, a advogada Carolina Meirelles conduz uma atuação dedicada ao Direito Imobiliário, orientada pela objetividade e pelo cuidado com os detalhes.",
-      "A trajetória profissional, a formação e as credenciais completas serão publicadas após confirmação pelo escritório.",
+      "Na CMA Advogados, cada assunto é conduzido diretamente pelos advogados responsáveis. À frente do escritório está a advogada Carolina Meirelles.",
+      "A trajetória profissional, a formação e as credenciais da equipe serão publicadas após confirmação pelo escritório.",
     ],
   },
   place: {

@@ -126,7 +126,7 @@ export function Header() {
           <Link
             href="/"
             className="site-header__brand"
-            aria-label={`${firm.name} — página inicial`}
+            aria-label={`${firm.shortName} — página inicial`}
             onClick={(e) => {
               // Already home: return to the very top instantly instead of re-navigating.
               if (pathname === "/") {
@@ -189,8 +189,8 @@ export function Header() {
         inert={!open}
       >
         <div className="container mobile-menu__top">
-          <Link href="/" className="site-header__brand" aria-label={`${firm.name} — página inicial`} onClick={() => close(false)}>
-            <Logo variant="completo-horizontal" title={null} />
+          <Link href="/" className="site-header__brand" aria-label={`${firm.shortName} — página inicial`} onClick={() => close(false)}>
+            <Logo variant="monograma" title={null} />
           </Link>
           <button ref={closeRef} type="button" className="menu-toggle menu-close" onClick={() => close()}>
             Fechar
@@ -215,7 +215,7 @@ export function Header() {
           </ul>
         </nav>
         <div className="container mobile-menu__foot">
-          <span className="label">Direito Imobiliário</span>
+          <span className="label">Patrimônio · Negócios · Imóveis</span>
           <span className="label">
             {firm.city} · {firm.state}
           </span>

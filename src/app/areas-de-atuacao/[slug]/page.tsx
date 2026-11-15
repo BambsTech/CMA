@@ -201,10 +201,10 @@ export default async function PracticePage({ params }: Params) {
           "@context": "https://schema.org",
           "@type": "Service",
           name: p.title,
-          serviceType: "Direito Imobiliário",
+          serviceType: p.title,
           description: p.metaDescription,
           areaServed: { "@type": "City", name: "Brasília" },
-          provider: { "@id": `${SITE_URL}/#escritorio`, name: firm.name },
+          provider: { "@id": `${SITE_URL}/#escritorio`, name: firm.shortName },
           url: `${SITE_URL}/areas-de-atuacao/${p.slug}`,
         }}
       />
