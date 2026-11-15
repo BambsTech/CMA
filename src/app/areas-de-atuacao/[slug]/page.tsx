@@ -66,7 +66,7 @@ export default async function PracticePage({ params }: Params) {
             <ul role="list">
               {forWhom.map((a) => (
                 <li key={a.key}>
-                  <span className="num">{a.number}</span> {a.title}
+                  {a.title}
                 </li>
               ))}
             </ul>
@@ -109,7 +109,7 @@ export default async function PracticePage({ params }: Params) {
           <ul role="list" className="situations__list">
             {p.situations.map((s, i) => (
               <li key={i} data-reveal="" style={{ ["--delay" as string]: `${i * 60}ms` }}>
-                <span className="situations__mark" aria-hidden="true" />
+                <span className="num situations__num">{String(i + 1).padStart(2, "0")}</span>
                 <p className="t-lead">{s}</p>
               </li>
             ))}
@@ -130,7 +130,7 @@ export default async function PracticePage({ params }: Params) {
           <ol role="list" className="approach__steps">
             {p.approach.map((s, i) => (
               <li key={s.title} data-reveal="" style={{ ["--delay" as string]: `${i * 110}ms` }}>
-                <span className="approach__n">{String(i + 1).padStart(2, "0")}</span>
+                <span className="num approach__num">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="t-h4">{s.title}</h3>
                 <p className="t-small">{s.text}</p>
               </li>

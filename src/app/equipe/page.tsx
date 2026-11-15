@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { FounderPanel } from "@/components/home/FounderPanel";
+import { Logo } from "@/components/brand/Logo";
 import { Closing } from "@/components/Closing";
 import { firm, founder } from "@/content/site";
 import { home } from "@/content/home";
@@ -32,6 +33,7 @@ export default function EquipePage() {
         education={founder.education}
         portrait={founder.portrait}
         label=""
+        nameMark={<Logo variant="nome-horizontal" title={null} />}
       />
       <Closing />
       <JsonLd data={breadcrumbJsonLd([{ name: "Início", path: "/" }, { name: "Equipe", path: "/equipe" }])} />

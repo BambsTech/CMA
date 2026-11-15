@@ -16,6 +16,8 @@ type Props = {
   /** Panel title (default "A sócia."); the homepage uses "A equipe." to keep the institution first. */
   title?: string;
   link?: { href: string; label: string };
+  /** Official artwork shown instead of the large first name (team page: CAROLINA MEIRELLES logotype). */
+  nameMark?: React.ReactNode;
 };
 
 /**
@@ -25,7 +27,7 @@ type Props = {
  * set large in the lower right. The portrait remains an explicit placeholder until an
  * authentic photograph is supplied.
  */
-export function FounderPanel({ name, firstName, role, bio, oab, education, portrait, label, title = "A sócia.", link = { href: "/carolina-meirelles", label: "Perfil completo" } }: Props) {
+export function FounderPanel({ name, firstName, role, bio, oab, education, portrait, label, title = "A sócia.", link = { href: "/carolina-meirelles", label: "Perfil completo" }, nameMark }: Props) {
   return (
     <section className="partner on-dark" aria-labelledby="partner-title">
       <div className="partner__media" aria-hidden="true">
@@ -80,9 +82,15 @@ export function FounderPanel({ name, firstName, role, bio, oab, education, portr
           </div>
         </div>
 
-        <p className="partner__name" aria-hidden="true" data-reveal="">
-          {firstName}.
-        </p>
+        {nameMark ? (
+          <div className="partner__name partner__name--mark" aria-hidden="true" data-reveal="">
+            {nameMark}
+          </div>
+        ) : (
+          <p className="partner__name" aria-hidden="true" data-reveal="">
+            {firstName}.
+          </p>
+        )}
       </div>
     </section>
   );

@@ -784,11 +784,11 @@ details[open] .arow__toggle::after {
 
 /* Opening band: CMA … ADVOGADOS in the same band, same cap height as the original letters. */
 .spread-mark--cma .spread-mark__a {
-  width: 19.9%;
+  width: 18.7%;
 }
 
 .spread-mark--cma .spread-mark__b {
-  width: 58.5%;
+  width: 54.7%;
 }
 
 .spread-mark--cma .spread-mark__mid {
@@ -814,4 +814,83 @@ details[open] .arow__toggle::after {
 /* Conhecimento reuses the Serviços panel; its lines are not links yet. */
 .svc__list a[aria-disabled="true"] {
   pointer-events: none;
+}
+
+/* Area pages: the photograph fills the right half of the brown opening, top to bottom,
+   as on the homepage (client request, Nov 2026). Desktop only; mobile keeps its frame. */
+@media (min-width: 1024px) {
+  .practice-page .page-hero--split {
+    position: relative;
+    min-height: 100svh;
+  }
+  .practice-page .page-hero--split > .container {
+    position: static;
+  }
+  .practice-page .page-hero__split-figure {
+    position: absolute;
+    grid-column: auto;
+    grid-row: auto;
+    align-self: stretch;
+    justify-self: stretch;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    margin: 0;
+  }
+  .practice-page .page-hero__split-shape,
+  .practice-page .page-hero__split-frame {
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+  .practice-page .page-hero__split-text {
+    grid-column: 1 / 7;
+    min-height: calc(100svh - var(--header-h) - var(--sec-pad) * 1.5);
+    justify-content: space-between;
+  }
+}
+
+/* Area pages: the photograph opens fully at once, like the homepage's. */
+@media (min-width: 1024px) {
+  .practice-page .page-hero__split-frame {
+    clip-path: none !important;
+  }
+}
+
+/* Area pages: one marker language — small numbers (01, 02…) for numbered lists, as in
+   "O que envolve"; plain lists carry no marker. No big numerals, no diamonds. */
+.practice-page .num {
+  font-family: var(--font-caption);
+  font-size: var(--fs-caption);
+  color: var(--ink-soft);
+}
+
+.practice-page .situations__num,
+.practice-page .approach__num {
+  padding-top: 0.3rem;
+}
+
+.practice-page .practice-lead__aside li {
+  padding-left: 0;
+}
+
+/* Team page: her name in the official logotype (manual, "nome horizontal"), where the
+   homepage panel sets the large word. */
+.partner__name--mark {
+  width: min(52vw, 46rem);
+  color: var(--cma-stone);
+}
+
+@media (max-width: 719px) {
+  .partner__name--mark {
+    width: 100%;
+  }
+}
+
+/* No diamond markers anywhere (not part of the brand manual): "a confirmar" placeholders
+   and long-text lists use plain type only. */
+.pending::before,
+.prose li::before {
+  display: none;
 }
