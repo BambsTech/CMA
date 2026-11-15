@@ -11,25 +11,15 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /**
- * Conhecimento — the editorial lines from the November 2026 briefing, in the Serviços panel's
- * composition. No article is published until written and reviewed by the firm's lawyers.
+ * Conhecimento — the Serviços panel's composition with a single line: no article exists yet,
+ * so the page does not list topics as if they were sections. Articles appear here once
+ * written and reviewed by the firm's lawyers.
  */
-const lines = [
-  "Direito Imobiliário",
-  "Direito Fundiário",
-  "Planejamento Sucessório",
-  "Tributação Patrimonial",
-  "Decisões dos Tribunais Superiores",
-];
-
 export default function ConhecimentoPage() {
   return (
     <>
-      <ServicesPanel title="Conhecimento" items={lines.map((l) => ({ key: l, label: l }))} />
-      <Closing
-        heading={["Publicações em preparação."]}
-        text="Artigos, análises de decisões e notas técnicas serão publicados aqui após revisão pelos advogados do escritório."
-      />
+      <ServicesPanel title="Conhecimento" numbered={false} items={[{ key: "em-preparacao", label: "Publicações em preparação" }]} />
+      <Closing />
       <JsonLd data={breadcrumbJsonLd([{ name: "Início", path: "/" }, { name: "Conhecimento", path: "/conhecimento" }])} />
     </>
   );
