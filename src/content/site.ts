@@ -7,7 +7,10 @@
  * Track all pending items in CLIENT_APPROVAL_REQUIRED.md.
  */
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+// Public address used for canonical URLs and link previews (WhatsApp, LinkedIn…). Set
+// NEXT_PUBLIC_SITE_URL once the final domain exists; until then Vercel's production domain is used.
+const VERCEL_PROD = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL;
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || (VERCEL_PROD ? `https://${VERCEL_PROD}` : "http://localhost:3000")).replace(/\/$/, "");
 
 /** Search engines are blocked until the client approves content and credentials. */
 export const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";

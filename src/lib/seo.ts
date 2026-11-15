@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ALLOW_INDEXING, SITE_URL, firm } from "@/content/site";
 
-export const DEFAULT_OG = "/assets/og/cma-og-default.jpg";
+/** Link-preview image: the official CM&A logo in stone on espresso, square (WhatsApp shows it as a tile). */
+export const DEFAULT_OG = "/assets/og/cma-share.png";
 
 type Input = {
   title: string;
@@ -24,13 +25,13 @@ export function pageMetadata({ title, description, path, image = DEFAULT_OG, ima
     openGraph: {
       type,
       locale: "pt_BR",
-      siteName: firm.name,
+      siteName: firm.shortName,
       url: path,
       title,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt: imageAlt ?? firm.name }],
+      images: [{ url: image, width: 600, height: 600, alt: imageAlt ?? firm.shortName }],
     },
-    twitter: { card: "summary_large_image", title, description, images: [image] },
+    twitter: { card: "summary", title, description, images: [image] },
   };
 }
 

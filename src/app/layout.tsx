@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "CMA Advogados, Brasília/DF: advocacia estratégica para patrimônio, negócios e questões de alta complexidade.",
   applicationName: firm.shortName,
   robots: { index: ALLOW_INDEXING, follow: ALLOW_INDEXING },
-  openGraph: { locale: "pt_BR", siteName: firm.shortName, type: "website", images: [{ url: DEFAULT_OG, width: 1200, height: 630 }] },
+  openGraph: { locale: "pt_BR", siteName: firm.shortName, type: "website", images: [{ url: DEFAULT_OG, width: 600, height: 600, alt: firm.shortName }] },
   formatDetection: { telephone: false, email: false, address: false },
 };
 
