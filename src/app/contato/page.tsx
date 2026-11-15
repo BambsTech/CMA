@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { PageHead } from "@/components/v3/PageHead";
+import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactDetails } from "@/components/ContactDetails";
-import { areas } from "@/lib/content";
+import { practices } from "@/content/practices";
 import { firm } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
-import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contato",
@@ -16,27 +15,28 @@ export const metadata: Metadata = pageMetadata({
 export default function ContatoPage() {
   return (
     <>
-      <PageHead
-        label="Contato"
-        title="Fale com a CMA."
-        lead="Descreva brevemente a situação. O escritório analisará a mensagem e retornará para entender a demanda e indicar os próximos passos."
+      <PageHero
+        label=""
+        dark
+        title={["Fale com o escritório."]}
+        intro="Descreva brevemente a situação. O escritório analisará a mensagem e retornará para entender a demanda e indicar os próximos passos."
       />
       <section className="section section--paper contact" aria-label="Formulário e canais de contato">
         <div className="container grid">
           <div className="contact__form" data-reveal="">
-            <h2 className="label">Mensagem</h2>
-            <ContactForm areas={areas().map((a) => ({ value: a.slug, label: a.titulo }))} />
+            <h2 className="label label--rule">Mensagem</h2>
+            <ContactForm areas={practices.map((p) => ({ value: p.slug, label: p.title }))} />
           </div>
           <aside className="contact__aside" data-reveal="" style={{ ["--delay" as string]: "150ms" }}>
-            <h2 className="label">Canais diretos</h2>
+            <h2 className="label label--rule">Canais diretos</h2>
             <ContactDetails />
             <p className="t-small contact__note">
-              {firm.officeHours ? `${firm.officeHours} ` : ""}O primeiro contato não estabelece relação de patrocínio nem implica análise do caso.
+              {firm.officeHours ? `${firm.officeHours} ` : ""}O primeiro contato não estabelece relação de
+              patrocínio nem implica análise do caso.
             </p>
           </aside>
         </div>
       </section>
-      <JsonLd data={breadcrumbJsonLd([{ name: "Início", path: "/" }, { name: "Contato", path: "/contato" }])} />
     </>
   );
 }

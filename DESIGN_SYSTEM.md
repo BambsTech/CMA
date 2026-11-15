@@ -1,8 +1,3 @@
-> **V3 (November 2026).** The institutional identity is now **CMA** (official outlines, see `/marca` and
-> `scripts/derive_cma.py`); styles live in `src/styles/v3.css` (tokens unchanged). The sections below describe the
-> palette, type and proportions, which still apply; component names from V2 (HomeSequence, FounderPanel, /sistema) were
-> retired — see `V3_AUDIT.md`.
-
 # CMA digital design system
 
 This system is derived from the official brand manual (Estúdio Sarau, 2025). That covers its identity pages (pp. 04–21) and, above all, the agency's own web and presentation applications (pp. 29–38). It is implemented in code (`src/styles/tokens.css` and its components) and can be viewed at **`/sistema`**, a style guide that is excluded from search and navigation.

@@ -1,0 +1,1118 @@
+/* ==========================================================================
+   Homepage sequence (.seq)
+   Default = art-directed flow (mobile, tablet, reduced motion).
+   .seq.is-pinned = desktop stage driven by GSAP ScrollTrigger.
+   Composition follows the agency's web application (manual pp. 32, 37, 38).
+   ========================================================================== */
+
+.seq {
+  --brand-h: clamp(7rem, 22vh, 13rem);
+  --split-top: calc(var(--header-h) + 1.25rem);
+  --split-bottom: 2rem;
+  position: relative;
+  background: var(--cma-white);
+  color: var(--cma-espresso);
+}
+
+[data-mask] {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+[data-mask] > * {
+  display: block;
+}
+
+.seq__box,
+.seq__shot--chapter,
+.seq__rail,
+.seq__counter {
+  display: none;
+}
+
+/* — Opening photograph — */
+.seq__media {
+  position: relative;
+  height: min(78svh, 46rem);
+  min-height: 26rem;
+  overflow: hidden;
+  background: var(--cma-earth);
+  color: var(--cma-white);
+}
+
+.seq__shot,
+.seq__reveal {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.seq__shot picture,
+.seq__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* A soft, even veil keeps the photograph quiet — the manual's images are calm, not dramatic. */
+.seq__shot--hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(48 18 6 / 0.22);
+  pointer-events: none;
+}
+
+.seq__caption {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  pointer-events: none;
+}
+
+/* Small, light, widely tracked capitals — exactly as on manual p. 38. */
+.seq__caption-text {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(0.72rem, 0.55rem + 0.45vw, 1rem);
+  letter-spacing: 0.16em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--cma-white);
+  max-width: 34rem;
+}
+
+.seq__cue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.25rem, 4vh, 2.5rem);
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--cma-white);
+  pointer-events: auto;
+}
+
+.seq__cue .arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* — The spread signature band — */
+.seq__brand {
+  background: var(--cma-white);
+  padding: clamp(1.25rem, 3vh, 2.25rem) var(--gutter);
+  color: var(--cma-stone);
+}
+
+.spread-mark {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2%;
+  overflow: hidden;
+}
+
+.spread-mark > svg {
+  display: block;
+  height: auto;
+}
+
+.spread-mark__a {
+  width: 41%;
+}
+
+.spread-mark__b {
+  width: 41.7%;
+}
+
+.spread-mark__mid {
+  width: 7.5%;
+  margin-bottom: 0.4%;
+  color: var(--cma-taupe);
+}
+
+/* — Chapters (flow) — */
+.seq__chapters {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-xl) var(--gutter) var(--space-l);
+}
+
+.seq__chapters-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seq__chapters-intro {
+  margin-top: 1rem;
+  max-width: 26rem;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+
+.seq__panels {
+  margin-top: var(--space-l);
+  display: grid;
+  gap: var(--space-l) var(--col-gap);
+}
+
+.seq__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.seq__panel-frame {
+  aspect-ratio: 4 / 5;
+  margin-bottom: 0.75rem;
+}
+
+.seq__panel:nth-child(even) .seq__panel-frame {
+  width: 72%;
+  margin-left: auto;
+  aspect-ratio: 3 / 4;
+}
+
+.seq__panel-num {
+  font-size: var(--fs-caption);
+  color: var(--ink-soft);
+}
+
+.seq__panel-title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+  letter-spacing: var(--track-heading);
+}
+
+.seq__panel-summary {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  max-width: 26rem;
+}
+
+@media (min-width: 720px) {
+  .seq__panels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .seq__panels > :nth-child(even) {
+    margin-top: var(--space-xl);
+  }
+}
+
+@media (max-width: 719px) {
+  .seq__media {
+    height: 72svh;
+  }
+  .spread-mark__mid {
+    width: 9%;
+  }
+}
+
+/* ==========================================================================
+   Pinned stage (desktop, motion allowed)
+   ========================================================================== */
+
+.seq.is-pinned .seq__stage {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--cma-white);
+}
+
+.seq.is-pinned .seq__box {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Opening: the photograph fills the screen above the signature band. */
+.seq.is-pinned .seq__box--open {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--brand-h);
+}
+
+/* Chapters: the photograph's column. */
+.seq.is-pinned .seq__box--split,
+.seq.is-pinned .seq__shot--chapter {
+  top: var(--split-top);
+  bottom: var(--split-bottom);
+  left: 52%;
+  right: var(--gutter);
+}
+
+.seq.is-pinned .seq__media {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  min-height: 0;
+  z-index: 2;
+  background: transparent;
+  clip-path: inset(var(--ct, 0px) var(--cr, 0px) var(--cb, 0px) var(--cl, 0px));
+  will-change: clip-path;
+}
+
+.seq.is-pinned .seq__caption {
+  bottom: var(--brand-h);
+}
+
+.seq.is-pinned .seq__cue {
+  bottom: calc(var(--brand-h) + clamp(1.25rem, 4vh, 2.5rem));
+}
+
+.seq.is-pinned .seq__shot--hero picture,
+.seq.is-pinned .seq__shot--hero img,
+.seq.is-pinned .seq__shot--chapter img {
+  will-change: transform;
+}
+
+.seq.is-pinned .seq__shot--chapter {
+  display: block;
+  position: absolute;
+  inset: auto;
+  top: var(--split-top);
+  bottom: var(--split-bottom);
+  left: 52%;
+  right: var(--gutter);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.seq.is-pinned .seq__shot--chapter img {
+  object-fit: cover;
+}
+
+.seq.is-pinned .seq__brand {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--brand-h);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.seq.is-pinned .seq__brand .spread-mark {
+  width: 100%;
+}
+
+.seq.is-pinned .seq__chapters {
+  position: absolute;
+  z-index: 3;
+  left: var(--gutter);
+  top: var(--split-top);
+  bottom: var(--split-bottom);
+  width: calc(52% - var(--gutter) - 5vw);
+  max-width: 34rem;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.seq.is-pinned .seq__counter {
+  display: block;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.seq.is-pinned .seq__counter span {
+  color: var(--cma-espresso);
+}
+
+.seq.is-pinned .seq__panels {
+  position: relative;
+  flex: 1;
+  margin: 0;
+  display: block;
+}
+
+.seq.is-pinned .seq__panel {
+  position: absolute;
+  inset: 0;
+  justify-content: flex-end;
+  gap: clamp(0.6rem, 1.4vh, 0.9rem);
+  padding: 0 0 clamp(1.5rem, 4vh, 2.75rem);
+  border: 0;
+  margin: 0 !important;
+}
+
+.seq.is-pinned .seq__panel > * {
+  flex-shrink: 0;
+}
+
+.seq.is-pinned .seq__panel-frame {
+  display: none;
+}
+
+/* Chapter titles: manual sub-title scale (28 pt), not display type. */
+.seq.is-pinned .seq__panel-title {
+  font-size: min(var(--fs-h2), 4.6vh);
+  line-height: 1.15;
+  max-width: 16ch;
+}
+
+.seq.is-pinned .seq__panel-summary {
+  font-size: var(--fs-body);
+  max-width: 24rem;
+}
+
+.seq.is-pinned .seq__rail {
+  display: block;
+}
+
+/* The numbered index — manual p. 32 ("Serviços"): small, light, quiet. */
+.seq__rail ol {
+  border-bottom: 1px solid var(--rule);
+}
+
+.seq__rail li {
+  border-top: 1px solid var(--rule);
+}
+
+.seq__rail a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.75rem 1fr 1rem;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.45rem 0;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  transition: color var(--dur-med) var(--ease-out);
+}
+
+.seq__rail a .num {
+  font-size: 0.68rem;
+}
+
+.seq__rail a .arrow {
+  width: 0.85rem;
+  height: 0.85rem;
+  opacity: 0;
+  transition: opacity var(--dur-fast);
+}
+
+.seq__rail a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  background: var(--cma-espresso);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-out);
+}
+
+.seq__rail li[data-current="true"] a,
+.seq__rail a:hover,
+.seq__rail a:focus-visible {
+  color: var(--cma-espresso);
+}
+
+.seq__rail li[data-current="true"] a::before {
+  transform: scaleX(1);
+}
+
+.seq__rail a:hover .arrow,
+.seq__rail a:focus-visible .arrow,
+.seq__rail li[data-current="true"] .arrow {
+  opacity: 1;
+}
+
+@media (max-height: 820px) {
+  .seq.is-pinned .seq__chapters-intro {
+    display: none;
+  }
+  .seq__rail a {
+    padding: 0.3rem 0;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================================================
+   Expanding frame + Brasília chapter
+   ========================================================================== */
+
+.xframe {
+  position: relative;
+  overflow: hidden;
+  will-change: clip-path;
+}
+
+.place2 {
+  background: var(--cma-espresso);
+  color: var(--cma-stone);
+  padding-block: var(--space-xl) var(--space-l);
+}
+
+.place2__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-m);
+}
+
+.place2__head .label,
+.place2__coords {
+  color: var(--cma-stone);
+}
+
+.place2__coords {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.2em;
+}
+
+.place2__frame {
+  height: min(88svh, 56rem);
+  background: var(--cma-earth);
+}
+
+.place2__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(48 18 6 / 0.7) 0%, rgb(48 18 6 / 0) 50%);
+}
+
+.place2__title {
+  position: absolute;
+  left: var(--gutter);
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-display);
+  color: var(--cma-stone);
+}
+
+.place2__body {
+  margin-top: var(--space-l);
+  row-gap: 1.5rem;
+}
+
+.place2__text {
+  grid-column: 1 / -1;
+  color: var(--cma-stone);
+  max-width: 38rem;
+}
+
+.place2__note {
+  grid-column: 1 / -1;
+  color: rgb(206 203 196 / 0.8);
+}
+
+@media (min-width: 1024px) {
+  .place2__text {
+    grid-column: 7 / -1;
+  }
+  .place2__note {
+    grid-column: 1 / 6;
+    grid-row: 1;
+    align-self: end;
+  }
+}
+
+
+/* ==========================================================================
+   Statement (manual p. 32): phrase top-left, signature top-right, quiet text
+   lower-right, a short rule lower-left. Generous, deliberately under-filled.
+   ========================================================================== */
+
+.statement {
+  background: var(--cma-espresso);
+  color: var(--cma-stone);
+}
+
+.statement__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: var(--space-l);
+  min-height: min(92svh, 58rem);
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-l);
+}
+
+.statement__title {
+  grid-column: 1 / -1;
+  align-self: start;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  line-height: 1.08;
+  letter-spacing: var(--track-heading);
+  color: var(--cma-stone);
+}
+
+.statement__mark {
+  display: none;
+  color: var(--cma-stone);
+}
+
+.statement__aside {
+  grid-column: 1 / -1;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.statement__sub {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h3);
+  line-height: 1.3;
+  color: var(--cma-stone);
+  max-width: 22rem;
+}
+
+.statement__cols {
+  display: grid;
+  gap: 1rem;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  color: var(--cma-taupe);
+}
+
+.statement__link {
+  align-self: flex-start; /* the underline runs under the words only, not across the column */
+  color: var(--cma-stone);
+}
+
+@media (min-width: 1024px) {
+  .statement__title {
+    grid-column: 1 / 7;
+  }
+  .statement__mark {
+    display: block;
+    grid-column: 10 / -1;
+    grid-row: 1;
+    justify-self: end;
+    width: 170px; /* manual minimum digital size for this signature */
+    padding-top: 0.6rem;
+  }
+  .statement__aside {
+    grid-column: 7 / -1;
+    grid-row: 2;
+  }
+  .statement__cols {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--col-gap);
+  }
+}
+
+/* Navigation as on manual p. 37: small, tracked capitals. */
+
+/* ==========================================================================
+   Founder — "A sócia." (manual p. 30)
+   ========================================================================== */
+
+.partner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--cma-stone);
+  background: var(--cma-earth);
+}
+
+.partner__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.partner__media > div {
+  position: absolute !important;
+  inset: -8% 0;
+  height: 116% !important;
+}
+
+.partner__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(48 18 6 / 0.35) 0%, rgb(48 18 6 / 0.15) 45%, rgb(48 18 6 / 0.55) 100%);
+}
+
+.partner__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  min-height: min(96svh, 60rem);
+  padding-block: calc(var(--header-h) + var(--space-m)) var(--space-m);
+}
+
+.partner__label {
+  color: var(--cma-stone);
+}
+
+/* The agency's glass panel: translucent earth, a hairline stone border, soft corners. */
+.partner__glass {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-m);
+  padding: clamp(1.25rem, 3vw, 2.75rem);
+  border: 1px solid rgb(206 203 196 / 0.45);
+  border-radius: 18px;
+  background: rgb(56 44 35 / 0.38);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+  backdrop-filter: blur(12px) saturate(1.05);
+}
+
+.partner__card {
+  position: relative;
+  width: min(100%, 16rem);
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--cma-paper);
+}
+
+.partner__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  padding: 1rem;
+  background:
+    linear-gradient(180deg, rgb(235 233 228 / 0) 40%, rgb(206 203 196 / 0.6) 100%),
+    repeating-linear-gradient(90deg, rgb(172 166 153 / 0.18) 0 1px, transparent 1px 25%),
+    var(--cma-paper);
+  color: var(--cma-earth);
+}
+
+.partner__placeholder .label {
+  color: var(--cma-espresso);
+}
+
+.partner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.partner__title {
+  font-size: var(--fs-h2);
+  font-weight: 300;
+  color: var(--cma-stone);
+}
+
+.partner__cols {
+  display: grid;
+  gap: 1rem;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  color: var(--cma-stone);
+}
+
+.partner__facts {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgb(206 203 196 / 0.3);
+}
+
+.partner__facts > div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid rgb(206 203 196 / 0.3);
+  align-items: baseline;
+  font-size: var(--fs-small);
+}
+
+.partner__facts .label,
+.partner__link {
+  color: var(--cma-stone);
+}
+
+.partner__link {
+  align-self: flex-start;
+}
+
+.partner__name {
+  margin-top: auto;
+  align-self: flex-end;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  line-height: 1;
+  letter-spacing: var(--track-display);
+  color: var(--cma-stone);
+}
+
+.partner__note {
+  align-self: flex-start;
+  color: rgb(206 203 196 / 0.8);
+}
+
+@media (min-width: 1024px) {
+  .partner__glass {
+    grid-template-columns: minmax(12rem, 0.32fr) 1fr;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+  /* The portrait overlaps the panel's lower edge, as in the manual. */
+  .partner__card {
+    width: 100%;
+    margin-bottom: -6rem;
+  }
+  .partner__cols {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--col-gap);
+  }
+  .partner__facts {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--col-gap);
+    border-top: 0;
+  }
+  .partner__facts > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    border-top: 1px solid rgb(206 203 196 / 0.3);
+    border-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   Closing — "Obrigado," (manual p. 32)
+   ========================================================================== */
+
+.closing2 {
+  background: var(--cma-white);
+  color: var(--cma-espresso);
+  padding-block: var(--space-xl) var(--space-l);
+}
+
+.closing2__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: var(--space-m);
+  text-align: center;
+}
+
+.closing2__title {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+}
+
+.closing2__text {
+  max-width: 28rem;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+
+.closing2__photo {
+  position: relative;
+  width: min(100%, 30rem);
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.closing2__edge {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.closing2__edge li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.closing2__k,
+.closing2__v {
+  font-family: var(--font-caption);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.closing2__k {
+  color: var(--ink-soft);
+}
+
+.closing2__v a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--rule-strong);
+}
+
+.closing2__mark {
+  width: 170px; /* manual minimum digital width for this signature */
+  margin-top: var(--space-m);
+}
+
+@media (min-width: 1024px) {
+  .closing2__inner {
+    grid-template-columns: 1fr minmax(0, 30rem) 1fr;
+    column-gap: var(--col-gap);
+    row-gap: var(--space-m);
+    align-items: center;
+  }
+  .closing2__title,
+  .closing2__text,
+  .closing2__action,
+  .closing2__mark {
+    grid-column: 1 / -1;
+  }
+  .closing2__edge--l {
+    grid-column: 1;
+    justify-self: start;
+    text-align: left;
+  }
+  .closing2__photo {
+    grid-column: 2;
+    width: 100%;
+  }
+  .closing2__edge--r {
+    grid-column: 3;
+    justify-self: end;
+    text-align: right;
+  }
+  .closing2__edge--r li {
+    align-items: flex-end;
+  }
+}
+
+/* Chapter column holds three things only: title, one line of summary, the link. */
+.seq.is-pinned .seq__panel-num {
+  display: none;
+}
+
+/* The text sits low on the left, anchored to the bottom of the photograph's column. */
+.seq.is-pinned .seq__panel {
+  justify-content: flex-end;
+  gap: clamp(0.9rem, 2vh, 1.4rem);
+  padding: 0;
+}
+
+.seq.is-pinned .seq__panel-title {
+  font-size: min(var(--fs-h2), 4.8vh);
+}
+
+.seq.is-pinned .seq__panel-summary {
+  max-width: 22rem;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   Para quem — manual "Conceito" page: title top-left, three quiet entries
+   low on the right. Neutral dark (earth) and taupe rules; no brown fills.
+   ========================================================================== */
+
+.whom {
+  background: var(--cma-white);
+  color: var(--cma-earth);
+}
+
+.whom__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: var(--space-l);
+  min-height: min(78svh, 46rem);
+  padding-block: var(--space-xl) var(--space-l);
+}
+
+.whom__label {
+  color: var(--cma-earth);
+  letter-spacing: 0.18em;
+}
+
+.whom__title {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  color: var(--cma-earth);
+}
+
+.whom__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+  align-self: end;
+}
+
+.whom__list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.whom__n {
+  font-family: var(--font-caption);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
+  color: var(--cma-taupe);
+}
+
+.whom__name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  color: var(--cma-earth);
+}
+
+.whom__line {
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--cma-earth);
+  opacity: 0.8;
+  max-width: 15rem;
+}
+
+@media (min-width: 1024px) {
+  .whom__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+  }
+  .whom__label {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .whom__title {
+    grid-column: 1 / 7;
+    grid-row: 2;
+    align-self: start;
+  }
+  .whom__list {
+    grid-column: 6 / -1;
+    grid-row: 3;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--col-gap);
+  }
+}
+
+/* ==========================================================================
+   Nossa História (manual p. 31): espresso field, title low on the left; a
+   photograph on the right with a glass panel.
+   ========================================================================== */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--cma-espresso);
+  color: var(--cma-stone);
+}
+
+.story__field {
+  display: flex;
+  align-items: flex-end;
+  min-height: 16rem;
+  padding: calc(var(--header-h) + var(--space-l)) var(--gutter) var(--space-m);
+}
+
+.story__title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  line-height: 1.02;
+  letter-spacing: var(--track-display);
+  color: var(--cma-stone);
+}
+
+.story__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30rem;
+  padding: var(--space-l) var(--gutter);
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.story__media > img {
+  z-index: 0;
+}
+
+.story__glass {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border: 1px solid rgb(206 203 196 / 0.45);
+  border-radius: 18px;
+  background: rgb(56 44 35 / 0.42);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+  backdrop-filter: blur(12px) saturate(1.05);
+  color: var(--cma-stone);
+}
+
+.story__tag {
+  position: absolute;
+  top: -0.7rem;
+  left: clamp(1.5rem, 2.5vw, 2.25rem);
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  background: var(--cma-stone);
+  color: var(--cma-espresso);
+  font-family: var(--font-caption);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.story__heading {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h2);
+  line-height: 1.15;
+  color: var(--cma-stone);
+}
+
+.story__text {
+  display: grid;
+  gap: 0.9rem;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  color: var(--cma-stone);
+}
+
+@media (min-width: 1024px) {
+  .story {
+    grid-template-columns: 1fr 1fr;
+    min-height: 100svh;
+  }
+  .story__field {
+    padding-bottom: var(--space-l);
+  }
+}

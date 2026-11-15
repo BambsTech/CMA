@@ -1,0 +1,942 @@
+/* ==========================================================================
+   Client review — Vercel Toolbar comments (Nov 2026).
+   Loaded last; each block notes the comment it answers.
+   ========================================================================== */
+
+:root {
+  /* "the spacing between text and borders on all sections" — the manual's p. 32
+     reference: titles sit close to the top and the left edge. */
+  --sec-pad: clamp(1.75rem, 3.2vw, 3rem);
+}
+
+/* — Text: every paragraph justified ———————————————————————————— */
+main p,
+.site-footer p {
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* — No dotted lines anywhere (pending placeholders stay as quiet text) — */
+.pending {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* — Text links: no underline, no outlined boxes ———————————————— */
+.link-line {
+  padding-block: 0.2em;
+}
+
+.link-line::after {
+  display: none;
+}
+
+.action,
+.action:hover {
+  border: 0;
+  padding: 0.4rem 0;
+  min-height: 0;
+  gap: 0.85rem;
+  background: transparent;
+  color: var(--ink);
+}
+
+.action:hover .arrow {
+  transform: translateX(0.3em);
+}
+
+/* — Header: CM&A mark, pages right after it, no rule, white over photos — */
+.site-header::after {
+  display: none;
+}
+
+.site-header__inner {
+  justify-content: flex-start;
+  gap: clamp(2rem, 4vw, 3.75rem);
+}
+
+.site-header__brand,
+.site-header[data-home-top="true"] .site-header__brand {
+  width: 64px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-header__contact {
+  margin-left: auto;
+}
+
+.menu-toggle {
+  margin-left: auto;
+}
+
+.site-header[data-overlay="true"] {
+  color: var(--cma-white);
+}
+
+/* ==========================================================================
+   Homepage
+   ========================================================================== */
+
+/* Opening → first area: the photograph fills the right half, top to bottom. */
+.seq.is-pinned .seq__box--split,
+.seq.is-pinned .seq__shot--chapter {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+}
+
+.seq.is-pinned .seq__chapters {
+  width: calc(50% - var(--gutter) - 5vw);
+}
+
+/* Statement: title at the top, small twin columns low left, signature low right. */
+.statement__grid {
+  min-height: 0;
+  row-gap: clamp(4rem, 12vh, 8rem);
+  padding-block: var(--sec-pad);
+}
+
+.statement__sub {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .statement__title {
+    grid-column: 1 / 9;
+  }
+  .statement__aside {
+    grid-column: 1 / 8;
+    grid-row: 2;
+  }
+  .statement__cols {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+  }
+  .statement__mark {
+    grid-row: 2;
+    align-self: end;
+    padding-top: 0;
+  }
+}
+
+/* Para quem: title top left, label top right, entries low left in narrow columns. */
+.whom__grid {
+  min-height: 0;
+  row-gap: clamp(4rem, 12vh, 8rem);
+  padding-block: var(--sec-pad);
+}
+
+.whom__list li {
+  border-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .whom__label {
+    grid-column: 9 / -1;
+    grid-row: 1;
+    justify-self: end;
+    align-self: start;
+    padding-top: 0.6rem;
+  }
+  .whom__title {
+    grid-column: 1 / 9;
+    grid-row: 1;
+  }
+  .whom__list {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: repeat(3, minmax(0, 15rem));
+    justify-content: start;
+  }
+}
+
+/* A sócia: no section label, panel higher, no rules, narrower justified columns. */
+.partner__label {
+  display: none;
+}
+
+.partner__inner {
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+}
+
+.partner__facts,
+.partner__facts > div {
+  border: 0 !important;
+}
+
+@media (min-width: 1024px) {
+  .partner__cols {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    justify-content: start;
+  }
+}
+
+/* Closing: small details in the brand's light caps, not the slab caption face. */
+.closing2__k,
+.closing2__v {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.closing2__v a {
+  text-decoration: none;
+}
+
+.closing2__text {
+  text-align-last: center;
+}
+
+/* ==========================================================================
+   Footer: one quiet line — signature, then © and privacy
+   ========================================================================== */
+
+.site-footer {
+  padding-block: var(--sec-pad);
+}
+
+.site-footer__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.site-footer__bar .site-footer__logo {
+  width: 150px;
+  flex: none;
+}
+
+.site-footer__bar .caption {
+  color: var(--cma-taupe);
+  text-align: left;
+}
+
+.site-footer__bar .site-footer__privacy {
+  margin-left: auto;
+}
+
+.site-footer__bar a {
+  color: var(--cma-stone);
+}
+
+/* ==========================================================================
+   Serviços page
+   ========================================================================== */
+
+/* Reference (manual p. 32): taupe field, signature words at the left edge,
+   numbered list top right, "Serviços" pale and low. */
+.svc__inner {
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + var(--sec-pad)) var(--sec-pad);
+}
+
+.svc__edge {
+  width: clamp(4.5rem, 7vw, 6.5rem);
+  color: var(--cma-stone);
+}
+
+.svc__edge svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svc__list a {
+  grid-template-columns: clamp(4rem, 12vw, 12rem) 1fr;
+  padding-block: 0.3rem;
+  font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.4rem);
+  color: var(--cma-earth);
+}
+
+.svc__n {
+  color: var(--cma-earth);
+  opacity: 0.75;
+}
+
+.svc__title {
+  font-size: var(--fs-h1);
+  color: var(--cma-stone);
+}
+
+.svc__intro {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .svc__edge--tl {
+    top: calc(var(--header-h) + var(--sec-pad));
+  }
+  .svc__edge--bl {
+    bottom: var(--sec-pad);
+  }
+  .svc__list {
+    grid-column: 6 / -1;
+  }
+  .svc__foot {
+    grid-column: 6 / 10;
+  }
+}
+
+/* Area rows (reference: process list) — small number, large title, short text,
+   expanding for the full information. */
+.arows {
+  background: var(--cma-white);
+  padding-block: var(--sec-pad) var(--space-xl);
+}
+
+.arows__intro {
+  max-width: 34rem;
+  margin-bottom: var(--space-l);
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h3);
+  line-height: 1.35;
+  color: var(--cma-earth);
+}
+
+.arow {
+  border-top: 1px solid rgb(56 44 35 / 0.14);
+}
+
+.arows__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgb(56 44 35 / 0.14);
+}
+
+.arow > details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.75rem var(--col-gap);
+  align-items: start;
+  padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.arow > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.arow__n {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--cma-taupe);
+  padding-top: 0.6rem;
+}
+
+.arow__title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h2);
+  line-height: 1.12;
+  color: var(--cma-earth);
+}
+
+.arow__summary {
+  grid-column: 2;
+  max-width: 15rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--cma-earth);
+}
+
+.arow__toggle {
+  grid-column: 2;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+}
+
+.arow__toggle::after {
+  content: " +";
+}
+
+details[open] .arow__toggle::after {
+  content: " −";
+}
+
+.arow__more {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 0 clamp(2rem, 4vw, 3rem);
+  color: var(--cma-earth);
+}
+
+.arow__more p {
+  font-size: var(--fs-small);
+  line-height: 1.7;
+}
+
+.arow__scope {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.arow__scope h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.arow__scope p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.arow__more .link-line {
+  justify-self: start;
+}
+
+.arow > details > summary:hover .arow__title,
+.arow > details > summary:focus-visible .arow__title {
+  color: var(--cma-espresso);
+}
+
+@media (min-width: 900px) {
+  .arow > details > summary {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 2.4fr) auto;
+    align-items: start;
+  }
+  .arow__summary,
+  .arow__toggle {
+    grid-column: auto;
+  }
+  .arow__toggle {
+    padding-top: 0.7rem;
+  }
+  .arow__more {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 3.4fr);
+    column-gap: var(--col-gap);
+  }
+  .arow__more > :first-child {
+    grid-column: 2;
+    max-width: 30rem;
+  }
+  .arow__scope {
+    grid-column: 2;
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    column-gap: var(--col-gap);
+  }
+  .arow__more .link-line {
+    grid-column: 2;
+  }
+}
+
+/* ==========================================================================
+   Nossa História
+   ========================================================================== */
+
+/* Title at the top of its field, close to the edges. */
+.story__field {
+  align-items: flex-start;
+  padding: calc(var(--header-h) + var(--sec-pad) * 0.5) var(--gutter) var(--sec-pad);
+  border: 0;
+}
+
+.story__field::before,
+.story__field::after {
+  display: none;
+}
+
+/* Placeholder story section (same composition as the manual's statement page). */
+.story2 {
+  background: var(--cma-stone);
+  color: var(--cma-earth);
+}
+
+.story2__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: clamp(4rem, 14vh, 9rem);
+  min-height: 82svh;
+  padding-block: var(--sec-pad);
+}
+
+.story2__lead {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--fs-h1);
+  line-height: 1.12;
+  letter-spacing: var(--track-heading);
+  color: var(--cma-earth);
+  max-width: 24ch;
+  text-align: left !important;
+}
+
+.story2__tag {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+  opacity: 0.6;
+}
+
+.story2__foot {
+  align-self: end;
+  display: grid;
+  gap: var(--space-m);
+}
+
+.story2__cols {
+  display: grid;
+  gap: 1rem;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.story2__mark {
+  width: 170px;
+  color: var(--cma-earth);
+}
+
+@media (min-width: 1024px) {
+  .story2__foot {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+  .story2__cols {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    column-gap: var(--col-gap);
+  }
+}
+
+/* Light header band matches the white page surfaces. */
+.site-header[data-scrolled="true"][data-overlay="false"] {
+  background: rgb(255 255 255 / 0.94);
+}
+
+/* ==========================================================================
+   Review round 2 (Vercel Toolbar)
+   ========================================================================== */
+
+/* Header over the pinned opening: no band (nothing scrolls beneath it), and the
+   contact link turns white whenever the photograph is under it. */
+.site-header[data-bare="true"] {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.site-header[data-end="dark"] .site-header__contact {
+  color: var(--cma-white);
+}
+
+/* Serviços: edge words removed; list on the right, bolder; title in line below it. */
+.svc__edge {
+  display: none;
+}
+
+.svc__list a {
+  grid-template-columns: 2.5rem 1fr;
+  font-weight: 400;
+}
+
+.svc__n {
+  opacity: 1;
+}
+
+.svc__title {
+  font-size: calc(var(--fs-h1) * 1.15);
+  font-weight: 400;
+}
+
+@media (min-width: 1024px) {
+  .svc__list,
+  .svc__foot {
+    grid-column: 8 / -1;
+  }
+  .svc__foot {
+    align-self: end;
+  }
+}
+
+/* Para quem: the three entries sit on the right. */
+@media (min-width: 1024px) {
+  .whom__list {
+    justify-content: end;
+  }
+}
+
+/* Closing: everything starts from the left; text justified. */
+.closing2__inner {
+  justify-items: start;
+  text-align: left;
+}
+
+.closing2__text {
+  text-align: justify;
+  text-align-last: left;
+}
+
+@media (min-width: 1024px) {
+  .closing2__photo {
+    justify-self: stretch;
+  }
+}
+
+/* Plain page heads without a label (Contato): title in the top-left corner,
+   small justified intro, short bottom margin. */
+.page-hero--bare {
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+  padding-bottom: var(--sec-pad);
+}
+
+.page-hero--bare .page-hero__plain-grid {
+  margin-top: 0;
+  row-gap: clamp(2.5rem, 7vh, 4.5rem);
+}
+
+.page-hero--bare .page-hero__title {
+  grid-column: 1 / -1 !important;
+  max-width: none;
+  font-size: var(--fs-h1);
+}
+
+.page-hero--bare .page-hero__intro {
+  grid-column: 1 / -1 !important;
+  max-width: 22rem;
+  margin-top: 0;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* Area pages: same system as the other pages — title one line in the top-left
+   corner, small narrow text, no labels with rules, tighter section spacing. */
+.practice-page .section {
+  padding-block: var(--sec-pad) calc(var(--sec-pad) * 1.6);
+}
+
+.practice-page .page-hero--split {
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+  padding-bottom: var(--sec-pad);
+  min-height: 0;
+}
+
+.practice-page .page-hero__split {
+  align-items: start;
+}
+
+.practice-page .page-hero__split-text {
+  gap: clamp(2.5rem, 8vh, 5rem);
+}
+
+.practice-page .page-hero__split-text .page-hero__main {
+  margin-top: 0;
+}
+
+.practice-page .page-hero--split .page-hero__title {
+  font-size: var(--fs-h2);
+  line-height: 1.15;
+  max-width: none;
+}
+
+.practice-page .page-hero--split .page-hero__intro {
+  max-width: 22rem;
+  padding-top: 0;
+  border-top: 0;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.practice-page .page-hero__split-frame {
+  max-height: 64svh;
+}
+
+.practice-page .label--rule {
+  display: none;
+}
+
+.practice-page .t-h1 {
+  font-size: var(--fs-h2);
+}
+
+.practice-lead__text {
+  max-width: 30rem;
+  font-size: var(--fs-h4);
+  line-height: 1.5;
+}
+
+.practice-page .scope__list p,
+.practice-page .approach__steps p {
+  max-width: 15rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.practice-page .situations__list p {
+  max-width: 30rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.practice-page .situations__list li {
+  padding-block: 1rem;
+}
+
+.practice-page .basis {
+  margin-top: var(--space-l);
+}
+
+@media (min-width: 1024px) {
+  .practice-page .approach__title {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* ==========================================================================
+   Review round 3 (Vercel Toolbar)
+   ========================================================================== */
+
+/* Serviços — the reference: list from the middle, a wide gap between number and
+   title, "Serviços" in line with the numbers. */
+.svc__list a {
+  grid-template-columns: clamp(4rem, 12.5vw, 13rem) 1fr;
+  padding-block: 0.25rem;
+  font-size: clamp(1.1rem, 0.6rem + 0.9vw, 1.6rem);
+}
+
+@media (min-width: 1024px) {
+  .svc__list,
+  .svc__foot {
+    grid-column: 7 / -1;
+  }
+}
+
+/* Closing — title, text and action start at the photograph's left edge;
+   no signature (it is in the footer); tighter contact details. */
+@media (min-width: 1024px) {
+  .closing2__title,
+  .closing2__text,
+  .closing2__action {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+  .closing2__text {
+    max-width: 30rem;
+  }
+}
+
+.closing2__edge {
+  gap: 0.5rem;
+}
+
+.closing2__edge li {
+  gap: 0;
+  line-height: 1.35;
+}
+
+/* Statement and Para quem: equal heights, a 50/50 rhythm. */
+.statement__grid,
+.whom__grid {
+  min-height: min(82svh, 46rem);
+}
+
+/* Area pages: no lines anywhere; photo without caption. */
+.practice-page li,
+.practice-page ul,
+.practice-page ol,
+.practice-page aside,
+.practice-page .basis,
+.practice-page .related__link,
+.practice-page .related__head {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+/* Nossa História — title low in its field, as in the manual (p. 31). */
+.story__field {
+  align-items: flex-end;
+  padding-bottom: var(--sec-pad);
+}
+
+@media (min-width: 1024px) {
+  .practice-page .scope__head,
+  .practice-page .situations__head {
+    grid-column: 1 / 7;
+  }
+  .practice-page .scope__list,
+  .practice-page .situations__list {
+    grid-column: 7 / -1;
+  }
+}
+
+/* ==========================================================================
+   November 2026 content update — CMA emphasis (no layout change)
+   ========================================================================== */
+
+/* Opening band: CMA … ADVOGADOS in the same band, same cap height as the original letters. */
+.spread-mark--cma .spread-mark__a {
+  width: 18.7%;
+}
+
+.spread-mark--cma .spread-mark__b {
+  width: 54.7%;
+}
+
+.spread-mark--cma .spread-mark__mid {
+  width: 9.2%;
+  margin-bottom: 0.5%;
+}
+
+.spread-mark--cma svg {
+  overflow: visible;
+}
+
+/* Statement: the official reduced logo (CM&A) at the header's size, in place of the signature. */
+@media (min-width: 1024px) {
+  .statement__mark--cma {
+    width: 64px;
+  }
+}
+
+.story2__mark--cma {
+  width: 64px;
+}
+
+/* Conhecimento reuses the Serviços panel; its lines are not links yet. */
+.svc__list a[aria-disabled="true"] {
+  pointer-events: none;
+}
+
+/* Area pages: the photograph fills the right half of the brown opening, top to bottom,
+   as on the homepage (client request, Nov 2026). Desktop only; mobile keeps its frame. */
+@media (min-width: 1024px) {
+  .practice-page .page-hero--split {
+    position: relative;
+    min-height: 100svh;
+  }
+  .practice-page .page-hero--split > .container {
+    position: static;
+  }
+  .practice-page .page-hero__split-figure {
+    position: absolute;
+    grid-column: auto;
+    grid-row: auto;
+    align-self: stretch;
+    justify-self: stretch;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    margin: 0;
+  }
+  .practice-page .page-hero__split-shape,
+  .practice-page .page-hero__split-frame {
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+  .practice-page .page-hero__split-text {
+    grid-column: 1 / 7;
+    min-height: calc(100svh - var(--header-h) - var(--sec-pad) * 1.5);
+    justify-content: space-between;
+  }
+}
+
+/* Area pages: the photograph opens fully at once, like the homepage's. */
+@media (min-width: 1024px) {
+  .practice-page .page-hero__split-frame {
+    clip-path: none !important;
+  }
+}
+
+/* Area pages: one marker language — small numbers (01, 02…) for numbered lists, as in
+   "O que envolve"; plain lists carry no marker. No big numerals, no diamonds. */
+.practice-page .num {
+  font-family: var(--font-caption);
+  font-size: var(--fs-caption);
+  color: var(--ink-soft);
+}
+
+.practice-page .situations__num,
+.practice-page .approach__num {
+  padding-top: 0.3rem;
+}
+
+.practice-page .practice-lead__aside li {
+  padding-left: 0;
+}
+
+/* Team page: her name in the official logotype (manual, "nome horizontal"), where the
+   homepage panel sets the large word. */
+.partner__name--mark {
+  width: min(52vw, 46rem);
+  color: var(--cma-stone);
+}
+
+@media (max-width: 719px) {
+  .partner__name--mark {
+    width: 100%;
+  }
+}
+
+/* No diamond markers anywhere (not part of the brand manual): "a confirmar" placeholders
+   and long-text lists use plain type only. */
+.pending::before,
+.prose li::before {
+  display: none;
+}
+
+/* Team page: the heading sits in the photograph's top-left corner, above the panel. */
+.partner__heading {
+  max-width: 18ch;
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--cma-stone);
+}
+
+/* Conhecimento: forthcoming titles in the Serviços panel (category, status, title). */
+.svc__entries {
+  display: grid;
+  gap: clamp(1.4rem, 3.2vh, 2.2rem);
+}
+
+.svc__entry {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 34rem;
+}
+
+.svc__entry-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+  text-align: left !important;
+}
+
+.svc__entry-status {
+  color: var(--cma-earth);
+  opacity: 0.7;
+}
+
+.svc__entry-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1rem, 0.75rem + 0.55vw, 1.3rem);
+  line-height: 1.3;
+  color: var(--cma-earth);
+}

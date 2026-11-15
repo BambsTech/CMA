@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CmaLockup } from "./brand/Cma";
+import { Logo } from "./brand/Logo";
 import { ArrowRight } from "./Icons";
 import { nav, firm } from "@/content/site";
 
@@ -28,12 +28,10 @@ function underHeader(header: HTMLElement | null) {
   // The contact link at the far right takes the tone of whatever is directly under it.
   const endDark = isDark(probe(window.innerWidth - 60));
   // Over the pinned opening sequence nothing scrolls under the bar, so it needs no band.
-  const bare = hits.filter((h) => !!h?.closest(".hero.is-pinned .hero__media")).length >= 2;
-  // The mark at the far left takes the tone of what is directly under it.
-  const brandDark = isDark(probe(Math.min(140, window.innerWidth * 0.08)));
+  const bare = hits.some((h) => !!h?.closest(".seq"));
   // Without a band the logo and pages take the tone of what is under them on the left.
   const dark = bare ? [0.06, 0.2, 0.33].map((f) => probe(window.innerWidth * f)).filter(isDark).length >= 2 : majority;
-  return { dark, endDark, bare, brandDark };
+  return { dark, endDark, bare };
 }
 
 function isCurrent(pathname: string, href: string) {
@@ -46,7 +44,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [endDark, setEndDark] = useState(false);
   const [bare, setBare] = useState(false);
-  const [brandDark, setBrandDark] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   // The menu is tied to the route it was opened on, so any navigation closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
@@ -67,7 +64,6 @@ export function Header() {
         setOverlay(t.dark);
         setEndDark(t.endDark);
         setBare(t.bare);
-        setBrandDark(t.brandDark);
       });
     };
     const settle = window.setTimeout(onScroll, 120);
@@ -125,7 +121,6 @@ export function Header() {
         data-home-top={pathname === "/" && !scrolled ? "true" : "false"}
         data-end={endDark ? "dark" : "light"}
         data-bare={bare ? "true" : "false"}
-        data-brand={brandDark ? "dark" : "light"}
       >
         <div className="container site-header__inner">
           <Link
@@ -140,7 +135,7 @@ export function Header() {
               }
             }}
           >
-            <CmaLockup variant="inline" title={null} />
+            <Logo variant="monograma" title={null} />
           </Link>
 
           <nav className="site-nav" aria-label="Navegação principal">
@@ -195,7 +190,7 @@ export function Header() {
       >
         <div className="container mobile-menu__top">
           <Link href="/" className="site-header__brand" aria-label={`${firm.shortName} — página inicial`} onClick={() => close(false)}>
-            <CmaLockup variant="inline" title={null} />
+            <Logo variant="monograma" title={null} />
           </Link>
           <button ref={closeRef} type="button" className="menu-toggle menu-close" onClick={() => close()}>
             Fechar

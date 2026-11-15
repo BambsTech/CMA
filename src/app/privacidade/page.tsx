@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { PageHead } from "@/components/v3/PageHead";
+import { PageHero } from "@/components/PageHero";
 import { Pending } from "@/components/Pending";
 import { firm } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
@@ -18,7 +18,15 @@ export const metadata: Metadata = pageMetadata({
 export default function PrivacidadePage() {
   return (
     <>
-      <PageHead label="Privacidade" title="Política de Privacidade." lead="Esta política descreve como este site trata dados pessoais, nos termos da Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)." />
+      <PageHero
+        label="Privacidade"
+        title={["Política de", "Privacidade."]}
+        intro="Esta política descreve como este site trata dados pessoais, nos termos da Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)."
+        crumbs={[
+          { name: "Início", path: "/" },
+          { name: "Privacidade", path: "/privacidade" },
+        ]}
+      />
       <section className="section section--paper legal" aria-label="Texto da política">
         <div className="container grid">
           <aside className="legal__aside">

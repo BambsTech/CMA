@@ -24,11 +24,11 @@ export function pageMetadata({ title, description, path, image = DEFAULT_OG, ima
     openGraph: {
       type,
       locale: "pt_BR",
-      siteName: firm.shortName,
+      siteName: firm.name,
       url: path,
       title,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt: imageAlt ?? firm.shortName }],
+      images: [{ url: image, width: 1200, height: 630, alt: imageAlt ?? firm.name }],
     },
     twitter: { card: "summary_large_image", title, description, images: [image] },
   };

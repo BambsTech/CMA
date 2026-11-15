@@ -1,9 +1,9 @@
-import { firm, SITE_URL } from "@/content/site";
-import { areas } from "@/lib/content";
+import { firm, founder, SITE_URL } from "@/content/site";
+import { practices } from "@/content/practices";
 
 /**
  * Structured data built ONLY from verified facts. Pending values (address, phone, OAB, e-mail)
- * are added automatically once they are filled in content/contato.json (CMS) — never guessed.
+ * are added automatically once they are filled in content/site.ts — never guessed.
  */
 export function organizationJsonLd() {
   const data: Record<string, unknown> = {
@@ -15,9 +15,10 @@ export function organizationJsonLd() {
     url: SITE_URL,
     logo: `${SITE_URL}/assets/icons/icon-512.png`,
     image: `${SITE_URL}/assets/og/cma-og-default.jpg`,
-    description: `Escritório de advocacia em ${firm.city}/${firm.state}: Direito Imobiliário, Fundiário, Sucessório e Patrimonial e Tributário.`,
+    description: `${firm.specialty}. ${firm.city}/${firm.state}.`,
     areaServed: { "@type": "City", name: "Brasília", containedInPlace: { "@type": "State", name: "Distrito Federal" } },
-    knowsAbout: areas().map((a) => a.titulo),
+    knowsAbout: practices.map((p) => p.title),
+    founder: { "@type": "Person", name: founder.name, jobTitle: "Advogada" },
   };
   if (firm.email) data.email = firm.email;
   if (firm.phone) data.telephone = firm.phone;
