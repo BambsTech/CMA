@@ -18,6 +18,8 @@ type Props = {
   link?: { href: string; label: string };
   /** Official artwork shown instead of the large first name (team page: CAROLINA MEIRELLES logotype). */
   nameMark?: React.ReactNode;
+  /** Page heading set in the photograph's top-left corner, above the panel (team page). */
+  heading?: string;
 };
 
 /**
@@ -27,7 +29,7 @@ type Props = {
  * set large in the lower right. The portrait remains an explicit placeholder until an
  * authentic photograph is supplied.
  */
-export function FounderPanel({ name, firstName, role, bio, oab, education, portrait, label, title = "A sócia.", link = { href: "/carolina-meirelles", label: "Perfil completo" }, nameMark }: Props) {
+export function FounderPanel({ name, firstName, role, bio, oab, education, portrait, label, title = "A sócia.", link = { href: "/carolina-meirelles", label: "Perfil completo" }, nameMark, heading }: Props) {
   return (
     <section className="partner on-dark" aria-labelledby="partner-title">
       <div className="partner__media" aria-hidden="true">
@@ -39,6 +41,11 @@ export function FounderPanel({ name, firstName, role, bio, oab, education, portr
 
       <div className="container partner__inner">
         {label && <span className="label label--rule partner__label">{label}</span>}
+        {heading && (
+          <h1 className="partner__heading" data-reveal="">
+            {heading}
+          </h1>
+        )}
 
         <div className="partner__glass" data-reveal="">
           <div className="partner__card">
