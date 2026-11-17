@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMetadata({
  * columns of text (no rule). Below, three further profiles in the same small format.
  * Only verified professionals are named; the other slots wait for confirmed members.
  */
-const others = [1, 2, 3];
+const others = [1, 2, 3].map((n) => `/assets/editorial/equipe-ilustrativa-${n}.webp`);
 
 export default function EquipePage() {
   const bio = founder.biography ?? home.founder.intro;
@@ -92,10 +92,10 @@ export default function EquipePage() {
             Equipe
           </h2>
           <ul className="tm2__list" role="list">
-            {others.map((n) => (
-              <li key={n} className="tm2__person">
+            {others.map((src) => (
+              <li key={src} className="tm2__person">
                 <div className="tm2__photo">
-                  <Image src="/assets/editorial/retrato-ilustrativo.webp" alt="Imagem ilustrativa — retrato a ser fornecido pelo escritório." fill sizes="(min-width: 1024px) 14vw, 45vw" />
+                  <Image src={src} alt="Imagem ilustrativa — retrato a ser fornecido pelo escritório." fill sizes="(min-width: 1024px) 14vw, 45vw" />
                 </div>
                 <p className="tm__note">Imagem ilustrativa</p>
                 <p className="tm2__name">
