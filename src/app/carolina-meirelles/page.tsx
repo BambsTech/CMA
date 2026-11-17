@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Logo } from "@/components/brand/Logo";
 import { Closing } from "@/components/Closing";
 import { Pending } from "@/components/Pending";
+import { ArrowRight } from "@/components/Icons";
 import { firm, founder, SITE_URL } from "@/content/site";
 import { practices } from "@/content/practices";
 import { home } from "@/content/home";
@@ -42,6 +43,10 @@ export default function CarolinaPage() {
     <>
       <section className="tm" aria-labelledby="pf-title">
         <div className="container tm__grid">
+          <Link href="/equipe" className="pf-back">
+            <ArrowRight />
+            Voltar para a equipe
+          </Link>
           <h1 id="pf-title" className="tm__name">
             <span className="sr-only">{founder.name}</span>
             <Logo variant="nome-horizontal" title={null} />

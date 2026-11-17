@@ -1538,3 +1538,51 @@ details[open] .arow__toggle::after {
     grid-row: 2;
   }
 }
+
+/* Space above "Vamos conversar." on every page: 25% less. */
+.cl3__inner {
+  padding-top: calc(var(--space-xl) * 0.7);
+}
+
+/* Back link on individual profiles. */
+.pf-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+}
+
+.pf-back .arrow {
+  transform: rotate(180deg);
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.pf-back:hover .arrow {
+  transform: rotate(180deg) translateX(0.3rem);
+}
+
+@media (min-width: 1024px) {
+  .tm__grid > .pf-back {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: start;
+  }
+  .tm__grid:has(> .pf-back) > .tm__name {
+    grid-row: 2;
+  }
+  .tm__grid:has(> .pf-back) > .tm__photo {
+    grid-row: 3;
+  }
+  .tm__grid:has(> .pf-back) > .tm__note {
+    grid-row: 4;
+  }
+  .tm__grid:has(> .pf-back) > .tm__label,
+  .tm__grid:has(> .pf-back) > .tm__cols {
+    grid-row: 5;
+  }
+}
