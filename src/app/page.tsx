@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { HomeSequence } from "@/components/home/HomeSequence";
 import { Logo } from "@/components/brand/Logo";
@@ -74,6 +75,9 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
+          <div className="whom__photo" data-reveal="mask">
+            <Image src="/assets/office/sala-estar.webp" alt="Sala do escritório: poltrona, mesa de centro e luz natural sobre o piso." fill sizes="(min-width: 1024px) 10vw, 40vw" />
+          </div>
         </div>
       </section>
 

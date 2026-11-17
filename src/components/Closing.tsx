@@ -49,11 +49,11 @@ export function Closing({
 
         <div className="cl3__photo" data-reveal="mask">
           <Image
-            src="/assets/editorial/leather-case.webp"
-            alt="Pasta de couro com a assinatura do escritório gravada."
+            src="/assets/office/porta.webp"
+            alt="Porta pivotante de madeira aberta para o jardim do escritório."
             fill
             sizes="(min-width: 1024px) 14vw, 40vw"
-            style={{ objectFit: "cover", objectPosition: "40% 88%" }}
+            style={{ objectFit: "cover", objectPosition: "30% 50%" }}
           />
         </div>
 

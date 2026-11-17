@@ -1222,3 +1222,244 @@ details[open] .arow__toggle::after {
     align-self: end;
   }
 }
+
+/* ==========================================================================
+   Review, 17 Nov 2026
+   ========================================================================== */
+
+/* Serviços: back to the original weight (keep the brown). */
+.svc__list a,
+.svc__entry-title {
+  font-weight: 300;
+}
+
+/* Every contact closing: title 20% smaller. */
+.cl3__title {
+  font-size: calc(var(--fs-h1) * 0.8);
+}
+
+/* Quem assessoramos: the three entries on the left; a small photograph where III was. */
+.whom__photo {
+  position: relative;
+  width: 9rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.whom__photo img {
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .whom__list {
+    grid-column: 1 / 10;
+    justify-content: start;
+  }
+  .whom__photo {
+    grid-column: 11 / -1;
+    grid-row: 2;
+    justify-self: end;
+    align-self: end;
+  }
+}
+
+/* Nossa História: the statement aligned to the right. */
+.hx__quote {
+  text-align: right !important;
+  text-indent: 0;
+}
+
+/* Team page (client reference): name top-left, portrait in the middle column, then a
+   small label left and two justified columns. No rule. */
+.tm {
+  background: var(--cma-white);
+  color: var(--cma-espresso);
+}
+
+.tm__grid {
+  display: grid;
+  gap: 2rem;
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+  padding-bottom: var(--space-l);
+}
+
+.tm__name {
+  width: min(100%, 34rem);
+  margin: 0;
+  color: var(--cma-espresso);
+}
+
+.tm__photo,
+.tm2__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cma-stone);
+}
+
+.tm__photo {
+  width: min(60%, 15rem);
+}
+
+.tm__photo img {
+  object-fit: cover;
+}
+
+.tm__label {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+}
+
+.tm__cols {
+  display: grid;
+  gap: 1rem;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.tm__cols > div {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.tm__cols p {
+  text-align: justify;
+  text-align-last: left;
+}
+
+.tm__facts {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0;
+}
+
+.tm__facts > div {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  font-size: 0.78rem;
+}
+
+.tm__facts dt {
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: var(--cma-earth);
+}
+
+.tm__facts dd {
+  margin: 0;
+}
+
+.tm__more {
+  justify-self: start;
+}
+
+.tm2 {
+  background: var(--cma-white);
+  color: var(--cma-espresso);
+}
+
+.tm2__grid {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: var(--space-xl);
+}
+
+.tm2__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 2.5rem var(--col-gap);
+}
+
+.tm2__person {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+}
+
+.tm2__name {
+  margin-top: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4);
+}
+
+.tm2__role {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cma-earth);
+}
+
+@media (min-width: 1024px) {
+  .tm__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+    row-gap: 0;
+  }
+  .tm__name {
+    grid-column: 1 / 7;
+    grid-row: 1;
+  }
+  .tm__photo {
+    grid-column: 6 / 9;
+    grid-row: 2;
+    width: 100%;
+    margin-top: clamp(5rem, 20vh, 12rem);
+  }
+  .tm__label {
+    grid-column: 1 / 4;
+  }
+  .tm__grid > .tm__label {
+    grid-row: 3;
+    margin-top: 2.5rem;
+  }
+  .tm__cols {
+    grid-column: 6 / -1;
+    grid-row: 3;
+    margin-top: 2.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+  }
+  .tm2__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+  }
+  .tm2__grid > .tm__label {
+    grid-column: 1 / 4;
+  }
+  .tm2__list {
+    grid-column: 6 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Opening caption sits on the wooden beam of the meeting-room photograph on every desktop.
+   The photo covers the frame (3:2, object-position 50% 60%); its displayed height is
+   max(H, W/1.5), so the beam (42.1% of the photo's height) is at 0.6H − 0.179·max(H, W/1.5). */
+@media (min-width: 1024px) {
+  .seq__media {
+    container-type: size;
+  }
+  .seq__caption-text {
+    position: absolute;
+    left: 50%;
+    width: min(34rem, 80cqw);
+    margin-left: max(-17rem, -40cqw);
+    top: calc(60cqh - 0.179 * max(100cqh, 66.667cqw) - 0.9em);
+  }
+}
+
+@media (max-width: 1023px) {
+  .tm2__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
