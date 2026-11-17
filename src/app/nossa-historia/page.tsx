@@ -45,8 +45,8 @@ export default function NossaHistoriaPage() {
           <div className="hx__body">
             <div className="hx__photo" data-reveal="mask">
               <Image
-                src="/assets/office/planta.webp"
-                alt="Planta em vaso diante de parede de tijolos e viga de madeira, no escritório."
+                src="/assets/office/interior-tijolo.webp"
+                alt="Interior do escritório: pilar de tijolos, estante de madeira, samambaia e sofá."
                 fill
                 sizes="(min-width: 1024px) 10vw, 40vw"
               />

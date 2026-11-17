@@ -82,8 +82,8 @@ const allPractices: Practice[] = [
     metaDescription:
       "Direito Fundiário: regularização urbana e rural, questões registrais, dominiais e possessórias, parcelamento do solo e titulação.",
     keywords: ["direito fundiário", "regularização fundiária", "regularização de imóveis", "parcelamento do solo"],
-    image: "/assets/office/fachada-arvore.webp",
-    imageAlt: "Fachada de tijolos do escritório entre árvores e jardim.",
+    image: "/assets/office/fachada-jardim.webp",
+    imageAlt: "Fachada de tijolos do escritório vista do jardim, sob as árvores.",
     lead:
       "Questões fundiárias exigem leitura cuidadosa da cadeia dominial, dos registros e da situação de fato de cada área. A CMA atua na regularização de imóveis urbanos e rurais, na solução de pendências registrais e possessórias e na titulação, em diálogo com cartórios e órgãos públicos.",
     scope: [
