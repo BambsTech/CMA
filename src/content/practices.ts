@@ -37,8 +37,8 @@ const allPractices: Practice[] = [
     metaDescription:
       "Direito Imobiliário em Brasília: aquisições e alienações, incorporações, contratos, due diligence, locações, condomínios e operações imobiliárias complexas.",
     keywords: ["direito imobiliário em Brasília", "due diligence imobiliária", "contratos imobiliários", "incorporação imobiliária"],
-    image: "https://images.unsplash.com/photo-1596750811838-0f39be60e8f0?auto=format&fit=crop&w=1800&q=80",
-    imageAlt: "Brasília: fachada de madeira e vidro sob uma marquise, com céu azul.",
+    image: "/assets/office/porta.webp",
+    imageAlt: "Porta pivotante de madeira aberta para o jardim do escritório.",
     lead:
       "Operações imobiliárias envolvem documentos, registros, contratos e, com frequência, questões societárias, sucessórias e tributárias. A CMA estrutura e acompanha essas operações da análise prévia à formalização, com atenção aos riscos e aos objetivos de cada cliente.",
     scope: [
@@ -82,8 +82,8 @@ const allPractices: Practice[] = [
     metaDescription:
       "Direito Fundiário: regularização urbana e rural, questões registrais, dominiais e possessórias, parcelamento do solo e titulação.",
     keywords: ["direito fundiário", "regularização fundiária", "regularização de imóveis", "parcelamento do solo"],
-    image: "https://images.unsplash.com/photo-1736383173563-30f833812031?auto=format&fit=crop&w=1800&q=80",
-    imageAlt: "Brasília: arcos de concreto de um palácio modernista, em preto e branco.",
+    image: "/assets/office/fachada-arvore.webp",
+    imageAlt: "Fachada de tijolos do escritório entre árvores e jardim.",
     lead:
       "Questões fundiárias exigem leitura cuidadosa da cadeia dominial, dos registros e da situação de fato de cada área. A CMA atua na regularização de imóveis urbanos e rurais, na solução de pendências registrais e possessórias e na titulação, em diálogo com cartórios e órgãos públicos.",
     scope: [
@@ -127,8 +127,8 @@ const allPractices: Practice[] = [
     metaDescription:
       "Direito Sucessório e Patrimonial: inventários, partilhas, testamentos, doações, sucessão empresarial, holdings, governança familiar e planejamento patrimonial.",
     keywords: ["planejamento sucessório", "inventário", "holding patrimonial", "governança familiar"],
-    image: "https://images.unsplash.com/photo-1596750812220-b058883c7f65?auto=format&fit=crop&w=1800&q=80",
-    imageAlt: "Brasília: painel de azulejos e colunas de um edifício modernista.",
+    image: "/assets/office/planta.webp",
+    imageAlt: "Planta em vaso diante de parede de tijolos e viga de madeira, com luz e sombra.",
     lead:
       "Organizar o patrimônio e a sucessão envolve decisões familiares, societárias e tributárias que se influenciam mutuamente. A CMA atua em inventários e partilhas, em instrumentos de planejamento como testamentos e doações, na sucessão de empresas familiares e na estruturação de holdings e de regras de governança.",
     scope: [
@@ -171,8 +171,8 @@ const allPractices: Practice[] = [
     metaDescription:
       "Direito Tributário patrimonial e imobiliário: planejamento tributário lícito, estruturação e reorganização patrimonial e tributação de operações imobiliárias.",
     keywords: ["planejamento tributário", "tributação imobiliária", "estruturação patrimonial", "ITBI ITCMD"],
-    image: "https://images.unsplash.com/photo-1598986347094-3857f4505fff?auto=format&fit=crop&w=1800&q=80",
-    imageAlt: "Brasília: colunas de concreto de um palácio modernista, em preto e branco.",
+    image: "/assets/office/fachada.webp",
+    imageAlt: "Fachada de tijolos e madeira do escritório sob o beiral de concreto.",
     lead:
       "A atuação tributária da CMA acompanha o patrimônio e as operações imobiliárias: o planejamento tributário lícito, a estruturação e a reorganização patrimonial e a análise dos efeitos fiscais de cada operação antes de sua realização.",
     scope: [

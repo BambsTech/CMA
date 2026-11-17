@@ -129,15 +129,19 @@ export function HomeSequence({ practices, copy }: Props) {
       panels.forEach((panel, i) => {
         const at = startOf(i);
         const parts = panel.querySelectorAll("[data-mask] > *");
+        const shot = shots[i];
+        const img = shotImgs[i];
         if (i === 0) {
-          tl.fromTo(parts, { yPercent: 110, y: 0, autoAlpha: 1 }, { yPercent: 0, y: 0, duration: 0.55, stagger: 0.05, ease: "power3.out" }, at);
+          // The first area brings its own photograph as its text arrives, rising over the opening one.
+          tl.to(shot, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8, ease: "power3.inOut" }, at)
+            .fromTo(img, { yPercent: 14, scale: 1.06 }, { yPercent: 0, scale: 1, duration: 0.95, ease: "power2.out" }, at)
+            .to(heroImg, { yPercent: -10, duration: 0.8, ease: "power3.inOut" }, at)
+            .fromTo(parts, { yPercent: 110, y: 0, autoAlpha: 1 }, { yPercent: 0, y: 0, duration: 0.55, stagger: 0.05, ease: "power3.out" }, at);
           return;
         }
-        const shot = shots[i - 1];
-        const img = shotImgs[i - 1];
         tl.to(shot, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8, ease: "power3.inOut" }, at)
           .fromTo(img, { yPercent: 14, scale: 1.06 }, { yPercent: 0, scale: 1, duration: 0.95, ease: "power2.out" }, at)
-          .to(i === 1 ? heroImg : shotImgs[i - 2], { yPercent: -10, duration: 0.8, ease: "power3.inOut" }, at)
+          .to(shotImgs[i - 1], { yPercent: -10, duration: 0.8, ease: "power3.inOut" }, at)
           .to(panels[i - 1].querySelectorAll("[data-mask] > *"), { yPercent: -60, autoAlpha: 0, duration: 0.3, stagger: 0.02, ease: "power2.in" }, at)
           .fromTo(parts, { yPercent: 110, y: 0, autoAlpha: 1 }, { yPercent: 0, y: 0, duration: 0.55, stagger: 0.05, ease: "power3.out" }, at + 0.32);
       });
@@ -197,17 +201,17 @@ export function HomeSequence({ practices, copy }: Props) {
           <div className="seq__shot seq__shot--hero">
             <div className="seq__reveal">
               <ArtImage
-                desktop={{ src: "/assets/architecture/colonnade.webp", width: 1672, height: 941 }}
-                mobile={{ src: "/assets/architecture/colonnade-mobile.webp", width: 900, height: 1600 }}
-                alt="Imagem conceitual: colunata de concreto com luz do entardecer."
+                desktop={{ src: "/assets/office/sala-reuniao.webp", width: 2400, height: 1600 }}
+                mobile={{ src: "/assets/office/sala-reuniao-mobile.webp", width: 900, height: 1600 }}
+                alt="Sala de reuniões do escritório: mesa longa de madeira, vigas aparentes, tijolos e luz natural."
                 priority
-                position="56% 55%"
+                position="50% 60%"
               />
             </div>
           </div>
-          {/* The first area keeps the opening photograph; the others bring their own. */}
-          {practices.slice(1).map((p, i) => (
-            <div key={p.slug} className="seq__shot seq__shot--chapter" data-i={i + 1} aria-hidden="true">
+          {/* Each area brings its own photograph over the opening one. */}
+          {practices.map((p, i) => (
+            <div key={p.slug} className="seq__shot seq__shot--chapter" data-i={i} aria-hidden="true">
               <Image src={p.image} alt="" fill sizes="50vw" loading="lazy" />
             </div>
           ))}

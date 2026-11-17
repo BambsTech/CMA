@@ -1,8 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
-import { Logo } from "@/components/brand/Logo";
-import { Pending } from "@/components/Pending";
-import { home } from "@/content/home";
+import { ArrowRight } from "@/components/Icons";
+import { firm } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
@@ -13,55 +13,45 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /**
- * Nossa História (manual p. 31): espresso field with the title low on the left, a
- * photograph on the right carrying a glass panel. The page ends with the contact call.
+ * O Escritório / Nossa História — composed after the client's editorial reference: a
+ * quotation mark at the left edge and the firm's statement set large; beneath it, a small
+ * index label, a right-aligned caption, a small photograph with the text under it, and a
+ * link at the bottom left. Brand colours and fonts. The firm's actual history (dates,
+ * milestones) is still to be supplied — nothing here is invented.
  */
 export default function NossaHistoriaPage() {
   return (
     <>
-      <section className="story on-dark" aria-labelledby="story-title">
-        <div className="story__field">
-          <h1 id="story-title" className="story__title" data-reveal="">
-            {home.story.title[0]}
-            <br />
-            {home.story.title[1]}
+      <section className="hx" aria-labelledby="hx-title">
+        <div className="container hx__grid">
+          <span className="hx__mark" aria-hidden="true">
+            “
+          </span>
+          <h1 id="hx-title" className="hx__quote" data-reveal="">
+            <span className="sr-only">Nossa História — </span>
+            Advocacia estratégica para patrimônio e negócios, conduzida com profundidade técnica, discrição e atenção a cada cliente.
           </h1>
-        </div>
-        <div className="story__media" data-tone="dark">
-          <Image
-            src="/assets/architecture/pavilion.webp"
-            alt=""
-            fill
-            priority
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            style={{ objectFit: "cover", objectPosition: "50% 55%" }}
-          />
-          <div className="story__glass" data-reveal="">
-            <span className="story__tag">{home.story.label}</span>
-            <h2 className="story__heading">
-              {home.story.heading[0]}
-              <br />
-              {home.story.heading[1]}
-            </h2>
-            <div className="story__text">
-              {home.story.text.length > 0 ? home.story.text.map((t, i) => <p key={i}>{t}</p>) : <Pending>História do escritório a confirmar</Pending>}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Institutional description (November 2026 briefing) — same composition as the manual's statement page.
-          The firm's actual history (dates, milestones) is still to be supplied; nothing is invented here. */}
-      <section className="story2" aria-labelledby="story2-title">
-        <div className="container story2__grid">
-          <div>
-            <span className="story2__tag">Modelo de atuação</span>
-            <h2 id="story2-title" className="story2__lead">
-              Profundidade técnica, visão de negócios e relacionamento próximo.
-            </h2>
-          </div>
-          <div className="story2__foot">
-            <div className="story2__cols">
+          <p className="hx__index">(Nossa História)</p>
+
+          <p className="hx__caption">
+            {firm.shortName}
+            <br />
+            {firm.city} · {firm.state}
+            <br />
+            Escritório boutique
+          </p>
+
+          <div className="hx__body">
+            <div className="hx__photo" data-reveal="mask">
+              <Image
+                src="/assets/office/planta.webp"
+                alt="Planta em vaso diante de parede de tijolos e viga de madeira, no escritório."
+                fill
+                sizes="(min-width: 1024px) 10vw, 40vw"
+              />
+            </div>
+            <div className="hx__text" data-reveal="">
               <p>
                 A CMA Advogados atua em questões que envolvem patrimônio, negócios e imóveis: Direito Imobiliário, Direito
                 Fundiário, Direito Sucessório e Patrimonial e Direito Tributário, tratados em conjunto, porque raramente se
@@ -73,10 +63,12 @@ export default function NossaHistoriaPage() {
                 empresárias.
               </p>
             </div>
-            <div className="story2__mark story2__mark--cma" aria-hidden="true">
-              <Logo variant="monograma" title={null} />
-            </div>
           </div>
+
+          <Link href="/areas-de-atuacao" className="link-line hx__more">
+            Conheça os serviços
+            <ArrowRight />
+          </Link>
         </div>
       </section>
       <JsonLd

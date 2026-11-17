@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { HomeSequence } from "@/components/home/HomeSequence";
 import { Logo } from "@/components/brand/Logo";
-import { FounderPanel } from "@/components/home/FounderPanel";
 import { Closing } from "@/components/Closing";
 import { practices } from "@/content/practices";
-import { audiences, firm, founder } from "@/content/site";
+import { audiences, firm } from "@/content/site";
 import { home } from "@/content/home";
 import { pageMetadata } from "@/lib/seo";
 
@@ -77,19 +76,6 @@ export default function HomePage() {
           </ol>
         </div>
       </section>
-
-      <FounderPanel
-        name={founder.name}
-        firstName={firm.shortName.split(" ")[0]}
-        title="A equipe."
-        link={{ href: "/equipe", label: "Conheça a equipe" }}
-        role={`Advogada · ${firm.shortName}`}
-        bio={founder.biography ?? home.founder.intro}
-        oab={founder.oab}
-        education={founder.education}
-        portrait={founder.portrait}
-        label=""
-      />
 
       <Closing />
     </>

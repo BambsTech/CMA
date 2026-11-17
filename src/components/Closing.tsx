@@ -7,9 +7,10 @@ import { firm, whatsappHref } from "@/content/site";
 type Props = { heading?: string[]; text?: string; showAction?: boolean };
 
 /**
- * Closing — after the agency's "Obrigado," layout (manual p. 32): a centred title,
- * a small photograph, contact details in small capitals at the two edges, and the
- * signature beneath. Unconfirmed details appear as discreet placeholders.
+ * Closing — "Vamos conversar." (client reference, Nov 2026): the title large on the left
+ * with an arrow to the contact page on the right; beneath it, a small photograph and the
+ * contact details as label/value rows (no rules), then a short note and the links.
+ * Unconfirmed details appear as discreet "a confirmar" placeholders.
  */
 export function Closing({
   heading = ["Vamos conversar."],
@@ -17,48 +18,64 @@ export function Closing({
   showAction = true,
 }: Props) {
   const wa = whatsappHref("Olá. Gostaria de falar com a CMA Advogados.");
-  const item = (label: string, value: React.ReactNode) => (
-    <li>
-      <span className="closing2__k">{label}</span>
-      <span className="closing2__v">{value}</span>
-    </li>
-  );
+  const rows: { k: string; v: React.ReactNode }[] = [
+    { k: "Telefone", v: firm.phone ? <a href={`tel:${firm.phone.replace(/[^+\d]/g, "")}`}>{firm.phone}</a> : <Pending /> },
+    { k: "WhatsApp", v: wa ? <a href={wa} target="_blank" rel="noopener noreferrer">Iniciar conversa</a> : <Pending /> },
+    { k: "E-mail", v: firm.email ? <a href={`mailto:${firm.email}`}>{firm.email}</a> : <Pending /> },
+    { k: "Endereço", v: firm.address ?? `${firm.city} · ${firm.state}` },
+    { k: "Atendimento", v: firm.officeHours ?? <Pending /> },
+  ];
+  const links = [
+    { label: "Contato", href: "/contato" },
+    { label: "Serviços", href: "/areas-de-atuacao" },
+    { label: "Equipe", href: "/equipe" },
+    ...(firm.instagram ? [{ label: "Instagram", href: firm.instagram }] : []),
+    ...(firm.linkedin ? [{ label: "LinkedIn", href: firm.linkedin }] : []),
+  ];
+
   return (
-    <section className="closing2" aria-labelledby="closing-title">
-      <div className="container closing2__inner">
-        <h2 id="closing-title" className="closing2__title" data-reveal="">
-          {heading.join(" ")}
-        </h2>
-        <p className="closing2__text" data-reveal="">
-          {text}
-        </p>
+    <section className="cl3" aria-labelledby="closing-title">
+      <div className="container cl3__inner">
+        <div className="cl3__head">
+          <h2 id="closing-title" className="cl3__title" data-reveal="">
+            {heading.join(" ")}
+          </h2>
+          {showAction && (
+            <Link href="/contato" className="cl3__arrow" aria-label="Ir para a página de contato">
+              <ArrowRight />
+            </Link>
+          )}
+        </div>
 
-        <ul className="closing2__edge closing2__edge--l" role="list" aria-label="Telefone e WhatsApp">
-          {item("Telefone", firm.phone ? <a href={`tel:${firm.phone.replace(/[^+\d]/g, "")}`}>{firm.phone}</a> : <Pending />)}
-          {item("WhatsApp", wa ? <a href={wa} target="_blank" rel="noopener noreferrer">Iniciar conversa</a> : <Pending />)}
-        </ul>
-
-        <div className="closing2__photo" data-reveal="mask">
+        <div className="cl3__photo" data-reveal="mask">
           <Image
             src="/assets/editorial/leather-case.webp"
-            alt="Pasta de couro com a assinatura Carolina Meirelles & Advogados gravada."
+            alt="Pasta de couro com a assinatura do escritório gravada."
             fill
-            sizes="(min-width: 1024px) 34vw, 80vw"
+            sizes="(min-width: 1024px) 14vw, 40vw"
             style={{ objectFit: "cover", objectPosition: "40% 88%" }}
           />
         </div>
 
-        <ul className="closing2__edge closing2__edge--r" role="list" aria-label="E-mail">
-          {item("E-mail", firm.email ? <a href={`mailto:${firm.email}`}>{firm.email}</a> : <Pending />)}
-          {item("Atendimento", firm.officeHours ?? <Pending />)}
-        </ul>
+        <dl className="cl3__rows" data-reveal="">
+          {rows.map((r) => (
+            <div key={r.k} className="cl3__row">
+              <dt>{r.k}</dt>
+              <dd>{r.v}</dd>
+            </div>
+          ))}
+        </dl>
 
-        {showAction && (
-          <Link href="/contato" className="action closing2__action">
-            Entre em contato
-            <ArrowRight />
-          </Link>
-        )}
+        <div className="cl3__foot">
+          <p className="cl3__text">{text}</p>
+          <ul className="cl3__links" role="list">
+            {links.map((l) => (
+              <li key={l.label}>
+                <Link href={l.href}>/ {l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

@@ -13,3 +13,6 @@ scripts/.og-render.html
 # Client-supplied photo shoot (private residence; rights unconfirmed) — never commit
 assets-src/trk/*
 !assets-src/trk/CATALOGUE.md
+
+# Original photographs (large); web versions live in public/assets/office
+assets-src/office/*.jpg

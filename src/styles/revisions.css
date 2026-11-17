@@ -940,3 +940,285 @@ details[open] .arow__toggle::after {
   line-height: 1.3;
   color: var(--cma-earth);
 }
+
+/* Serviços and Conhecimento (client review, Nov 2026): the page title in the brand brown
+   and the list titles a little bolder. */
+.svc__title {
+  color: var(--cma-espresso);
+}
+
+.svc__list a {
+  font-weight: 500;
+  color: var(--cma-espresso);
+}
+
+.svc__n {
+  color: var(--cma-espresso);
+}
+
+.svc__entry-title {
+  font-weight: 500;
+  color: var(--cma-espresso);
+}
+
+/* ==========================================================================
+   Closing — "Vamos conversar." (client reference, Nov 2026)
+   Title left, arrow right; photograph left, label/value rows right (no rules);
+   note and links beneath. Brand fonts and sizes.
+   ========================================================================== */
+
+.cl3 {
+  background: var(--cma-white);
+  color: var(--cma-espresso);
+}
+
+.cl3__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-block: var(--space-xl) var(--space-l);
+}
+
+.cl3__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cl3__title {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--cma-espresso);
+}
+
+.cl3__arrow {
+  flex: none;
+  width: clamp(2.2rem, 3.4vw, 3.4rem);
+  color: var(--cma-espresso);
+  transform: rotate(45deg);
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.cl3__arrow svg {
+  width: 100%;
+  height: auto;
+}
+
+.cl3__arrow:hover {
+  transform: rotate(45deg) translateX(0.3rem);
+}
+
+.cl3__photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  width: min(100%, 14rem);
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.cl3__rows {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.cl3__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+
+.cl3__row dt,
+.cl3__row dd {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cl3__row dt {
+  color: var(--cma-earth);
+}
+
+.cl3__row dd {
+  text-align: right;
+  color: var(--cma-espresso);
+}
+
+.cl3__row a {
+  text-decoration: none;
+}
+
+.cl3__foot {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cl3__text {
+  max-width: 24rem;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.cl3__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cl3__links a:hover {
+  color: var(--cma-earth);
+}
+
+@media (min-width: 1024px) {
+  .cl3__inner {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    column-gap: 4vw;
+    row-gap: 2.5rem;
+  }
+  .cl3__head {
+    grid-column: 1 / -1;
+  }
+  .cl3__photo {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    width: 100%;
+  }
+  .cl3__rows {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+  }
+  .cl3__foot {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: end;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+}
+
+/* ==========================================================================
+   Nossa História — editorial quote composition (client reference, Nov 2026)
+   ========================================================================== */
+
+.hx {
+  background: var(--cma-stone);
+  color: var(--cma-espresso);
+}
+
+.hx__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  min-height: 100svh;
+  padding-top: calc(var(--header-h) + var(--sec-pad) * 0.5);
+  padding-bottom: var(--sec-pad);
+}
+
+.hx__mark {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  line-height: 1;
+  color: var(--cma-espresso);
+}
+
+.hx__quote {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: var(--track-heading);
+  text-indent: 12%;
+  color: var(--cma-espresso);
+  text-wrap: pretty;
+}
+
+.hx__index,
+.hx__caption {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: var(--cma-earth);
+  text-align: left !important;
+}
+
+.hx__body {
+  display: grid;
+  gap: 1rem;
+}
+
+.hx__photo {
+  position: relative;
+  width: 9rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cma-earth);
+}
+
+.hx__photo img {
+  object-fit: cover;
+}
+
+.hx__text {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 24rem;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.hx__more {
+  justify-self: start;
+}
+
+@media (min-width: 1024px) {
+  .hx__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto 1fr auto;
+    column-gap: var(--col-gap);
+    row-gap: 0;
+  }
+  .hx__mark {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  .hx__quote {
+    grid-column: 4 / -1;
+    grid-row: 1;
+  }
+  .hx__index {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    align-self: start;
+    margin-top: clamp(4rem, 14vh, 9rem);
+  }
+  .hx__caption {
+    grid-column: 3 / 5;
+    grid-row: 2;
+    align-self: start;
+    margin-top: clamp(4rem, 14vh, 9rem);
+    text-align: right !important;
+  }
+  .hx__body {
+    grid-column: 5 / 9;
+    grid-row: 2 / 4;
+    align-self: start;
+    margin-top: clamp(4rem, 14vh, 9rem);
+  }
+  .hx__more {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    align-self: end;
+  }
+}
