@@ -31,8 +31,8 @@ export const firm = {
   // ——— Pending client confirmation ———
   /** Registro da sociedade de advogados na OAB/DF (required in advertising — Provimento 205/2021). */
   societyRegistration: null as string | null,
-  /** Full street address. Not shown until confirmed. */
-  address: null as string | null,
+  /** Full street address — supplied by the client (Nov 2026). */
+  address: "SHIS QI 7, Conjunto 13, Casa 24 – Lago Sul, Brasília - DF, CEP: 71615-330" as string | null,
   email: null as string | null,
   /** Display format, e.g. "+55 61 0000-0000". */
   phone: null as string | null,

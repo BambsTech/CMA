@@ -22,7 +22,15 @@ export function organizationJsonLd() {
   };
   if (firm.email) data.email = firm.email;
   if (firm.phone) data.telephone = firm.phone;
-  if (firm.address) data.address = firm.address;
+  if (firm.address)
+    data.address = {
+      "@type": "PostalAddress",
+      streetAddress: "SHIS QI 7, Conjunto 13, Casa 24 – Lago Sul",
+      addressLocality: "Brasília",
+      addressRegion: "DF",
+      postalCode: "71615-330",
+      addressCountry: "BR",
+    };
   const sameAs = [firm.instagram, firm.linkedin].filter(Boolean);
   if (sameAs.length) data.sameAs = sameAs;
   return data;
