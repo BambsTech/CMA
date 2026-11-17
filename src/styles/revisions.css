@@ -1495,3 +1495,46 @@ details[open] .arow__toggle::after {
 .tm__note {
   text-align: left !important;
 }
+
+/* Profile page (/carolina-meirelles): same language as Equipe, no rules. */
+.pf2__facts {
+  max-width: 34rem;
+  gap: 0.6rem;
+}
+
+.pf2__facts > div {
+  grid-template-columns: 8rem 1fr;
+  font-size: var(--fs-small);
+}
+
+.pf2__areas {
+  display: grid;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4);
+  font-weight: 300;
+}
+
+.pf2__areas a:hover {
+  color: var(--cma-earth);
+}
+
+@media (min-width: 1024px) {
+  .pf2__grid {
+    row-gap: 3rem;
+  }
+  .pf2__grid > .tm__label {
+    grid-row: 1;
+  }
+  .pf2__facts {
+    grid-column: 6 / -1;
+    grid-row: 1;
+  }
+  .pf2__grid > .pf2__label2 {
+    grid-row: 2;
+  }
+  .pf2__areas {
+    grid-column: 6 / -1;
+    grid-row: 2;
+  }
+}
