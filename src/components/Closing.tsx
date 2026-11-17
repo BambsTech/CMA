@@ -49,11 +49,11 @@ export function Closing({
 
         <div className="cl3__photo" data-reveal="mask">
           <Image
-            src="/assets/office/porta.webp"
-            alt="Porta pivotante de madeira aberta para o jardim do escritório."
+            src="/assets/editorial/papel-timbrado.webp"
+            alt="Papel timbrado da CMA Advogados com o endereço do escritório."
             fill
             sizes="(min-width: 1024px) 14vw, 40vw"
-            style={{ objectFit: "cover", objectPosition: "30% 50%" }}
+            style={{ objectFit: "cover", objectPosition: "50% 50%" }}
           />
         </div>
 
