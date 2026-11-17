@@ -1463,3 +1463,35 @@ details[open] .arow__toggle::after {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* "Imagem ilustrativa" — small caption under provisional portraits. */
+.tm__note {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cma-taupe);
+}
+
+.tm2__photo img {
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .tm__grid > .tm__note {
+    grid-column: 6 / 9;
+    grid-row: 3;
+    margin-top: 0.5rem;
+  }
+  .tm__grid > .tm__label,
+  .tm__cols {
+    grid-row: 4;
+  }
+}
+
+.tm2__role,
+.tm2__name,
+.tm__note {
+  text-align: left !important;
+}

@@ -36,11 +36,13 @@ export default function EquipePage() {
 
           <div className="tm__photo" data-reveal="mask">
             {founder.portrait ? (
-              <Image src={founder.portrait} alt={`Retrato de ${founder.name}`} fill sizes="(min-width: 1024px) 16vw, 50vw" />
+              <Image src={founder.portrait} alt="Imagem ilustrativa — retrato oficial a ser fornecido pelo escritório." fill sizes="(min-width: 1024px) 16vw, 50vw" />
             ) : (
               <div className="tm__ph" role="img" aria-label="Retrato a ser fornecido" />
             )}
           </div>
+
+          <p className="tm__note">Imagem ilustrativa</p>
 
           <p className="tm__label">Sobre</p>
 
@@ -63,6 +65,18 @@ export default function EquipePage() {
                   <dt>Formação</dt>
                   <dd>{founder.education?.length ? founder.education.join(" · ") : <Pending />}</dd>
                 </div>
+                <div>
+                  <dt>Experiência</dt>
+                  <dd>
+                    <Pending />
+                  </dd>
+                </div>
+                <div>
+                  <dt>Idiomas</dt>
+                  <dd>
+                    <Pending />
+                  </dd>
+                </div>
               </dl>
               <Link href="/carolina-meirelles" className="link-line tm__more">
                 Perfil completo →
@@ -80,11 +94,34 @@ export default function EquipePage() {
           <ul className="tm2__list" role="list">
             {others.map((n) => (
               <li key={n} className="tm2__person">
-                <div className="tm2__photo tm__ph" role="img" aria-label="Retrato a ser fornecido" />
+                <div className="tm2__photo">
+                  <Image src="/assets/editorial/retrato-ilustrativo.webp" alt="Imagem ilustrativa — retrato a ser fornecido pelo escritório." fill sizes="(min-width: 1024px) 14vw, 45vw" />
+                </div>
+                <p className="tm__note">Imagem ilustrativa</p>
                 <p className="tm2__name">
                   <Pending>Nome a confirmar</Pending>
                 </p>
                 <p className="tm2__role">Advogado(a) · {firm.shortName}</p>
+                <dl className="tm__facts">
+                  <div>
+                    <dt>Formação</dt>
+                    <dd>
+                      <Pending />
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Experiência</dt>
+                    <dd>
+                      <Pending />
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Idiomas</dt>
+                    <dd>
+                      <Pending />
+                    </dd>
+                  </div>
+                </dl>
               </li>
             ))}
           </ul>
